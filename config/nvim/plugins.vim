@@ -6,6 +6,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'takac/vim-hardtime'
 let g:hardtime_default_on = 1
 
+Plug 'tommcdo/vim-exchange'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
