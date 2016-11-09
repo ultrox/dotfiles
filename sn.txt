@@ -1,0 +1,7 @@
+ ~/Library/Application\ Support/Karabiner/private.xml
+
+Slate
+ .config/slate ~/.slate
+ .config/.slate.js ~/.slate.js
+
+

@@ -1,0 +1,25 @@
+map h goBack
+map l goForward
+
+unmap t
+unmap T
+map t Vomnibar.activateTabSelection
+map <c-p> togglePinTab
+map <c-m> toggleMuteTab
+map ct duplicateTab
+
+map cl closeTabOnLeft
+unmap o
+unmap O
+map o Vomnibar.activateInNewTab
+map O Vomnibar.activate
+
+# Make tab changes like buffer in vim
+
+unmap K
+unmap J
+
+map <c-k> nextTab
+map <c-j> previousTab
+map af LinkHints.activateModeWithQueue
+map e scrollPageUp

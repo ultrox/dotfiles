@@ -1,0 +1,79 @@
+# Slate configuration file
+# Be sure to customize! See https://github.com/jigish/slate#configuring-slate
+
+
+### Aliases
+
+## Key aliases
+alias hyper ctrl;shift;alt;cmd
+
+## Application aliases
+alias browser   'Google Chrome'
+alias editor    'Atom'
+alias terminal  'iTerm2'
+alias difftool   'Kaleidoscope'
+
+## Position aliases
+alias full         move screenOriginX;screenOriginY                screenSizeX;screenSizeY
+alias lefthalf     move screenOriginX;screenOriginY                screenSizeX/2;screenSizeY
+alias righthalf    move screenOriginX+screenSizeX/2;screenOriginY  screenSizeX/2;screenSizeY
+alias topleft      corner top-left                                 resize:screenSizeX/2;screenSizeY/2
+alias topright     corner top-right                                resize:screenSizeX/2;screenSizeY/2
+alias bottomleft   corner bottom-left                              resize:screenSizeX/2;screenSizeY/2
+alias bottomright  corner bottom-right                             resize:screenSizeX/2;screenSizeY/2
+
+
+### Bindings
+
+## Focus Bindings
+# These should be familiar to Vim users
+bind k:${hyper}  focus up
+bind j:${hyper}  focus down
+bind [:${hyper}  focus left
+bind ]:${hyper}  focus right
+
+## Location bindings
+# These are laid out to be used with the right hand
+# and to complement the focus bindings
+bind i:${hyper}  ${full}
+bind z:${hyper} undo
+
+bind ;:${hyper}  ${lefthalf}
+bind ':${hyper}  ${righthalf}
+bind y:${hyper}  ${topleft}
+bind b:${hyper}  ${bottomleft}
+bind n:${hyper}  ${bottomright}
+
+## App bindings
+# These are laid out on the left hand
+bind space:${hyper}  focus ${editor}
+bind f:${hyper}      focus ${browser}
+bind d:${hyper}      focus ${terminal}
+
+
+#LATE FEATURES
+# -------------------------------------------------------------------
+#Resize 
+bind right:alt;cmd       resize +5% +0
+bind left:alt;cmd        resize -5% +0
+bind up:alt;cmd          resize +0   -5%
+bind down:alt;cmd        resize +0   +5%
+
+# Nudge 
+bind right:${hyper} nudge +10% +0
+bind left:${hyper}  nudge -10% +0
+bind up:${hyper}    nudge +0   -10%
+bind down:${hyper}  nudge +0   +10%
+
+var snapshot = slate.operation("snapshot", {
+  "name" : "theName",
+  "save" : true,
+  "stack" : true
+});
+bind("1:${hyper}", snapshot);
+
+var activateSnapshot = slate.operation("activate-snapshot", {
+  "name" : "theName",
+  "delete" : false
+});
+bind("2:${hyper}",activate-snapshot);

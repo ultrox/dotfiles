@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/ultrox/projects/redux/bestReduxReact/voting-client'
+let g:netrw_dirhist_2='/Users/ultrox/projects/redux/bestReduxReact/voting-client/src'
+let g:netrw_dirhist_3='/Users/ultrox/projects/redux/bestReduxReact/voting-client'
+let g:netrw_dirhist_4='/Users/ultrox/.vim/plugged'
