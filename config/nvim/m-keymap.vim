@@ -1,58 +1,51 @@
-"Normalne stvari da ne poludis
-"yank inner word
-nnoremap <leader>yw yiww
-
-" ,ow 'nnoremap sa onim u registeru 'overwrite word'
-nnoremap <leader>ow "_diwhp
-
 " ----------------------------------------------------------------------
 " | Jednostavnija Okruzivanja sa Leaderom tpope/vim-surround           |
 " ----------------------------------------------------------------------
 
 " <leader># Okruzi rijec/selekciju #{ruby interpunkcija}
-map <leader># ysiw#
+map <leader># siw#
 vmap <leader># c#{<C-R>"}<ESC>
 
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 " <leader>" Okruzi rijec/selekciju "quotes"
-map <leader>" ysiw"
+map <leader>" siw"
 vmap <leader>" c"<C-R>""<ESC>
 
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 " <leader>' Okruzi rijec/selekciju "quotes"
-map <leader>' ysiw'
+map <leader>' siw'
 vmap <leader>' c"<C-R>""<ESC>
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
  " <leader>) or ,( Surround a word with (parens)
 " The ( difference ) is in whether a space is put in
-map <leader>( ysiw(
-map <leader>) ysiw)
+map <leader>( siw(
+map <leader>) siw)
 vmap <leader>( c( <C-R>" )<ESC>
 vmap <leader>) c(<C-R>")<ESC>
 
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 " <leader> [ Surorooound a word with [brackets]
-map <leader>] ysiw]
-map <leader>[ ysiw[
+map <leader>] siw]
+map <leader>[ siw[
 vmap <leader>[ c[ <C-R>" ]<ESC>
 vmap <leader>] c[<C-R>"]<ESC>
 
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-" <leader> { Okruzi rijec sa viticastom {braces}
-map <leader>} ysiw}
-map <leader>{ ysiw{
+" <leader> { (Okruzi) rijec sa viticastom {braces}
+map <leader>} siw}
+map <leader>{ siw{
 vmap <leader>} c{ <C-R>" }<ESC>
 vmap <leader>{ c{<C-R>"}<ESC>
 
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 " [<leader> `] Okruzi sa tikom
-map <leader>` ysiw`
+map <leader>` siw`
 
 
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
