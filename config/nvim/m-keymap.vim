@@ -1,3 +1,27 @@
+" cmap w!! w !sudo tee % >/dev/null
+
+map <F4> :cd %:h<CR>
+nnoremap <leader>q :bw<cr>
+nmap <bs> :<c-u>TmuxNavigateLeft<cr>
+
+"Fixing command line in vim
+:cnoremap <C-a>  <Home>
+:cnoremap <C-b>  <Left>
+:cnoremap <C-f>  <Right>
+:cnoremap <C-d>  <Delete>
+:cnoremap <M-b>  <S-Left>
+:cnoremap <M-f>  <S-Right>
+:cnoremap <M-d>  <S-right><Delete>
+
+:cnoremap <Esc>b <S-Left>
+:cnoremap <Esc>f <S-Right>
+:cnoremap <Esc>d <S-right><Delete>
+:cnoremap <C-g>  <C-c>
+
+"Giving much more power to dot command(cn cp, bp,bn)
+nnoremap <M-.> @:
+
+
 " ----------------------------------------------------------------------
 " | Jednostavnija Okruzivanja sa Leaderom tpope/vim-surround           |
 " ----------------------------------------------------------------------
@@ -19,8 +43,7 @@ map <leader>' siw'
 vmap <leader>' c"<C-R>""<ESC>
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
- " <leader>) or ,( Surround a word with (parens)
-" The ( difference ) is in whether a space is put in
+ " <leader>) or ,( Surround a word with (parens) The ( difference ) is in whether a space is put in
 map <leader>( siw(
 map <leader>) siw)
 vmap <leader>( c( <C-R>" )<ESC>
@@ -96,7 +119,7 @@ nmap <leader>vr :so $MYVIMRC<CR>
 "======================================================================
 
 " [<leader>hl] Clear search
-noremap <BS> :set hlsearch! hlsearch?<cr>
+noremap <BS> :noh<cr>
 
 " [<leader> * ] Search and replace the word under the cursor
 nmap <leader>* :%s/\<<C-r><C-w>\>//<Left>
@@ -163,14 +186,18 @@ nnoremap <silent> Q :call CloseWindowOrKillBuffer()<CR>
 nmap <leader>. <c-^>
 
 " Traverse thrue the buffers - do this with pope
-nnoremap <silent> <C-J> :bprev<CR>
-nnoremap <silent> <C-K> :bnext<CR>
+nnoremap <silent> <C-P> :bprev<CR>
+nnoremap <silent> <C-N> :bnext<CR>
+" nnoremap <down> <c-w>j
+" nnoremap <up> <c-w>k
+" nnoremap <left> <c-w>h
+" nnoremap <right> <c-w>l
 "======================================================================
 " => Movment
 "======================================================================
 
 " Go to Line Code with Enter
-nnoremap <CR> G
+" nnoremap <CR> G This fucked up a lot of things 
 " moving up and down work as you would expect
 nnoremap <silent> j gj
 nnoremap <silent> k gk
@@ -191,9 +218,6 @@ nnoremap <leader>= :wincmd =<cr>
 
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-" [jk] exit from insert / cmd mode
-imap jk <Esc>
-cmap jk <Esc>
 
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -237,4 +261,3 @@ autocmd FileType javascript map <buffer> <A-k> }
 autocmd FileType javascript map <buffer> <A-j> {
 
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-

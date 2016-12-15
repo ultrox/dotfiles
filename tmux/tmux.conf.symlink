@@ -1,0 +1,80 @@
+unbind -
+bind -n M-\ split-window -h
+bind -n 'M--' split-window -v
+bind-key -n 'M-=' resize-pane -Z \; display-message "Zoom zoom zoom"
+
+unbind &
+unbind .
+unbind C-b
+unbind c # ex - new window
+unbind o # ex -to go next pane
+unbind [
+unbind p
+unbind n
+unbind w
+unbind l # ex - last window
+bind-key r source-file ~/.tmux.conf \; display-message "Tmux reloaded"
+#https://mutelight.org/practical-tmux
+bind-key -n 'M-`' run "tmux split-window -p 40 'tmux send-keys -t #{pane_id} \"$(locate / | fzf -m | paste -sd\\  -)\"'"
+bind-key -n F9 next-window	
+bind-key -n F8 previous-window
+# ponasaj se kao vim
+setw -g mode-keys vi
+# Kao vim da radi full screen
+
+#### COPY MODE    ####
+# set vi mode for copy mode - Skrolovanje jebeno
+setw -g mode-keys vi
+# more settings to make copy-mode more vim-like
+bind Escape copy-mode # <prefix> + <Esc>
+bind p paste-buffer
+bind -t vi-copy 'v' begin-selection
+bind -t vi-copy 'y' copy-selection
+
+#### COPY MODE  ####
+
+# Window navigation
+bind-key a choose-window
+bind-key o new-window -c '#{pane_current_path}' # emulating my vimium binding
+bind -r p previous-window # select previous window
+bind -r n next-window     # select next window
+# Window navigation 
+
+# General 
+#/* set -g prefix F12 # this is actually M-; remaped with karabiner */
+set -g prefix 'M-a'
+bind-key -n M-. last-window # just like vim and vimium
+bind-key x      kill-pane
+bind-key X      kill-window
+
+
+# Pocni brojati win od 1 ne 0
+set -g base-index 1
+set-window-option -g pane-base-index 1
+# Kad izbrisem neki window promjeni broj adekvatno
+set -g renumber-windows on
+# increase scrollback lines
+set -g history-limit 10000
+# Da moze prikazivati vise boja
+set -g default-terminal 'screen-256color'
+set -s escape-time 0                      # fastest command sequences
+
+# Themes
+source ~/dotfiles/tmux/theme.sh
+
+# Local config
+if-shell "[ -f ~/.tmux.local ]" 'source ~/.tmux.local'
+
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'christoomey/vim-tmux-navigator'
+set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
+# Other examples:
+# set -g @plugin 'github_username/plugin_name'
+# set -g @plugin 'git@github.com/user/plugin'
+# set -g @plugin 'git@bitbucket.com/user/plugin'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'
+

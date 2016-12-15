@@ -1,10 +1,19 @@
 
+bindkey \^U backward-kill-line
+# customizing less go give it more color also lessfilter in dotfiles must be chmod u+x
+export LESS='-R'
+export LESSOPEN='|~/.lessfilter %s'
+
 # Example aliases - Moji Aliasi
 alias zshedit="vim ~/.zshrc"
 alias aliasedit="vim ~/.alias.zsh"
- alias r!="source ~/.zshrc"
- alias tree1="tree -L 1"
- alias slate="vim ~/.slate"
+ alias r!="source ~/.zshrc;echo done"
+
+ function tree1() {tree -L $1}
+alias _tree="tree -I 'node_modules' --dirsfirst"
+# find code definition with this
+alias ick='ack -i --pager="less -R -S -X"'
+
 alias cc="pwd | tr -d '\n' | pbcopy"
 alias now="ssh marko@10.0.0.27"
 alias lubuntu="ssh marko@10.0.0.26"
@@ -13,7 +22,15 @@ alias ls="ls -GCF"
 function fi() { find . -iname "*$1*" ${@:2} }
 function r() { grep "$1" ${@:2} -R . }
 alias npms="npm list -g --depth=0"
-
+alias start="npm run start"
+alias build="npm run build"
+function nls() {npm list --depth ${1-0} }
+#node and tooling
+alias babelrc="echo '{ \"presets\": [\"react\",\"es2015\"] }' > .babelrc"
+function genbabel() {
+ npm i babel-core babel-loader babel-preset-es2015 babel-preset-react -D;
+echo '{ "presets": ["react","es2015"] }' > .babelrc
+} 
 alias killdir="mkdir ../.tmp_to_remove && mv -- * ../.tmp_to_remove && rm -rf ../.tmp_to_remove &"
 
 transfer() { if [ $# -eq 0 ]; then echo "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"; return 1; fi
@@ -32,7 +49,9 @@ lsimg() {
  alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias undo-commit="reset --soft HEAD~1"
 alias gs="git status"
+function ignore() { echo $1 >> .gitignore } 
 alias rmf="rm -rf"
+alias myip="ipconfig getifaddr en1"
 
 
 # Dev specific
@@ -65,3 +84,9 @@ bindkey '^Z' fancy-ctrl-z
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 	
+# tmux aliases
+alias ta='tmux attach'
+alias tls='tmux ls'
+alias tat='tmux attach -t'
+alias tns='tmux new-session -s'
+

@@ -2,7 +2,7 @@
 
 # Backup files that are provided by the dotfiles into a ~/dotfiles-backuz directory
 
-DOTFILES=$HOME/.dotfiles
+DOTFILES=$HOME/dotfiles
 BACKUP_DIR=$HOME/dotfiles-backuz
 
 set -e # TODO: what does this do?

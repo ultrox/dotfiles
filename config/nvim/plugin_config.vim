@@ -28,37 +28,59 @@ let g:airline#extensions#tabline#show_splits = 0
 "===========================================================
 " => Setting up DeoPlate
 "===========================================================
-let g:deoplete#enable_at_startup = 1
-if !exists('g:deoplete#omni#input_patterns')
-	let g:deoplete#omni#input_patterns = {}
-endif
-" let g:deoplete#disable_auto_complete = 1
-let g:deoplete#omni#functions = {}
-let g:deoplete#omni#functions.javascript = [
-  \ 'tern#Complete',
-  \ 'jspc#omni',
-\]
+" " let g:deoplete#enable_at_startup = 1
+" if !exists('g:deoplete#omni#input_patterns')
+" 	let g:deoplete#omni#input_patterns = {}
+" endif
+" " let g:deoplete#disable_auto_complete = 1
+" let g:deoplete#omni#functions = {}
+" let g:deoplete#omni#functions.javascript = [
+"   \ 'tern#Complete',
+"   \ 'jspc#omni',
+" \]
 
-set completeopt=longest,menuone,preview
-let g:deoplete#sources = {}
-let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'ternjs'] " buffer 
-"If you are using tern-for-vim this is recomended
-let g:tern#command = ['tern']
-let g:tern#arguments = ['--persistent']
-"autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
+" set completeopt=longest,menuone,preview
+" let g:deoplete#sources = {}
+" let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'ternjs'] " buffer 
+" "If you are using tern-for-vim this is recomended
+" let g:tern#command = ['tern']
+" let g:tern#arguments = ['--persistent']
+" "autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+" autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
 
+"===========================================================
+" => NeoMake and syntax 
+"===========================================================
+" neomake
+nmap <Leader><Space>o :lopen<CR>      " open location window
+nmap <Leader><Space>c :lclose<CR>     " close location window
+nmap <Leader><Space>, :ll<CR>         " go to current error/warning
+nmap <Leader><Space>n :lnext<CR>      " next error/warning
+nmap <Leader><Space>p :lprev<CR>      " previous error/warning
+
+autocmd! BufWritePost,BufEnter * Neomake
+" let g:neomake_verbose=3
+let g:neomake_logfile='/tmp/error.log'
+
+let g:neomake_javascript_enabled_makers = ['eslint'] "eslint
 
 "===========================================================
 " => Supertab Settings
 "===========================================================
 
-autocmd FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+" autocmd FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 let g:UltiSnipsExpandTrigger="<C-j>"
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+let g:UltiSnipsSnippetsDir="~/.config/nvim/UltiSnips"
 
-" close preivew window when you are not using it
-let g:SuperTabClosePreviewOnPopupClose = 1
+" Eash Motion awsome
+nmap <leader>f <Plug>(easymotion-prefix)f
+nmap <leader>F <Plug>(easymotion-prefix)F
+
+
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" " close preivew window when you are not using it
+" let g:SuperTabClosePreviewOnPopupClose = 1
 
 
 "===========================================================
@@ -84,19 +106,19 @@ nnoremap q: :CmdHist<CR>
 command! QHist call fzf#vim#search_history({'down': '~25%'})
 nnoremap q/ :QHist<CR><Paste>
  " <C-p> or <C-t> to search files
- nnoremap <silent> <C-p> :FZF -m<cr>
+nnoremap <silent> <leader>p :FZF -m<cr>
 
-nmap <silent> <leader>t :Buffers<cr>
+nmap <silent> <leader>a :Buffers<cr>
 
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
 " Insert mode completion
-" imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-k> <plug>(fzf-complete-word)
 " imap <c-x><c-f> <plug>(fzf-complete-path)
-" imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 
-"imap <c-x><c-l> <plug>(fzf-complete-line)
+imap <c-x><c-l> <plug>(fzf-complete-line)
 " Use fuzzy completion relative filepaths across directory
 " imap <expr> <F1> fzf#vim#complete#path('git ls-files $(git rev-parse --show-toplevel)')
 nnoremap <silent> <F1> :Buffers<cr>
@@ -110,20 +132,8 @@ command! FZFMru call fzf#run({
 "===========================================================
 " => Others
 "===========================================================
-nmap sj :SplitjoinSplit<cr>
-nmap sk :SplitjoinJoin<cr>
-
-" MatchTagAlways 
-let g:mta_use_matchparen_group = 1
-let g:mta_set_default_matchtag_color = 1
-let g:mta_filetypes = {
-    \ 'html' : 1,
-    \ 'xhtml' : 1,
-    \ 'xml' : 1,
-    \ 'javascript.jsx' : 1,
-    \}
-
-nnoremap <leader>% :MtaJumpToOtherTag<cr>
+nmap ]s :SplitjoinSplit<cr>
+nmap [s :SplitjoinJoin<cr>
 
 " React jsx syntax
 let g:jsx_ext_required = 0
@@ -152,3 +162,23 @@ let g:jsx_ext_required = 0
 "
 "" tern
 "autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
+
+" AutoPair configurations
+au Filetype vim let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'", '`':'`'}
+
+" MatchTag always
+let g:mta_set_default_matchtag_color = 0
+let g:mta_use_matchparen_group = 0
+" highlight MatchTag ctermfg=black ctermbg=lightgreen guifg=black guibg=lightgreen
+hi MatchTag ctermfg=red cterm=underline
+highlight clear MatchParen
+hi MatchParen cterm=underline ctermbg=none ctermfg=red
+" highlight MatchParen ctermbg=blue guibg=lightblue
+let g:mta_filetypes = {
+		\ 'html' : 1,
+		\ 'xhtml' : 1,
+		\ 'xml' : 1,
+		\ 'javascript.jsx' : 1,
+		\}
+
+nnoremap <leader>% :MtaJumpToOtherTag<cr>

@@ -1,5 +1,5 @@
- ~/Library/Application\ Support/Karabiner/private.xml
-
+Making Symlink for karabiner
+ln -s /Users/ultrox/dotfiles/private.xml /Users/ultrox/Library/Application\ Support/Karabiner/private.xml 
 Slate
  .config/slate ~/.slate
  .config/.slate.js ~/.slate.js

@@ -1,13 +1,18 @@
 source ~/.config/nvim/plugins.vim
-let g:deoplete#enable_at_startup = 1
-if !exists('g:deoplete#omni#input_patterns')
-	let g:deoplete#omni#input_patterns = {}
-endif
+
+" let g:deoplete#enable_at_startup = 1
+" if !exists('g:deoplete#omni#input_patterns')
+" 	let g:deoplete#omni#input_patterns = {}
+" endif
 " let g:deoplete#disable_auto_complete = 1
 " ------------------------------------
 " Typing key combos - Try this, not tested
 " ------------------------------------
+let g:python_host_prog = '/usr/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3'
+" let g:python_host_prog='/usr/local/bin/python2'
 
+" /usr/local/bin/python3
 "set notimeout
 "set ttimeout
 "set ttimeoutlen=10
@@ -47,7 +52,6 @@ set fillchars+=vert:\│		" promjeni isprekidane crte u jednu cjelu | vs │
 hi clear VertSplit		" ocisti margine ili napravi nevidljivim
 
 set cursorline                  " highlight the current line
-set so=7                        " set 7 lines to the cursors - when moving vertical
 " cursor change depending on the mode nvim
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 set guifont=Inconsolata\ for\ Powerline:h16
@@ -82,7 +86,6 @@ set wildignore+=*.swp,.lock,.DS_Store,._*
 set hidden                " current buffer can be put into background
 set showcmd               " show incomplete commands (pokazuje <20> kad stisnem space) space leader
 "set noshowmode            " ne pokazuj MODE, ovo je zbog POWERLINE
-set scrolloff=3           " lines of text around cursor
 set shell=$SHELL
 set cmdheight=1           " command bar height
 set title                 " set terminal title
@@ -91,7 +94,9 @@ set synmaxcol=512         " don't syntax highlight long lines
 " => Scroling
 "===========================================================
 
-set scrolloff=8           " Start scrolling when we're 8 lines away from margins
+set scrolloff=3    " Start scrolling when we're 8 lines away from margins
+" set scrolloff=3  " lines of text around cursor
+" set so=4         " set 7 lines to the cursors - when moving vertical
 set sidescrolloff=15
 set sidescroll=1
 
@@ -193,7 +198,6 @@ filetype indent on
 " hard-wraping  http://vimcasts.org/episodes/hard-wrapping-text/
 
 set textwidth=120        "Automatski wrapuje tekst na 120om karakteru zavisno od formatoptions=+ta
-
 set wrap                 "Dopusta vidljivost teksta kad je viewport smanjen
 set linebreak            "Wrap lines at convenient points
 set showbreak=…          "show ellipsis at breaking
