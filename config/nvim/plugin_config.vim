@@ -16,13 +16,16 @@ imap <C-G>S <Plug>ISurround
 "===========================================================
 " => Airline Optionsw
 "===========================================================
-let g:airline#extensions#tabline#enabled=4 
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline_powerline_fonts = 1
-let g:airline_theme='solarized'
+" let g:airline#extensions#tabline#enabled=4 
+" let g:airline#extensions#tabline#fnamemod = ':t'
+" let g:airline_powerline_fonts = 1
+" let g:airline_theme='solarized'
+
+" ove dvije su mi bile iskljucene
 "let g:airline#extensions#tabline#tab_min_count = 2 " only show tabline if tabs are being used (more than 1 tab open)
 "let g:airline#extensions#tabline#show_buffers = 0 " do not show open buffers in tabline
-let g:airline#extensions#tabline#show_splits = 0
+
+" let g:airline#extensions#tabline#show_splits = 0
 
 
 "===========================================================
@@ -104,7 +107,7 @@ nnoremap q: :CmdHist<CR>
 
 " Better search history shit I was looking with vim search
 command! QHist call fzf#vim#search_history({'down': '~25%'})
-nnoremap q/ :QHist<CR><Paste>
+nnoremap q/ :QHist<CR>
  " <C-p> or <C-t> to search files
 nnoremap <silent> <leader>p :FZF -m<cr>
 
@@ -115,13 +118,13 @@ xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
 " Insert mode completion
 imap <c-x><c-k> <plug>(fzf-complete-word)
-" imap <c-x><c-f> <plug>(fzf-complete-path)
-imap <c-x><c-j> <plug>(fzf-complete-file-ag)
-
+imap <c-k> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 " Use fuzzy completion relative filepaths across directory
 " imap <expr> <F1> fzf#vim#complete#path('git ls-files $(git rev-parse --show-toplevel)')
-nnoremap <silent> <F1> :Buffers<cr>
+" imap <expr> <leader>p fzf#vim#complete#path('git ls-files $(git rev-parse --show-toplevel)')
+" nnoremap <silent> <F1> :Buffers<cr>
+
 nnoremap <silent> <F2> :History -m<cr>
 nnoremap <silent> <F3> :FZF -m<cr>
 command! FZFMru call fzf#run({
@@ -132,8 +135,8 @@ command! FZFMru call fzf#run({
 "===========================================================
 " => Others
 "===========================================================
-nmap ]s :SplitjoinSplit<cr>
-nmap [s :SplitjoinJoin<cr>
+nmap gj :SplitjoinSplit<cr>
+nmap gk :SplitjoinJoin<cr>
 
 " React jsx syntax
 let g:jsx_ext_required = 0
@@ -182,3 +185,8 @@ let g:mta_filetypes = {
 		\}
 
 nnoremap <leader>% :MtaJumpToOtherTag<cr>
+" Smooth Scrolling 
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 5, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 5, 2)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 10, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 10, 4)<CR>

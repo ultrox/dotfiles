@@ -14,17 +14,17 @@ alias _tree="tree -I 'node_modules' --dirsfirst"
 # find code definition with this
 alias ick='ack -i --pager="less -R -S -X"'
 
-alias cc="pwd | tr -d '\n' | pbcopy"
 alias now="ssh marko@10.0.0.27"
 alias lubuntu="ssh marko@10.0.0.26"
 export FZF_DEFAULT_COMMAND='ag -g ""'
 alias ls="ls -GCF"
-function fi() { find . -iname "*$1*" ${@:2} }
+function _f() { find . -iname "*$1*" ${@:2} }
 function r() { grep "$1" ${@:2} -R . }
 alias npms="npm list -g --depth=0"
-alias start="npm run start"
+alias ns="npm run start"
 alias build="npm run build"
 function nls() {npm list --depth ${1-0} }
+function randomimage() {wget -O ${1-randomimage.jpg} http://lorempixel.com/400/200/}
 #node and tooling
 alias babelrc="echo '{ \"presets\": [\"react\",\"es2015\"] }' > .babelrc"
 function genbabel() {
@@ -51,10 +51,13 @@ alias undo-commit="reset --soft HEAD~1"
 alias gs="git status"
 function ignore() { echo $1 >> .gitignore } 
 alias rmf="rm -rf"
+alias rm=trash
 alias myip="ipconfig getifaddr en1"
 
 
 # Dev specific
+alias cpwd="pwd | tr -d '\n' | pbcopy"
+
 # Plugin specific
 #
 
@@ -89,4 +92,7 @@ alias ta='tmux attach'
 alias tls='tmux ls'
 alias tat='tmux attach -t'
 alias tns='tmux new-session -s'
+
+# git 
+alias gc="git commit -am"
 

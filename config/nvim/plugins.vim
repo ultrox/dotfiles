@@ -8,18 +8,21 @@ Plug 'sickill/vim-pasta' " context-aware pasting
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'godlygeek/tabular'
 Plug 'tommcdo/vim-exchange'
-Plug 'easymotion/vim-easymotion'
+" Plug 'easymotion/vim-easymotion'
 Plug 'rking/ag.vim'        "=> Even faster then very fast
 " ----------------------------------------------------------------------
 " | User Interface                                                     |
 " ----------------------------------------------------------------------
 
+Plug 'junegunn/vim-peekaboo'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired' " complementary mappings
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-commentary' " comment stuff out
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-commentary' " comment stuff out
+Plug 'tomtom/tcomment_vim'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 " Plug 'takac/vim-hardtime'
 " let g:hardtime_default_on = 1
 "Plug 'altercation/vim-colors-solarized'
@@ -44,6 +47,7 @@ Plug 'mxw/vim-jsx'                            "=> Syntax highlighting and indent
 " ----------------------------------------------------------------------
 " | Hellpers                                                           |
 " ----------------------------------------------------------------------
+Plug 'terryma/vim-smooth-scroll'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'kana/vim-textobj-user'
 			\| Plug 'machakann/vim-textobj-delimited'
@@ -61,7 +65,7 @@ Plug 'kana/vim-textobj-user'
 			\   { 'for': [ 'javascript' ] }
 
 
-Plug 'vim-scripts/Toggle'
+" Plug 'vim-scripts/Toggle'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] } | Plug 'Xuyuanp/nerdtree-git-plugin' 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -77,7 +81,7 @@ Plug 'jiangmiao/auto-pairs'
 " | Completion                                                          |
 " ----------------------------------------------------------------------
 
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'SirVer/ultisnips'
 " Plug 'honza/vim-snippets'
 " Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }

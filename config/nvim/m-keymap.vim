@@ -122,7 +122,8 @@ nmap <leader>vr :so $MYVIMRC<CR>
 noremap <BS> :noh<cr>
 
 " [<leader> * ] Search and replace the word under the cursor
-nmap <leader>* :%s/\<<C-r><C-w>\>//<Left>
+nnoremap <Leader>s :%s/\<<C-r><C-w>\>//<Left>
+
 
 " [<leader> / ]search for word under the cursor
 nnoremap <leader>/ "fyiw :/<c-r>f<cr>
@@ -257,7 +258,9 @@ noremap gV `[v`]
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 " EXPERIMENTAL - to sto testiram ovdje
 "======================================================================
-autocmd FileType javascript map <buffer> <A-k> }
-autocmd FileType javascript map <buffer> <A-j> {
-
+" autocmd FileType javascript imap <buffer> <A-u> }
+" autocmd FileType javascript imap <buffer> <A-i> {
+autocmd FileType javascript inoremap ;; <END>;
+autocmd FileType javascript inoremap ,, <END>,
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+

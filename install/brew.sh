@@ -12,6 +12,8 @@ echo "=============================="
 brew install ack
 brew install tree
 brew install wget
+# simle line but saved my ass more then once
+brew install trash
 
 # development server setup
 brew install nginx
