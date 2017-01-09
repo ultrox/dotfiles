@@ -73,7 +73,10 @@ let g:neomake_javascript_enabled_makers = ['eslint'] "eslint
 
 " autocmd FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 let g:UltiSnipsExpandTrigger="<C-j>"
+" be careful about this, backup it
 let g:UltiSnipsSnippetsDir="~/.config/nvim/UltiSnips"
+" let g:UltiSnipsSnippetsDir="~/dotfiles/config/UltiSnips"
+
 
 " Eash Motion awsome
 nmap <leader>f <Plug>(easymotion-prefix)f
