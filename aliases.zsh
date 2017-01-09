@@ -7,7 +7,7 @@ export LESSOPEN='|~/.lessfilter %s'
 # Example aliases - Moji Aliasi
 alias zshedit="vim ~/.zshrc"
 alias aliasedit="vim ~/.alias.zsh"
- alias r!="source ~/.zshrc;echo done"
+alias r!="source ~/.zshrc;echo done"
 
  function tree1() {tree -L $1}
 alias _tree="tree -I 'node_modules' --dirsfirst"
@@ -95,4 +95,6 @@ alias tns='tmux new-session -s'
 
 # git 
 alias gc="git commit -am"
+# create new dir and cd into it
+function take () { mkdir -p "$@" && cd "$@"; }
 

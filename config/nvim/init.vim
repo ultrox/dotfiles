@@ -17,8 +17,8 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 "set ttimeout
 "set ttimeoutlen=10
 let mapleader="\<SPACE>"  
-"set nocompatible               " not compatible with vi nije potrebno ako ima .vimrc(dafault)
-"
+set nocompatible               " not compatible with vi nije potrebno ako ima .vimrc(dafault)
+
 set autoread                    " detect when a file is changed
 set autowrite                   " auto sejvuje fajlove prije komadni :next :make etc
 set number
@@ -63,8 +63,6 @@ let g:solarized_termtrans=1
 colorscheme solarized
 set noshowmode              " don't show which mode disabled for PowerLine
 
-highlight clear MatchParen
-hi MatchParen cterm=none ctermbg=none ctermfg=red
 "UI end
 "-s-------------------------------------------------------------------------
 set wildmenu              	" enhanced command line completion
@@ -214,7 +212,7 @@ set nolist
 " => Folds
 "===========================================================
 
-set foldmethod=syntax        "fold based on indent
+set foldmethod=indent        "fold based on indent
 set foldnestmax=10           "deepest fold is 3 levels
 set nofoldenable             "dont fold by default
 
@@ -222,8 +220,17 @@ set nofoldenable             "dont fold by default
 "===========================================================
 " => StatusLine
 "===========================================================
+set statusline=
+set statusline=%f
+set statusline+=\ %h%w%m%r
+set statusline+=%=
+set statusline+=%-16(%{exists('g:loaded_fugitive')?fugitive#statusline():''}\%)
+set statusline+=\ %P/%L
+set statusline+=\
 
 set laststatus=2 " show the satus line all the time
 source ~/.config/nvim/autocmd.vim
 source ~/.config/nvim/plugin_config.vim
 source ~/.config/nvim/m-keymap.vim
+source ~/.config/nvim/m-func.vim
+
