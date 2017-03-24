@@ -6,7 +6,8 @@ call plug#begin('~/.config/nvim/plugged')
 runtime macros/matchit.vim
 Plug 'sickill/vim-pasta' " context-aware pasting
 Plug 'AndrewRadev/splitjoin.vim'
-Plug 'godlygeek/tabular'
+" Plug 'godlygeek/tabular'
+Plug 'junegunn/vim-easy-align'
 Plug 'tommcdo/vim-exchange'
 " Plug 'easymotion/vim-easymotion'
 Plug 'rking/ag.vim'        "=> Even faster then very fast
@@ -45,9 +46,13 @@ Plug 'othree/es.next.syntax.vim'
 Plug 'pangloss/vim-javascript'
 "Plug 'ramitos/jsctags'                       "=> Ctags gen Tern javascript
 Plug 'mxw/vim-jsx'                            "=> Syntax highlighting and indenting for JSX for React. JS syntax transformer
+Plug 'digitaltoad/vim-pug'					   "=> Prije se zvao Jade
+" Plug 'othree/html5.vim'
+'
 " ----------------------------------------------------------------------
 " | Hellpers                                                           |
 " ----------------------------------------------------------------------
+Plug 'vim-scripts/tinykeymap'
 Plug 'terryma/vim-smooth-scroll'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'kana/vim-textobj-user'

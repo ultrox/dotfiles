@@ -3,8 +3,7 @@ map l goForward
 
 unmap t
 unmap T
-map t Vomnibar.activateTabSelection
-map <c-p> togglePinTab
+map a Vomnibar.activateTabSelection
 map <c-m> toggleMuteTab
 map ct duplicateTab
 
@@ -15,11 +14,24 @@ map o Vomnibar.activateInNewTab
 map O Vomnibar.activate
 
 # Make tab changes like buffer in vim
-
 unmap K
 unmap J
-
-map <c-k> nextTab
-map <c-j> previousTab
+map <c-n> nextTab
+map <c-p> previousTab
 map af LinkHints.activateModeWithQueue
 map e scrollPageUp
+
+map . visitPreviousTab
+
+unmap u
+unmap d
+map <c-u> scrollPageUp
+map <c-d> scrollPageDown
+
+# bad habits to scroll if u use vim
+unmap j
+unmap k
+
+# make it anoying and your habbit will change
+map j showHelp
+map k showHelp

@@ -61,7 +61,7 @@ set t_Co=256
 let g:solarized_termcolors=16
 let g:solarized_termtrans=1
 colorscheme solarized
-set noshowmode              " don't show which mode disabled for PowerLine
+" set noshowmode              " don't show which mode disabled for PowerLine
 
 "UI end
 "-s-------------------------------------------------------------------------
@@ -182,10 +182,10 @@ endif
 
 set autoindent           "indentiraj kad pravis novu liniju
 "set smartindent     	 "it seams this is usless and shuld be avoided
-set tabstop=2            "Podesi vidljivu sirinu taba (velicina je sirina slova)
+set tabstop=4            "Podesi vidljivu sirinu taba (velicina je sirina slova)
 set smarttab             "postuje vrijednosti 'tabstop','shiftwidth' and 'softtabstop'
-set shiftwidth=2         "Koliko ce tekst biti indentovan kad se reindentira << >>
-set softtabstop=2        "Precizno podesi koliko 'whitespace' ce se ubaciti
+set shiftwidth=4         "Koliko ce tekst biti indentovan kad se reindentira << >>
+set softtabstop=4        "Precizno podesi koliko 'whitespace' ce se ubaciti
 "set expandtab           "Koristi space umjesto taba
 set noexpandtab          "Koristi Tabove umjesto space
 set wrapmargin=8         "wrap lines when coming within n characters from side
@@ -212,7 +212,7 @@ set nolist
 " => Folds
 "===========================================================
 
-set foldmethod=indent        "fold based on indent
+set foldmethod=manual        "fold based on indent
 set foldnestmax=10           "deepest fold is 3 levels
 set nofoldenable             "dont fold by default
 
@@ -230,7 +230,7 @@ set statusline+=\
 
 set laststatus=2 " show the satus line all the time
 source ~/.config/nvim/autocmd.vim
-source ~/.config/nvim/plugin_config.vim
-source ~/.config/nvim/m-keymap.vim
 source ~/.config/nvim/m-func.vim
+source ~/.config/nvim/m-keymap.vim
+source ~/.config/nvim/plugin_config.vim
 

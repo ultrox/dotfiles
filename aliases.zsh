@@ -14,7 +14,7 @@ alias _tree="tree -I 'node_modules' --dirsfirst"
 # find code definition with this
 alias ick='ack -i --pager="less -R -S -X"'
 
-alias now="ssh marko@10.0.0.27"
+alias now="ssh marko@169.254.100.2"
 alias lubuntu="ssh marko@10.0.0.26"
 export FZF_DEFAULT_COMMAND='ag -g ""'
 alias ls="ls -GCF"

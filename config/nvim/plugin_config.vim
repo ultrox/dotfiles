@@ -78,11 +78,6 @@ let g:UltiSnipsSnippetsDir="~/.config/nvim/UltiSnips"
 " let g:UltiSnipsSnippetsDir="~/dotfiles/config/UltiSnips"
 
 
-" Eash Motion awsome
-nmap <leader>f <Plug>(easymotion-prefix)f
-nmap <leader>F <Plug>(easymotion-prefix)F
-
-
 " inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " " close preivew window when you are not using it
@@ -193,3 +188,20 @@ noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 5, 2)<CR>
 noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 5, 2)<CR>
 noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 10, 4)<CR>
 noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 10, 4)<CR>
+
+
+nmap ga <Plug>(EasyAlign)
+vmap <Enter> <Plug>(EasyAlign)
+
+
+
+"===========================================================
+" => TinyModes
+"===========================================================
+" call tinykeymap#Load('windows')
+"
+" call tinykeymap#Map('windows', 'l', 'wincmd >')
+" call tinykeymap#Map('windows', 'h', 'wincmd <')
+" call tinykeymap#Map('windows', 'j', 'wincmd +')
+" call tinykeymap#Map('windows', 'k', 'wincmd -')
+"

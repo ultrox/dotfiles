@@ -1,7 +1,7 @@
 " cmap w!! w !sudo tee % >/dev/null
 
-map <F4> :cd %:h<CR>
-nnoremap <leader>q :bw<cr>
+" map <F4> :cd %:h<CR>
+nnoremap <leader>q :bw!<cr>
 nmap <bs> :<c-u>TmuxNavigateLeft<cr>
 
 "Fixing command line in vim
@@ -43,7 +43,7 @@ map <leader>' siw'
 vmap <leader>' c"<C-R>""<ESC>
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
- " <leader>) or ,( Surround a word with (parens) The ( difference ) is in whether a space is put in
+" <leader>) or ,( Surround a word with (parens) The ( difference ) is in whether a space is put in
 map <leader>( siw(
 map <leader>) siw)
 vmap <leader>( c( <C-R>" )<ESC>
@@ -96,12 +96,13 @@ nnoremap <A-]> f]ci]
 
 " I too like to live dangerously
 " Easier to type, and I never use the default behavior.
-noremap H ^
-noremap L $
-vnoremap L g_
+" trying to use this more
+" noremap H ^
+" noremap L $
+" vnoremap L g_
 
 
-" [tik je ' tu] Super - Favorit remap ever
+" [tik je ' tu] Super - Favorit remap ever - not needed when remaping esc to ` 
 " nnoremap ' `
 " nnoremap ` '
 
@@ -143,8 +144,14 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 "======================================================================
 " => Files and Windows
 "======================================================================
-" [<leader>W ] Sudo write
+" I'm using tinykeymap for controloing window subomde - awesome
 
+" [<leader>W ] Sudo write
+" Resizing windows
+nnoremap <C-up> <C-W>+
+nnoremap <C-down> <C-W>-
+nnoremap <C-left> <C-W><
+nnoremap <C-right> <C-W>>
 
 " Also map leader + s Save a files
 map <leader>w :w<cr>
@@ -159,19 +166,19 @@ nnoremap <leader>X :q!<cr>
 " (if there are multiple windows into the same buffer)
 " or kill the buffer entirely if it's the last window looking into that buffer
 function! CloseWindowOrKillBuffer()
-  let number_of_windows_to_this_buffer = len(filter(range(1, winnr('$')), "winbufnr(v:val) == bufnr('%')"))
+	let number_of_windows_to_this_buffer = len(filter(range(1, winnr('$')), "winbufnr(v:val) == bufnr('%')"))
 
-  " We should never bdelete a nerd tree
-  if matchstr(expand("%"), 'NERD') == 'NERD'
-    wincmd c
-    return
-  endif
+	" We should never bdelete a nerd tree
+	if matchstr(expand("%"), 'NERD') == 'NERD'
+		wincmd c
+		return
+	endif
 
-  if number_of_windows_to_this_buffer > 1
-    wincmd c
-  else
-    bdelete
-  endif
+	if number_of_windows_to_this_buffer > 1
+		wincmd c
+	else
+		bdelete
+	endif
 endfunction
 
 nnoremap <silent> Q :call CloseWindowOrKillBuffer()<CR>
@@ -263,4 +270,6 @@ noremap gV `[v`]
 autocmd FileType javascript inoremap ;; <END>;
 autocmd FileType javascript inoremap ,, <END>,
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+" INDENTING
+nnoremap <leader>f mzgg=G`z
 
