@@ -14,12 +14,12 @@ Plug 'rking/ag.vim'        "=> Even faster then very fast
 " ----------------------------------------------------------------------
 " | User Interface                                                     |
 " ----------------------------------------------------------------------
-
-Plug 'junegunn/vim-peekaboo'
+" Plug 'yggdroot/indentLine'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired' " complementary mappings
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-eunuch'
 " Plug 'tpope/vim-commentary' " comment stuff out
 Plug 'tomtom/tcomment_vim'
 " Plug 'vim-airline/vim-airline'
@@ -30,7 +30,9 @@ Plug 'ap/vim-buftabline'
 "Plug 'altercation/vim-colors-solarized'
 Plug 'jwhitley/vim-colors-solarized'
 " Plug 'ervandew/supertab'
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
+Plug 'trevordmiller/nova-vim'
+Plug 'terryma/vim-multiple-cursors'
 " ----------------------------------------------------------------------
 " | Smater Sintax - JS Specific                                        |
 " ----------------------------------------------------------------------
@@ -87,11 +89,14 @@ Plug 'jiangmiao/auto-pairs'
 " | Completion                                                          |
 " ----------------------------------------------------------------------
 
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'SirVer/ultisnips'
-" Plug 'honza/vim-snippets'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
 " Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
+" Plug 'majutsushi/tagbar'
+
+Plug 'SirVer/ultisnips'
+" Plug 'honza/vim-snippets'
+
 call plug#end()
 

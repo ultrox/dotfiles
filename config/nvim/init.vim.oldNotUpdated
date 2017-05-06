@@ -1,5 +1,10 @@
 source ~/.config/nvim/plugins.vim
 
+" let g:deoplete#enable_at_startup = 1
+" if !exists('g:deoplete#omni#input_patterns')
+" 	let g:deoplete#omni#input_patterns = {}
+" endif
+" let g:deoplete#disable_auto_complete = 1
 " ------------------------------------
 " Typing key combos - Try this, not tested
 " ------------------------------------
@@ -12,13 +17,14 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 "set ttimeout
 "set ttimeoutlen=10
 let mapleader="\<SPACE>"  
-set nocompatible               " not compatible with vi nije potrebno ako ima .vimrc(dafault)
-
+"set nocompatible               " not compatible with vi nije potrebno ako ima .vimrc(dafault)
+"
 set autoread                    " detect when a file is changed
 set autowrite                   " auto sejvuje fajlove prije komadni :next :make etc
 set number
 set numberwidth=4               " indentira brojeve sa ljeve strane za x pixela
 set relativenumber
+syntax on
 set backspace=indent,eol,start " make backspace behave in a sane manner
 set history=1000               " change history to 1000
 
@@ -26,17 +32,17 @@ set history=1000               " change history to 1000
 command! -nargs=* Wrap set wrap linebreak nolist
 
 set cpoptions+=$                "kad 'change' prikaze $
-if has('clipboard')
-  set clipboard=unnamed  " Use clipboard register
+" if has('clipboard')
+"   set clipboard=unnamed  " Use clipboard register
 
-  " Share X windows clipboard. NOT ON NEOVIM -- neovim automatically uses
-  " system clipboard when xclip/xsel/pbcopy are available.
-  if has('nvim') && !has('mac')
-    set clipboard=unnamedplus
-  elseif has('unnamedplus')
-    set clipboard+=unnamedplus
-  endif
-endif
+"   " Share X windows clipboard. NOT ON NEOVIM -- neovim automatically uses
+"   " system clipboard when xclip/xsel/pbcopy are available.
+"   if has('nvim') && !has('mac')
+"     set clipboard=unnamedplus
+"   elseif has('unnamedplus')
+"     set clipboard+=unnamedplus
+"   endif
+" endif
 set ttyfast                      " faster redrawing
 set diffopt+=vertical            "pojma nemam sta je ovo
 "===========================================================
@@ -55,8 +61,10 @@ set t_Co=256
 let g:solarized_termcolors=16
 let g:solarized_termtrans=1
 colorscheme solarized
-" set noshowmode              " don't show which mode disabled for PowerLine
+set noshowmode              " don't show which mode disabled for PowerLine
 
+highlight clear MatchParen
+hi MatchParen cterm=none ctermbg=none ctermfg=red
 "UI end
 "-s-------------------------------------------------------------------------
 set wildmenu              	" enhanced command line completion
@@ -101,8 +109,7 @@ set hlsearch
 set incsearch             " set incremental search, like modern browsers
 set gdefault              " global je default kad search/replace
 set lazyredraw            " marcorsi ne pokazuju nista na display-u
-" Use sane regexes
-" set magic                 " Set magic on, for regex
+set magic                 " Set magic on, for regex
 
 set showmatch             " show matching braces
 set mat=2                 " how many tenths of a second to blink
@@ -113,9 +120,6 @@ set visualbell
 set t_vb=
 set tm=500
 
-" Use sane regexes.
-nnoremap / /\v
-vnoremap / /\v	
 " ----------------------------------------------------------------------------
 " Special highlights
 " ----------------------------------------------------------------------------
@@ -180,8 +184,8 @@ endif
 
 set autoindent           "indentiraj kad pravis novu liniju
 "set smartindent     	 "it seams this is usless and shuld be avoided
-set smarttab             "postuje vrijednosti 'tabstop','shiftwidth' and 'softtabstop'
 set tabstop=2            "Podesi vidljivu sirinu taba (velicina je sirina slova)
+set smarttab             "postuje vrijednosti 'tabstop','shiftwidth' and 'softtabstop'
 set shiftwidth=2         "Koliko ce tekst biti indentovan kad se reindentira << >>
 set softtabstop=2        "Precizno podesi koliko 'whitespace' ce se ubaciti
 "set expandtab           "Koristi space umjesto taba
@@ -210,7 +214,7 @@ set nolist
 " => Folds
 "===========================================================
 
-set foldmethod=manual        "fold based on indent
+set foldmethod=syntax        "fold based on indent
 set foldnestmax=10           "deepest fold is 3 levels
 set nofoldenable             "dont fold by default
 
@@ -218,17 +222,8 @@ set nofoldenable             "dont fold by default
 "===========================================================
 " => StatusLine
 "===========================================================
-set statusline=
-set statusline=%f
-set statusline+=\ %h%w%m%r
-set statusline+=%=
-set statusline+=%-16(%{exists('g:loaded_fugitive')?fugitive#statusline():''}\%)
-set statusline+=\ %P/%L
-set statusline+=\
 
 set laststatus=2 " show the satus line all the time
 source ~/.config/nvim/autocmd.vim
-source ~/.config/nvim/m-func.vim
-source ~/.config/nvim/m-keymap.vim
 source ~/.config/nvim/plugin_config.vim
-
+source ~/.config/nvim/m-keymap.vim

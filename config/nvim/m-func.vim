@@ -16,3 +16,30 @@ command! -register CopyMatches call CopyMatches(<q-reg>)
 "     endif
 " endfunction
 " nnoremap <expr> i IndentWithI()
+function! ClearRegisters()
+    let regs='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-="*+'
+    let i=0
+    while (i<strlen(regs))
+        exec 'let @'.regs[i].'=""'
+        let i=i+1
+    endwhile
+endfunction
+ 
+" Use Q to intelligently close a window
+" (if there are multiple windows into the same buffer)
+" or kill the buffer entirely if it's the last window looking into that buffer
+function! CloseWindowOrKillBuffer()
+	let number_of_windows_to_this_buffer = len(filter(range(1, winnr('$')), "winbufnr(v:val) == bufnr('%')"))
+
+	" We should never bdelete a nerd tree
+	if matchstr(expand("%"), 'NERD') == 'NERD'
+		wincmd c
+		return
+	endif
+
+	if number_of_windows_to_this_buffer > 1
+		wincmd c
+	else
+		bdelete
+	endif
+endfunction

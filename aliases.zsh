@@ -1,3 +1,5 @@
+alias hibernateon="sudo pmset -a hibernatemode 25"
+alias hibernateoff="sudo pmset -a hibernatemode 3"
 
 bindkey \^U backward-kill-line
 # customizing less go give it more color also lessfilter in dotfiles must be chmod u+x
@@ -21,6 +23,7 @@ alias ls="ls -GCF"
 function _f() { find . -iname "*$1*" ${@:2} }
 function r() { grep "$1" ${@:2} -R . }
 alias npms="npm list -g --depth=0"
+alias npml="npm list --depth=0"
 alias ns="npm run start"
 alias build="npm run build"
 function nls() {npm list --depth ${1-0} }

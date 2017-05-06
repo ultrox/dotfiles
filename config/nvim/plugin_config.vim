@@ -14,6 +14,15 @@ xmap gS     <Plug>VgSurround
 imap <C-G>s <Plug>Isurround
 imap <C-G>S <Plug>ISurround
 "===========================================================
+" => Indent Line
+"===========================================================
+
+" let g:indentLine_setColors = 0
+" let g:indentLine_setConceal = 0
+" let g:indentLine_color_term = 239
+" let g:indentLine_char = 'c'
+
+"===========================================================
 " => Airline Optionsw
 "===========================================================
 " let g:airline#extensions#tabline#enabled=4 
@@ -31,23 +40,28 @@ imap <C-G>S <Plug>ISurround
 "===========================================================
 " => Setting up DeoPlate
 "===========================================================
-" " let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_smart_case = 1
+
+let g:deoplete#omni#functions = {}
+let g:deoplete#omni#functions.javascript = 'jspc#omni' "[
+  " \ 'tern#Complete',
+  " 'jspc#omni'
+" ]
+set completeopt=longest,menuone,preview
+let g:deoplete#sources = {}
+let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'ternjs']
+" "If you are using tern-for-vim this is recomended
+" let g:tern#command = ['tern']
+" let g:tern#arguments = ['--persistent']
+
 " if !exists('g:deoplete#omni#input_patterns')
 " 	let g:deoplete#omni#input_patterns = {}
 " endif
 " " let g:deoplete#disable_auto_complete = 1
 " let g:deoplete#omni#functions = {}
-" let g:deoplete#omni#functions.javascript = [
-"   \ 'tern#Complete',
-"   \ 'jspc#omni',
-" \]
+"
 
-" set completeopt=longest,menuone,preview
-" let g:deoplete#sources = {}
-" let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'ternjs'] " buffer 
-" "If you are using tern-for-vim this is recomended
-" let g:tern#command = ['tern']
-" let g:tern#arguments = ['--persistent']
 " "autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 " autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
 
@@ -193,6 +207,12 @@ noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 10, 4)<CR>
 nmap ga <Plug>(EasyAlign)
 vmap <Enter> <Plug>(EasyAlign)
 
+"===========================================================
+" => Ctags + Tagbar
+"===========================================================
+" let g:tagbar_ctags_bin='/usr/local/bin/ctags'  " Proper Ctags locations
+" let g:tagbar_width=26                          " Default is 40, seems too wide
+" noremap <silent> <Leader>y :TagbarToggle       " Display panel with y (or ,y)
 
 
 "===========================================================

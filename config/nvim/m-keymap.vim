@@ -97,16 +97,17 @@ nnoremap <A-]> f]ci]
 " I too like to live dangerously
 " Easier to type, and I never use the default behavior.
 " trying to use this more
-" noremap H ^
-" noremap L $
-" vnoremap L g_
+noremap H ^
+noremap L $
+vnoremap L g_
 
 
 " [tik je ' tu] Super - Favorit remap ever - not needed when remaping esc to ` 
 " nnoremap ' `
 " nnoremap ` '
 
-
+" create/open file in current folder
+map <Leader>ee :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
 "================================
 "=> VimRc Reload / Edit / Source
 "================================
@@ -124,9 +125,11 @@ noremap <BS> :noh<cr>
 
 " [<leader> * ] Search and replace the word under the cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//<Left>
+vmap <Leader>s "py :%s/\<<C-r>p\>//<Left>
 
+" nnoremap <expr> <Leader>ss ':%s/\<'.expand('<cword>').'\>/<&>/g<CR>'
 
-" [<leader> / ]search for word under the cursor
+" [<leader> / ] search for word under the cursor
 nnoremap <leader>/ "fyiw :/<c-r>f<cr>
 
 " Mislim da je ovo u fajlovima pretrazivanje
@@ -136,7 +139,7 @@ command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 nnoremap \ :Ag<SPACE>
 
 " bind K to grep word under cursor
-nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+" nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -155,31 +158,11 @@ nnoremap <C-right> <C-W>>
 
 " Also map leader + s Save a files
 map <leader>w :w<cr>
-vmap <leader>s <Esc>:w gv
 
 
 " Quickly close windows
 nnoremap <leader>x :x<cr>
 nnoremap <leader>X :q!<cr>
-
-" Use Q to intelligently close a window
-" (if there are multiple windows into the same buffer)
-" or kill the buffer entirely if it's the last window looking into that buffer
-function! CloseWindowOrKillBuffer()
-	let number_of_windows_to_this_buffer = len(filter(range(1, winnr('$')), "winbufnr(v:val) == bufnr('%')"))
-
-	" We should never bdelete a nerd tree
-	if matchstr(expand("%"), 'NERD') == 'NERD'
-		wincmd c
-		return
-	endif
-
-	if number_of_windows_to_this_buffer > 1
-		wincmd c
-	else
-		bdelete
-	endif
-endfunction
 
 nnoremap <silent> Q :call CloseWindowOrKillBuffer()<CR>
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -194,8 +177,9 @@ nnoremap <silent> Q :call CloseWindowOrKillBuffer()<CR>
 nmap <leader>. <c-^>
 
 " Traverse thrue the buffers - do this with pope
-nnoremap <silent> <C-P> :bprev<CR>
-nnoremap <silent> <C-N> :bnext<CR>
+" nnoremap <silent> <C-P> :bprev<CR>
+" nnoremap <silent> <C-N> :bnext<CR>
+
 " nnoremap <down> <c-w>j
 " nnoremap <up> <c-w>k
 " nnoremap <left> <c-w>h
@@ -267,9 +251,10 @@ noremap gV `[v`]
 "======================================================================
 " autocmd FileType javascript imap <buffer> <A-u> }
 " autocmd FileType javascript imap <buffer> <A-i> {
-autocmd FileType javascript inoremap ;; <END>;
-autocmd FileType javascript inoremap ,, <END>,
+" autocmd FileType javascript inoremap ;; <END>;
+" autocmd FileType javascript inoremap ,, <END>,
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 " INDENTING
 nnoremap <leader>f mzgg=G`z
+
 
