@@ -29,7 +29,7 @@ Plug 'ap/vim-buftabline'
 " let g:hardtime_default_on = 1
 "Plug 'altercation/vim-colors-solarized'
 Plug 'jwhitley/vim-colors-solarized'
-" Plug 'ervandew/supertab'
+Plug 'ervandew/supertab'
 " Plug 'ludovicchabant/vim-gutentags'
 Plug 'trevordmiller/nova-vim'
 Plug 'terryma/vim-multiple-cursors'
@@ -80,7 +80,8 @@ Plug 'kana/vim-textobj-user'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] } | Plug 'Xuyuanp/nerdtree-git-plugin' 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-" Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf.vim'
+
 " Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
 " Dealing with tags

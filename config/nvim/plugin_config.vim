@@ -66,7 +66,7 @@ let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'ternjs']
 " autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
 
 "===========================================================
-" => NeoMake and syntax 
+" => NeoMake and syntax - async linting
 "===========================================================
 " neomake
 nmap <Leader><Space>o :lopen<CR>      " open location window
@@ -85,6 +85,7 @@ let g:neomake_javascript_enabled_makers = ['eslint'] "eslint
 " => Supertab Settings
 "===========================================================
 
+let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 " autocmd FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 let g:UltiSnipsExpandTrigger="<C-j>"
 " be careful about this, backup it
@@ -103,6 +104,7 @@ let g:UltiSnipsSnippetsDir="~/.config/nvim/UltiSnips"
 "===========================================================
 
 " Toggle NERDTree
+let g:fzf_nvim_statusline = 0 " disable statusline overwriting
 nmap <silent> <leader>k :NERDTreeToggle<cr>
 " expand to the path of the file in the current buffer
 nmap <silent> <leader>\ :NERDTreeFind<cr>
