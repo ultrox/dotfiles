@@ -11,8 +11,6 @@ alias zshedit="vim ~/.zshrc"
 alias aliasedit="vim ~/.alias.zsh"
 alias r!="source ~/.zshrc;echo done"
 
- function tree1() {tree -L $1}
-alias _tree="tree -I 'node_modules' --dirsfirst"
 # find code definition with this
 alias ick='ack -i --pager="less -R -S -X"'
 
@@ -27,13 +25,21 @@ alias npml="npm list --depth=0"
 alias ns="npm run start"
 alias build="npm run build"
 function nls() {npm list --depth ${1-0} }
+
+# directorys 
+function t() {tree -L ${1-2} -I 'node_modules' --dirsfirst}
+alias _tree="tree -I 'node_modules' --dirsfirst"
+
 function randomimage() {wget -O ${1-randomimage.jpg} http://lorempixel.com/400/200/}
+
 #node and tooling
 alias babelrc="echo '{ \"presets\": [\"react\",\"es2015\"] }' > .babelrc"
+
 function genbabel() {
  npm i babel-core babel-loader babel-preset-es2015 babel-preset-react -D;
 echo '{ "presets": ["react","es2015"] }' > .babelrc
 } 
+
 alias killdir="mkdir ../.tmp_to_remove && mv -- * ../.tmp_to_remove && rm -rf ../.tmp_to_remove &"
 
 transfer() { if [ $# -eq 0 ]; then echo "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"; return 1; fi

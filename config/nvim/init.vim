@@ -218,15 +218,28 @@ set nofoldenable             "dont fold by default
 "===========================================================
 " => StatusLine
 "===========================================================
-set statusline=
-set statusline=%f
-set statusline+=\ %h%w%m%r
-set statusline+=%=
-set statusline+=%-16(%{exists('g:loaded_fugitive')?fugitive#statusline():''}\%)
-set statusline+=\ %P/%L
-set statusline+=\
-
 set laststatus=2 " show the satus line all the time
+" set statusline=
+" set statusline=\ %f
+" set statusline+=\ %h%w%m%r
+" set statusline+=%=
+" set statusline+=%-16(%{exists('g:loaded_fugitive')?fugitive#statusline():''}\%)
+" set statusline+=\ %P/%L
+" set statusline+=\
+set statusline=
+set statusline+=%#PmenuSel#
+" set statusline+=%-16(%{exists('g:loaded_fugitive')?fugitive#statusline():''}\%)
+set statusline+=%#LineNr#
+set statusline+=\ %f
+set statusline+=%m
+set statusline+=%=
+set statusline+=%#CursorColumn#
+set statusline+=\ %y
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\[%{&fileformat}\]
+set statusline+=\ %p%%
+set statusline+=\ %l:%c
+" set statusline+=\ 
 source ~/.config/nvim/autocmd.vim
 source ~/.config/nvim/m-func.vim
 source ~/.config/nvim/m-keymap.vim

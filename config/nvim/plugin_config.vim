@@ -163,7 +163,7 @@ let g:jsx_ext_required = 0
 "augroup omnifuncs
 "  autocmd!
 "  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-"  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+"let vim_markdown_preview_hotkey='<C-m>e  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 "  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 "  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 "  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
@@ -180,6 +180,7 @@ let g:jsx_ext_required = 0
 
 " AutoPair configurations
 au Filetype vim let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'", '`':'`'}
+au Filetype markdown let b:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'", '"':'"'}
 
 " MatchTag always
 let g:mta_set_default_matchtag_color = 0
@@ -225,3 +226,22 @@ vmap <Enter> <Plug>(EasyAlign)
 " call tinykeymap#Map('windows', 'j', 'wincmd +')
 " call tinykeymap#Map('windows', 'k', 'wincmd -')
 "
+nnoremap <Leader>l :Dash <C-r><C-w> 
+vmap <Leader>l "py :Dash <C-r>p
+
+
+"===========================================================
+" => VimWiki
+"===========================================================
+let g:vimwiki_list = [{'path': '~/Google Drive/vimwiki',
+										 \ 'syntax': 'markdown', 'ext': '.md'}]
+
+"===========================================================
+" => Markdown Preview
+"===========================================================
+" let vim_markdown_preview_hotkey='<C-m>'
+" let vim_markdown_preview_browser='Google Chrome'
+" Makes markdown preview on file save and some other performance vs confort 
+" let g:instant_markdown_slow = 1
+" Open markdown files with Chrome.
+" autocmd BufEnter *.md exe 'noremap <F5> :!open -a "Google Chrome" "%"<CR>'

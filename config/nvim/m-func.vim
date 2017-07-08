@@ -43,3 +43,31 @@ function! CloseWindowOrKillBuffer()
 		bdelete
 	endif
 endfunction
+
+function! s:MkNonExDir(file, buf)
+		if empty(getbufvar(a:buf, '&buftype')) && a:file!~#'\v^\w+\:\/'
+				let dir=fnamemodify(a:file, ':h')
+				if !isdirectory(dir)
+						call mkdir(dir, 'p')
+				endif
+		endif
+	endfunction
+
+" This should realy be part of vim-eunuch from tpope
+function! s:RevealInFinder()
+  if filereadable(expand("%"))
+    let l:command = "open -R " . shellescape("%")
+  elseif getftype(expand("%:p:h")) == "dir"
+    let l:command = "open " . shellescape("%") . ":p:h"
+  else
+    let l:command = "open ."
+  endif
+
+  execute ":silent! !" . l:command
+
+  " For terminal Vim not to look messed up.
+  redraw!
+endfunction
+
+command! Reveal call <SID>RevealInFinder()
+

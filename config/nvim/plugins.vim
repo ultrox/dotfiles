@@ -33,6 +33,7 @@ Plug 'jwhitley/vim-colors-solarized'
 " Plug 'ludovicchabant/vim-gutentags'
 Plug 'trevordmiller/nova-vim'
 Plug 'terryma/vim-multiple-cursors'
+
 " ----------------------------------------------------------------------
 " | Smater Sintax - JS Specific                                        |
 " ----------------------------------------------------------------------
@@ -54,6 +55,8 @@ Plug 'digitaltoad/vim-pug'					   "=> Prije se zvao Jade
 " ----------------------------------------------------------------------
 " | Hellpers                                                           |
 " ----------------------------------------------------------------------
+Plug 'rizzatti/dash.vim'
+Plug 'vimwiki/vimwiki'
 Plug 'vim-scripts/tinykeymap'
 Plug 'terryma/vim-smooth-scroll'
 Plug 'nelstrom/vim-visual-star-search'
@@ -77,7 +80,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTreeFind'] } | Plug 'Xuyuanp/nerdtree-git-plugin' 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf.vim'
 " Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
 " Dealing with tags
@@ -97,6 +100,6 @@ Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 
 Plug 'SirVer/ultisnips'
 " Plug 'honza/vim-snippets'
-
+Plug 'mattn/emmet-vim'
 call plug#end()
 

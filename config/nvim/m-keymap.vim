@@ -115,13 +115,20 @@ map <Leader>ee :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
 "[<leader>vr ] Reload, edit and source vim config
 nmap <leader>vr :so $MYVIMRC<CR>
 
+nmap <leader>ev :e $MYVIMRC<CR>
+nmap <leader>es :UltiSnipsEdit<CR>
+
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 "======================================================================
 "=> Search / Repace / Highlite
 "======================================================================
 
-" [<leader>hl] Clear search
+
 noremap <BS> :noh<cr>
+" nnoremap <Leader>i i![<C-R>+](/Users/ultrox/Google%20Drive/LearnNodeGifs/<C-R>+)<Enter><esc>
+nnoremap <Leader>i i![<C-R>+](/Users/ultrox/Google%20Drive/ReduxSagaForm/<C-R>+)<Enter><esc>
+noremap <F5> :!open -a "Google Chrome" '%'<CR>
+" map <Leader>ee :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
 
 " [<leader> * ] Search and replace the word under the cursor
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//<Left>
