@@ -31,13 +31,11 @@ let g:UltiSnipsSnippetsDir="~/.config/nvim/UltiSnips"
 "===========================================================
 set completeopt-=preview
 " set completeopt=longest,menuone,preview
-set completeopt=menuone,noinsert,noselect
+" set completeopt=menuone,noinsert,noselect
 
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
-let g:deoplete#enable_refresh_always = 1
-let g:deoplete#max_abbr_width = 20
 
 " let g:deoplete#omni#functions = {}
 
@@ -47,6 +45,17 @@ let g:deoplete#max_abbr_width = 20
 " " ]
 let g:deoplete#sources = {}
 let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'buffer']
+
+" Define keyword
+if !exists('g:deoplete#keyword_patterns')
+    let g:deoplete#keyword_patterns = {}
+endif
+
+let g:deoplete#omni#input_patterns = {}
+" let g:deoplete#keyword_patterns.default = '[a-zA-Z_]\w{2,}?'
+
+" let g:deoplete#omni_patterns.php = '\h\w*\|[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
+
 " omnifuncs
 " augroup omnifuncs
 "  autocmd!
@@ -121,7 +130,7 @@ nnoremap q: :CmdHist<CR>
 " Better search history shit I was looking with vim search
 command! QHist call fzf#vim#search_history({'down': '~25%'})
 nnoremap q/ :QHist<CR>
- " <C-p> or <C-t> to search files
+" <C-p> or <C-t> to search files
 nnoremap <silent> <leader>p :FZF -m<cr>
 
 nmap <silent> <leader>a :Buffers<cr>
@@ -134,7 +143,7 @@ omap <leader><tab> <plug>(fzf-maps-o)
 imap <c-x><c-k> <plug>(fzf-complete-word)
 imap <c-k> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
- 
+
 " Use fuzzy completion relative filepaths across directory
 " imap <expr> <F1> fzf#vim#complete#path('git ls-files $(git rev-parse --show-toplevel)')
 " imap <expr> <leader>p fzf#vim#complete#path('git ls-files $(git rev-parse --show-toplevel)')
@@ -143,10 +152,10 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 nnoremap <silent> <F2> :History -m<cr>
 nnoremap <silent> <F3> :FZF -m<cr>
 command! FZFMru call fzf#run({
-\  'source':  v:oldfiles,
-\  'sink':    'e',
-\  'options': '-m -x +s',
-\  'down':    '40%'})
+			\  'source':  v:oldfiles,
+			\  'sink':    'e',
+			\  'options': '-m -x +s',
+			\  'down':    '40%'})
 
 
 " AutoPair configurations
@@ -194,7 +203,7 @@ vmap <Leader>l "py :Dash <C-r>p
 " => VimWiki
 "===========================================================
 let g:vimwiki_list = [{'path': '~/Google Drive/vimwiki',
-										 \ 'syntax': 'markdown', 'ext': '.md'}]
+			\ 'syntax': 'markdown', 'ext': '.md'}]
 
 "===========================================================
 " => Others
@@ -206,7 +215,7 @@ nmap gk :SplitjoinJoin<cr>
 let g:jsx_ext_required = 0
 
 " Auto closing tags plugin
- let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.js,*.jsx"
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.js,*.jsx, *.php"
 "===========================================================
 " => Markdown Preview
 "===========================================================

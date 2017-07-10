@@ -28,10 +28,6 @@ nnoremap <M-.> @:
 " | Jednostavnija Okruzivanja sa Leaderom tpope/vim-surround           |
 " ----------------------------------------------------------------------
 
-" <leader># Okruzi rijec/selekciju #{ruby interpunkcija}
-map <leader># siw#
-vmap <leader># c#{<C-R>"}<ESC>
-
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 " <leader>" Okruzi rijec/selekciju "quotes"
