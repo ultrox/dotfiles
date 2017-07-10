@@ -25,8 +25,6 @@ Plugin 'tomtom/tcomment_vim'
 " Plugin 'vim-airline/vim-airline'
 " Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ap/vim-buftabline'
-" Plugin 'takac/vim-hardtime'
-" let g:hardtime_default_on = 1
 "Plugin 'altercation/vim-colors-solarized'
 Plugin 'jwhitley/vim-colors-solarized'
 Plugin 'ervandew/supertab'
@@ -83,8 +81,6 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
 
-" Plugin 'jeffkreeftmeijer/vim-numbertoggle'
-
 " Dealing with tags
 Plugin 'alvan/vim-closetag'
 Plugin 'Valloric/MatchTagAlways'
@@ -94,7 +90,6 @@ Plugin 'jiangmiao/auto-pairs'
 " | Completion                                                          |
 " ----------------------------------------------------------------------
 Plugin 'shawncplus/phpcomplete.vim'
-"
 Plugin '2072/PHP-Indenting-for-VIm'
 Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plugin 'Shougo/echodoc.vim'

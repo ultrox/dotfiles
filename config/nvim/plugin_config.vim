@@ -1,3 +1,4 @@
+let g:echodoc#enable_at_startup	= 1
 "===========================================================
 " => "Surround" tpope indeed
 "===========================================================
@@ -34,25 +35,23 @@ set completeopt-=preview
 " set completeopt=menuone,noinsert,noselect
 
 
+let g:deoplete#keyword_patterns = {}
+let g:deoplete#sources = {}
+let g:deoplete#omni_patterns = {}
+let g:deoplete#omni#input_patterns = {}
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
-
-" let g:deoplete#omni#functions = {}
 
 " let g:deoplete#omni#functions.javascript = 'jspc#omni' "[
 "   " \ 'tern#Complete',
 "   " 'jspc#omni'
 " " ]
-let g:deoplete#sources = {}
+
 let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'buffer']
-
-" Define keyword
-if !exists('g:deoplete#keyword_patterns')
-    let g:deoplete#keyword_patterns = {}
-endif
-
-let g:deoplete#omni#input_patterns = {}
+" Will make omni autosuggest all the time, I prefer triggering it on my own
+" let g:deoplete#omni_patterns.javascript = '[^. \t]\.\%(\h\w*\)\?'
 " let g:deoplete#keyword_patterns.default = '[a-zA-Z_]\w{2,}?'
+let g:deoplete#enable_ignore_case = 'ignorecase'
 
 " let g:deoplete#omni_patterns.php = '\h\w*\|[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
 
