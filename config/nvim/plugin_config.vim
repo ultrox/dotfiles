@@ -140,7 +140,7 @@ omap <leader><tab> <plug>(fzf-maps-o)
 
 " Insert mode completion
 imap <c-x><c-k> <plug>(fzf-complete-word)
-imap <c-k> <plug>(fzf-complete-file-ag)
+imap <c-f> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
 " Use fuzzy completion relative filepaths across directory
@@ -150,6 +150,7 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 
 nnoremap <silent> <F2> :History -m<cr>
 nnoremap <silent> <F3> :FZF -m<cr>
+
 command! FZFMru call fzf#run({
 			\  'source':  v:oldfiles,
 			\  'sink':    'e',
