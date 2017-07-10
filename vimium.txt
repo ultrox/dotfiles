@@ -14,8 +14,12 @@ map o Vomnibar.activateInNewTab
 map O Vomnibar.activate
 
 # Make tab changes like buffer in vim
+
 unmap K
 unmap J
+# bad habits to scroll if u use vim
+unmap j
+unmap k
 map <c-n> nextTab
 map <c-p> previousTab
 map af LinkHints.activateModeWithQueue
@@ -27,11 +31,8 @@ unmap u
 unmap d
 map <c-u> scrollPageUp
 map <c-d> scrollPageDown
-
-# bad habits to scroll if u use vim
-unmap j
-unmap k
-
+unmap <c-p>
+unmap <c-n>
 # make it anoying and your habbit will change
-map j showHelp
-map k showHelp
+unmap F
+map F LinkHints.activateModeWithQueue
