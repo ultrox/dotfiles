@@ -2,7 +2,6 @@ call plug#begin('~/.config/nvim/plugged')
 " ----------------------------------------------------------------------
 " | Other Plugins Not Specific                                         |
 " ----------------------------------------------------------------------
-
 runtime macros/matchit.vim
 Plug 'sickill/vim-pasta' " context-aware pasting
 Plug 'AndrewRadev/splitjoin.vim'
@@ -92,8 +91,11 @@ Plug 'jiangmiao/auto-pairs'
 " ----------------------------------------------------------------------
 " | Completion                                                          |
 " ----------------------------------------------------------------------
-
+" Plug 'shawncplus/phpcomplete.vim'
+"
+" Plug '2072/PHP-Indenting-for-VIm'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/echodoc.vim'
 " Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
 " Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }

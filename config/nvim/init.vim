@@ -55,7 +55,7 @@ set t_Co=256
 let g:solarized_termcolors=16
 let g:solarized_termtrans=1
 colorscheme solarized
-" set noshowmode              " don't show which mode disabled for PowerLine
+set noshowmode              " don't show which mode disabled for PowerLine echodocs
 
 "UI end
 "-s-------------------------------------------------------------------------
@@ -244,4 +244,3 @@ source ~/.config/nvim/autocmd.vim
 source ~/.config/nvim/m-func.vim
 source ~/.config/nvim/m-keymap.vim
 source ~/.config/nvim/plugin_config.vim
-

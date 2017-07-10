@@ -1,4 +1,6 @@
 " cmap w!! w !sudo tee % >/dev/null
+"  
+inoremap <c-o> <C-x><C-o>
 
 " map <F4> :cd %:h<CR>
 nnoremap <leader>q :bw!<cr>
@@ -83,6 +85,7 @@ imap <silent> <A-k> _
 imap <silent> <A-d> _
 imap <silent> <A-K> -
 imap <silent> <A-D> -
+
 
 " Change inside various enclosures with Alt-" and Alt-'
 " The f makes it find the enclosure so you don't have
@@ -264,4 +267,5 @@ noremap gV `[v`]
 " INDENTING
 nnoremap <leader>f mzgg=G`z
 
+ 
 

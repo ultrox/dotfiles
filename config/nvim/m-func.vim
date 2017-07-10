@@ -1,4 +1,5 @@
 " http://vim.wikia.com/wiki/Copy_search_matches
+
 function! CopyMatches(reg)
   let hits = []
   %s//\=len(add(hits, submatch(0))) ? submatch(0) : ''/ge

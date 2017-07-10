@@ -18,8 +18,14 @@ augroup configgroup
 
     " automatically resize panes on resize
     autocmd VimResized * exe 'normal! \<c-w>='
-    autocmd BufWritePost .vimrc,.vimrc.local,init.vim,autocmd.vim,plugin_config.vim source %
-    autocmd BufWritePost .vimrc.local source %
+
+    autocmd BufWritePost init.vim source %
+		autocmd BufWritePost autocmd.vim source %
+		autocmd BufWritePost m-func.vim source %
+		autocmd BufWritePost m-keymap.vim source % 
+		autocmd BufWritePost plugin_config.vim source %
+		autocmd BufWritePost plugins.vim source %
+
     " save all files on focus lost, ignoring warnings about untitled buffers
     autocmd FocusLost * silent! wa
 
