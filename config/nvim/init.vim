@@ -144,8 +144,8 @@ set background=dark
 set noswapfile      " usless no swap
 set backup
 set nowb
-set backupdir=~/.vim/tmp/backup// " backups
-set directory=~/.vim/tmp/swap//   " swap files
+set backupdir=~/.nvim/tmp/backup// " backups
+set directory=~/.nvim/tmp/swap//   " swap files
 
 
 "thanks boy http://howivim.com/2016/damian-conway/
@@ -155,7 +155,7 @@ set directory=~/.vim/tmp/swap//   " swap files
 if has('persistent_undo')
     set undolevels=5000
     set undoreload=10000
-    set undodir=~/.vim/tmp/undo//     " undo files
+    set undodir=~/.nvim/tmp/undo//     " undo files
     set undofile
 endif
 
