@@ -33,4 +33,6 @@ autoload bashcompinit
 bashcompinit
 #source "/Users/markovujanic/dotfiles/.wp-completion.bash"
 
+eval "$(fasd --init auto)"
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
