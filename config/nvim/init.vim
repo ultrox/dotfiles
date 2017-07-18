@@ -3,7 +3,7 @@ source ~/.config/nvim/plugins.vim
 " ------------------------------------
 " Typing key combos - Try this, not tested
 " ------------------------------------
-let g:python_host_prog = '/usr/bin/python'
+let g:python_host_prog = '/usr/local/opt/python/libexec/bin/python'
 let g:python3_host_prog = '/usr/local/bin/python3'
 " let g:python_host_prog='/usr/local/bin/python2'
 

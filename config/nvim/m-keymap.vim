@@ -114,6 +114,9 @@ map <Leader>ee :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
 "[<leader>vr ] Reload, edit and source vim config
 nmap <leader>vr :so $MYVIMRC<CR>
 
+nmap <leader>et :e ~/dotfiles/tmux/tmux.conf.symlink<CR>
+nmap <leader>ea :e ~/dotfiles/aliases.zsh<CR>
+
 nmap <leader>ev :e $MYVIMRC<CR>
 nmap <leader>es :UltiSnipsEdit<CR>
 
