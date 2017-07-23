@@ -4,6 +4,7 @@
 call plug#begin('~/.nvim/plugged')
 
 runtime macros/matchit.vim
+
 Plug 'sickill/vim-pasta' " context-aware pasting
 Plug 'AndrewRadev/splitjoin.vim'
 " Plug 'godlygeek/tabular'
@@ -11,6 +12,8 @@ Plug 'junegunn/vim-easy-align'
 Plug 'tommcdo/vim-exchange'
 " Plug 'easymotion/vim-easymotion'
 Plug 'rking/ag.vim'        "=> Even faster then very fast
+" Experimental
+Plug 'wellle/targets.vim'
 " ----------------------------------------------------------------------
 " | User Interface                                                     |
 " ----------------------------------------------------------------------

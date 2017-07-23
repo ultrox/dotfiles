@@ -25,7 +25,16 @@ function! ClearRegisters()
         let i=i+1
     endwhile
 endfunction
- 
+
+function! Tooglefiletype() 
+	let file11='php'
+	if file11=='php'
+		echo exec 'marko'
+	else 
+		echo 'nothing'
+	endif
+endfunction
+
 " Use Q to intelligently close a window
 " (if there are multiple windows into the same buffer)
 " or kill the buffer entirely if it's the last window looking into that buffer
