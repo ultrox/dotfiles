@@ -58,7 +58,7 @@ alias gs="git status"
 function ignore() { echo $1 >> .gitignore } 
 alias rmf="rm -rf"
 alias rm=trash
-alias myip="ipconfig getifaddr en1"
+alias myip="ipconfig getifaddr en5"
 
 
 # Dev specific
@@ -98,9 +98,10 @@ alias ta='tmux attach'
 alias tls='tmux ls'
 alias tat='tmux attach -t'
 alias tns='tmux new-session -s'
-
+# updating tldr
+alias 'tldru'='~/.tldr/cache/update.sh'
 # git 
 alias gc="git commit -am"
 # create new dir and cd into it
 function take () { mkdir -p "$@" && cd "$@"; }
-
+alias nrb="node run build"

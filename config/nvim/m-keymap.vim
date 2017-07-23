@@ -115,13 +115,14 @@ map <Leader>ee :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
 nmap <leader>vr :so $MYVIMRC<CR>
 
 nmap <leader>ev :e $MYVIMRC<CR>
+nmap <leader>et :e /Users/ultrox/.tmux.conf <CR>
+nmap <leader>ea :e /Users/ultrox/dotfiles/aliases.zsh<CR>
 nmap <leader>es :UltiSnipsEdit<CR>
 
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 "======================================================================
-"=> Search / Repace / Highlite
+"=> Search / Repace / Highlite / Prebaci u novi VIM
 "======================================================================
-
 
 noremap <BS> :noh<cr>
 " nnoremap <Leader>i i![<C-R>+](/Users/ultrox/Google%20Drive/LearnNodeGifs/<C-R>+)<Enter><esc>
@@ -133,6 +134,14 @@ noremap <F5> :!open -a "Google Chrome" '%'<CR>
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//<Left>
 vmap <Leader>s "py :%s/\<<C-r>p\>//<Left>
 
+" bind \ (backward slash) to grep shortcut - bolje sa ack optimiziraniji za rad sa kodom
+" 
+command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+nnoremap \ :Ag<SPACE>
+" vmap \ "py :Ag/\<<C-r>p
+vmap \ "py :Ag <C-r>p<CR>
+" vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+
 " nnoremap <expr> <Leader>ss ':%s/\<'.expand('<cword>').'\>/<&>/g<CR>'
 
 " [<leader> / ] search for word under the cursor
@@ -140,9 +149,6 @@ nnoremap <leader>/ "fyiw :/<c-r>f<cr>
 
 " Mislim da je ovo u fajlovima pretrazivanje
 
-" bind \ (backward slash) to grep shortcut - bolje sa ack optimiziraniji za rad sa kodom
-command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-nnoremap \ :Ag<SPACE>
 
 " bind K to grep word under cursor
 " nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
@@ -183,8 +189,8 @@ nnoremap <silent> Q :call CloseWindowOrKillBuffer()<CR>
 nmap <leader>. <c-^>
 
 " Traverse thrue the buffers - do this with pope
-" nnoremap <silent> <C-P> :bprev<CR>
-" nnoremap <silent> <C-N> :bnext<CR>
+" nnoremap <silent> <C-}> :bprev<CR>
+" nnoremap <silent> <C-{ vbnext<CR>
 
 " nnoremap <down> <c-w>j
 " nnoremap <up> <c-w>k
@@ -255,8 +261,11 @@ noremap gV `[v`]
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 " EXPERIMENTAL - to sto testiram ovdje
 "======================================================================
-" autocmd FileType javascript imap <buffer> <A-u> }
-" autocmd FileType javascript imap <buffer> <A-i> {
+nnoremap <silent> <F8> :setlocal filetype=php<CR>
+nnoremap <silent> <F9> :setlocal filetype=html<CR>
+
+autocmd FileType javascript imap <buffer> <A-u> }
+autocmd FileType javascript imap <buffer> <A-i> {
 " autocmd FileType javascript inoremap ;; <END>;
 " autocmd FileType javascript inoremap ,, <END>,
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -264,4 +273,4 @@ noremap gV `[v`]
 nnoremap <leader>f mzgg=G`z
 
  
-
+"EXPERIMENTAL 

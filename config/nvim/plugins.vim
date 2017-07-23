@@ -4,6 +4,9 @@ call vundle#begin('~/.cache/plugins')
 " | Other Plugins Not Specific                                         |
 " ----------------------------------------------------------------------
 runtime macros/matchit.vim
+" Experimental
+Plugin 'wellle/targets.vim'
+
 Plugin 'sickill/vim-pasta' " context-aware pasting
 Plugin 'AndrewRadev/splitjoin.vim'
 " Plugin 'godlygeek/tabular'
