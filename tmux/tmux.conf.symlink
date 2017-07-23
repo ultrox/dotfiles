@@ -15,9 +15,8 @@ unbind w
 unbind l # ex - last window
 bind-key r source-file ~/.tmux.conf \; display-message "Tmux reloaded"
 #https://mutelight.org/practical-tmux
+
 bind-key -n 'M-`' run "tmux split-window -p 40 'tmux send-keys -t #{pane_id} \"$(locate / | fzf -m | paste -sd\\  -)\"'"
-bind-key -n F9 next-window	
-bind-key -n F8 previous-window
 # ponasaj se kao vim
 setw -g mode-keys vi
 # Kao vim da radi full screen
@@ -28,8 +27,8 @@ setw -g mode-keys vi
 # more settings to make copy-mode more vim-like
 bind Escape copy-mode # <prefix> + <Esc>
 bind p paste-buffer
-bind -t vi-copy 'v' begin-selection
-bind -t vi-copy 'y' copy-selection
+#bind -t vi-copy 'v' begin-selection
+#bind -t vi-copy 'y' copy-selection
 
 #### COPY MODE  ####
 

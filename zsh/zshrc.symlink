@@ -35,6 +35,7 @@ bashcompinit
 
 eval "$(fasd --init auto)"
 
+# first added by brew second added by python
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
