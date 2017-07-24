@@ -99,9 +99,12 @@ alias tls='tmux ls'
 alias tat='tmux attach -t'
 alias tns='tmux new-session -s'
 # updating tldr
-alias 'tldru'='~/.tldr/cache/update.sh'
+alias 'tldru'='~/.tldrc/tldr-master/update.sh'
 # git 
 alias gc="git commit -am"
 # create new dir and cd into it
 function take () { mkdir -p "$@" && cd "$@"; }
 alias nrb="node run build"
+
+export VISUAL=nvim
+export EDITOR="$VISUAL"

@@ -62,6 +62,10 @@ set -s escape-time 0                      # fastest command sequences
 # Themes
 source ~/dotfiles/tmux/theme.sh
 
+set -g @open-D 'https://www.duckduckgo.com/'
+set -g @open-B 'https://www.bing.com/search?q='
+set -g @open-S 'https://www.google.com/search?q='
+
 # Local config
 if-shell "[ -f ~/.tmux.local ]" 'source ~/.tmux.local'
 
@@ -72,6 +76,8 @@ set -g @plugin 'christoomey/vim-tmux-navigator'
 set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-continuum'
+set -g @plugin 'tmux-plugins/tmux-open'
+
 # Other examples:
 # set -g @plugin 'github_username/plugin_name'
 # set -g @plugin 'git@github.com/user/plugin'

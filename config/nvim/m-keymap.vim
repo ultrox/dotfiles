@@ -116,7 +116,7 @@ nmap <leader>vr :so $MYVIMRC<CR>
 
 nmap <leader>et :e ~/dotfiles/tmux/tmux.conf.symlink<CR>
 nmap <leader>ea :e ~/dotfiles/aliases.zsh<CR>
-
+nmap <Leader>ew <Plug>VimwikiIndex
 nmap <leader>ev :e $MYVIMRC<CR>
 nmap <leader>et :e /Users/ultrox/.tmux.conf <CR>
 nmap <leader>ea :e /Users/ultrox/dotfiles/aliases.zsh<CR>
