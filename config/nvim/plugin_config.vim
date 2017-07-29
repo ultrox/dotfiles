@@ -102,7 +102,7 @@ autocmd! BufWritePost,BufEnter * Neomake
 let g:neomake_logfile='/tmp/error.log'
 
 let g:neomake_javascript_enabled_makers = ['eslint'] "eslint
-
+let g:neomake_javascript_eslint_exe = $PWD .'/node_modules/.bin/eslint'
 "===========================================================
 " => FZF & NerdTree
 "===========================================================

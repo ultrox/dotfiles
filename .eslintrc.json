@@ -1,0 +1,16 @@
+{
+	"extends": "airbnb-base",
+	"rules": {
+		"indent": [2, "tab"],
+		"no-console": 0,
+		"no-tabs": 0,
+		"quotes": 0
+	},
+	"globals": {
+		"jQuery": true,
+		"ajax_object": false
+	},
+	"env": {
+		"browser": true
+	}
+}

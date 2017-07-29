@@ -4,7 +4,6 @@
 call plug#begin('~/.nvim/plugged')
 
 runtime macros/matchit.vim
-
 Plug 'sickill/vim-pasta' " context-aware pasting
 Plug 'AndrewRadev/splitjoin.vim'
 " Plug 'godlygeek/tabular'
@@ -80,6 +79,7 @@ Plug 'kana/vim-textobj-user'
 " Plug 'vim-scripts/Toggle'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'Xuyuanp/nerdtree-git-plugin' 
+Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
