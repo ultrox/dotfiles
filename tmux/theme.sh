@@ -61,4 +61,4 @@ tm_host="#[fg=$tm_color_feature,bold]#h"
 tm_session_name="#[fg=$tm_color_feature,bold]$tm_icon #S"
 set -g status-left $tm_session_name' '
 set -g status-right $tm_date' '$tm_host
-set -g status-right '#{prefix_highlight} | %a %Y-%m-%d %H:%M'
+set -g status-right '#{prefix_highlight} Batt: #{battery_percentage} #{battery_remain} | %a %h-%d %H:%M '
