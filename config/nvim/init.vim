@@ -184,8 +184,8 @@ set smarttab             "postuje vrijednosti 'tabstop','shiftwidth' and 'softta
 set tabstop=2            "Podesi vidljivu sirinu taba (velicina je sirina slova)
 set shiftwidth=2         "Koliko ce tekst biti indentovan kad se reindentira << >>
 set softtabstop=2        "Precizno podesi koliko 'whitespace' ce se ubaciti
-"set expandtab           "Koristi space umjesto taba
-set noexpandtab          "Koristi Tabove umjesto space
+set expandtab           "Koristi space umjesto taba
+" set noexpandtab          "Koristi Tabove umjesto space
 set wrapmargin=8         "wrap lines when coming within n characters from side
 
 filetype plugin on
@@ -239,6 +239,8 @@ set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
 set statusline+=\[%{&fileformat}\]
 set statusline+=\ %p%%
 set statusline+=\ %l:%c
+
+autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 expandtab
 " set statusline+=\ 
 source ~/.config/nvim/autocmd.vim
 source ~/.config/nvim/m-func.vim
