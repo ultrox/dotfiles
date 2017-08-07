@@ -241,6 +241,7 @@ set statusline+=\ %p%%
 set statusline+=\ %l:%c
 
 autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 expandtab
+
 " set statusline+=\ 
 source ~/.config/nvim/autocmd.vim
 source ~/.config/nvim/m-func.vim

@@ -23,6 +23,23 @@ nmap <bs> :<c-u>TmuxNavigateLeft<cr>
 "Giving much more power to dot command(cn cp, bp,bn)
 nnoremap <M-.> @:
 
+fu! RelativePathString(file)
+    if strlen(a:file) == 0
+        retu "[No Name]"
+    en
+    let common = getcwd()
+    let result = ""
+    while substitute(a:file, common, '', '') ==# a:file
+        let common = fnamemodify(common, ':h')
+        let result = ".." . (empty(result) ? '' : '/' . result)
+    endw
+    let forward = substitute(a:file, common, '', '')
+    if !empty(result) && !empty(forward)
+        retu result . forward
+    elsei !empty(forward)
+        retu forward[1:]
+    en
+endf
 
 " ----------------------------------------------------------------------
 " | Jednostavnija Okruzivanja sa Leaderom tpope/vim-surround           |
@@ -275,5 +292,6 @@ autocmd FileType javascript imap <buffer> <A-i> {
 " INDENTING
 nnoremap <leader>f mzgg=G`z
 
+inoremap jk <esc>
  
 "EXPERIMENTAL 

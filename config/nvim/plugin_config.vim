@@ -101,8 +101,9 @@ autocmd! BufWritePost,BufEnter * Neomake
 " let g:neomake_verbose=3
 let g:neomake_logfile='/tmp/error.log'
 
-let g:neomake_javascript_enabled_makers = ['eslint'] "eslint
-" let g:neomake_javascript_eslint_exe = $PWD .'/node_modules/.bin/eslint'
+" let g:neomake_javascript_enabled_makers = ['eslint'] "eslint
+let g:neomake_javascript_eslint_exe = $PWD .'/node_modules/.bin/eslint'
+
 "===========================================================
 " => FZF & NerdTree
 "===========================================================
@@ -266,5 +267,4 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.js,*.jsx, *.php"
 "let g:airline#extensions#tabline#show_buffers = 0 " do not show open buffers in tabline
 
 " let g:airline#extensions#tabline#show_splits = 0
-
 

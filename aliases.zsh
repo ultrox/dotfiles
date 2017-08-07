@@ -1,6 +1,5 @@
-alias hibernateon="sudo pmset -a hibernatemode 25"
-alias hibernateoff="sudo pmset -a hibernatemode 3"
-
+alias ubuntu="ssh -i /Users/markovujanic/Desktop/TrackerTest.pem ubuntu@52.59.227.141"
+alias vim='nvim' # fixing muscle memory on every server I enter
 bindkey \^U backward-kill-line
 # customizing less go give it more color also lessfilter in dotfiles must be chmod u+x
 export LESS='-R'
