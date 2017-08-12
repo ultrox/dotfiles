@@ -1,4 +1,5 @@
 alias ubuntu="ssh -i /Users/markovujanic/Desktop/TrackerTest.pem ubuntu@52.59.227.141"
+alias cleardns="sudo killall -HUP mDNSResponder"
 alias vim='nvim' # fixing muscle memory on every server I enter
 bindkey \^U backward-kill-line
 # customizing less go give it more color also lessfilter in dotfiles must be chmod u+x
@@ -9,6 +10,8 @@ export LESSOPEN='|~/.lessfilter %s'
 alias zshedit="vim ~/.zshrc"
 alias aliasedit="vim ~/.alias.zsh"
 alias r!="source ~/.zshrc;echo done"
+# clone repository with default webpack settings to start developing ec6 
+function gojs() {git clone https://github.com/ultrox/w $1}
 
 # find code definition with this
 alias ick='ack -i --pager="less -R -S -X"'
