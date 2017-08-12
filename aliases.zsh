@@ -11,7 +11,7 @@ alias zshedit="vim ~/.zshrc"
 alias aliasedit="vim ~/.alias.zsh"
 alias r!="source ~/.zshrc;echo done"
 # clone repository with default webpack settings to start developing ec6 
-function gojs() {git clone https://github.com/ultrox/w $1}
+function gojs() {git clone https://github.com/ultrox/w $1 && cd $1 && npm install}
 
 # find code definition with this
 alias ick='ack -i --pager="less -R -S -X"'
