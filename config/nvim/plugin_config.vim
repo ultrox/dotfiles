@@ -196,9 +196,10 @@ noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 10, 4)<CR>
 nmap ga <Plug>(EasyAlign)
 vmap <Enter> <Plug>(EasyAlign)
 
-nnoremap <Leader>l :Dash <C-r><C-w> 
-vmap <Leader>l "py :Dash <C-r>p
-
+" nnoremap <Leader>l :Dash <C-r><C-w> 
+" vmap <Leader>l "py :Dash <C-r>p
+" map  <Leader>l <Plug>(easymotion-bd-f)
+nmap <Leader>l <Plug>(easymotion-overwin-f)
 
 "===========================================================
 " => VimWiki

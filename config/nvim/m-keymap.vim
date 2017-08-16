@@ -209,8 +209,9 @@ nnoremap <silent> Q :call CloseWindowOrKillBuffer()<CR>
 nmap <leader>. <c-^>
 
 " Traverse thrue the buffers - do this with pope
-" nnoremap <silent> <C-}> :bprev<CR>
-" nnoremap <silent> <C-{ vbnext<CR>
+nnoremap <silent> <f8> :bprev<CR>
+nnoremap <silent> <f9> :bprev<CR>
+" nnoremap <silent> <c-k> vbnext<CR>
 
 " nnoremap <down> <c-w>j
 " nnoremap <up> <c-w>k
@@ -281,8 +282,8 @@ noremap gV `[v`]
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 " EXPERIMENTAL - to sto testiram ovdje
 "======================================================================
-nnoremap <silent> <F8> :setlocal filetype=php<CR>
-nnoremap <silent> <F9> :setlocal filetype=html<CR>
+" nnoremap <silent> <F8> :setlocal filetype=php<CR>
+" nnoremap <silent> <F9> :setlocal filetype=html<CR>
 
 autocmd FileType javascript imap <buffer> <A-u> }
 autocmd FileType javascript imap <buffer> <A-i> {

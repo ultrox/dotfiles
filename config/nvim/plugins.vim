@@ -10,7 +10,7 @@ Plug 'AndrewRadev/splitjoin.vim'
 " Plug 'godlygeek/tabular'
 Plug 'junegunn/vim-easy-align'
 Plug 'tommcdo/vim-exchange'
-" Plug 'easymotion/vim-easymotion'
+Plug 'easymotion/vim-easymotion'
 Plug 'rking/ag.vim'        "=> Even faster then very fast
 " Experimental
 Plug 'wellle/targets.vim'
@@ -62,19 +62,19 @@ Plug 'vim-scripts/tinykeymap'
 Plug 'terryma/vim-smooth-scroll'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'kana/vim-textobj-user'
-			\| Plug 'machakann/vim-textobj-delimited'
-			\| Plug 'kana/vim-textobj-entire'
-			\| Plug 'Chun-Yang/vim-textobj-chunk'
-			\| Plug 'kana/vim-textobj-indent'
-			\| Plug 'kana/vim-textobj-line'
-			\| Plug 'mattn/vim-textobj-url'
-			\| Plug 'rhysd/vim-textobj-conflict'
-			\| Plug 'glts/vim-textobj-comment', { 'for': [ 'javascript', 'php' ] }
-			\| Plug 'jasonlong/vim-textobj-css',
-			\   { 'for': [ 'css', 'sass', 'scss' ] }
-			\| Plug 'kana/vim-textobj-function'
-			\| Plug 'thinca/vim-textobj-function-javascript',
-			\   { 'for': [ 'javascript' ] }
+      \| Plug 'machakann/vim-textobj-delimited'
+      \| Plug 'kana/vim-textobj-entire'
+      \| Plug 'Chun-Yang/vim-textobj-chunk'
+      \| Plug 'kana/vim-textobj-indent'
+      \| Plug 'kana/vim-textobj-line'
+      \| Plug 'mattn/vim-textobj-url'
+      \| Plug 'rhysd/vim-textobj-conflict'
+      \| Plug 'glts/vim-textobj-comment', { 'for': [ 'javascript', 'php' ] }
+      \| Plug 'jasonlong/vim-textobj-css',
+      \   { 'for': [ 'css', 'sass', 'scss' ] }
+      \| Plug 'kana/vim-textobj-function'
+      \| Plug 'thinca/vim-textobj-function-javascript',
+      \   { 'for': [ 'javascript' ] }
 
 
 " Plug 'vim-scripts/Toggle'
