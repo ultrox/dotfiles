@@ -1,3 +1,4 @@
+# https://github.com/honza/vim-snippets/tree/master/UltiSnips
 global !p
 def x(snip):
 	if snip.ft.startswith("x"):
@@ -20,7 +21,7 @@ snippet html "HTML basic structure" b
 	</html>
 endsnippet
 
-snippet scriptsrc "HTML <script src...>" w
+snippet script "HTML <script src...>" w
 <script src="$1" charset="${3:utf-8}"></script>
 endsnippet
 
@@ -46,4 +47,14 @@ endsnippet
 
 snippet jquery "include jquery"
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/${1:3.2.1}/jquery.min.js"></script>$0
+endsnippet
+
+snippet select "Select Box" w
+<select name="${1:some_name}" id="${2:$1}"${3:${4: multiple}${5: size="${6:1}"}}>
+	${0:${VISUAL}}
+</select>
+endsnippet
+
+snippet option "Option" w
+<option${1: value="${2:option}"}>${3:$2}</option>
 endsnippet

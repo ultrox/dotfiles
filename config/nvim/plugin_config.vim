@@ -221,12 +221,12 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.js,*.jsx, *.php"
 "===========================================================
 " => Markdown Preview
 "===========================================================
-" let vim_markdown_preview_hotkey='<C-m>'
-" let vim_markdown_preview_browser='Google Chrome'
+let vim_markdown_preview_hotkey='<C-m>'
+let vim_markdown_preview_browser='Google Chrome'
 " Makes markdown preview on file save and some other performance vs confort 
-" let g:instant_markdown_slow = 1
+let g:instant_markdown_slow = 1
 " Open markdown files with Chrome.
-" autocmd BufEnter *.md exe 'noremap <F5> :!open -a "Google Chrome" "%"<CR>'
+autocmd BufEnter *.md exe 'noremap <F5> :!open -a "Google Chrome" "%"<CR>'
 
 "===========================================================
 " => Ctags + Tagbar
@@ -269,3 +269,4 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.js,*.jsx, *.php"
 
 " let g:airline#extensions#tabline#show_splits = 0
 
+nnoremap <leader> q :bp\|bd # <CR>

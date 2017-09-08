@@ -3,7 +3,6 @@
 inoremap <c-o> <C-x><C-o>
 
 " map <F4> :cd %:h<CR>
-nnoremap <leader>q :bw!<cr>
 nmap <bs> :<c-u>TmuxNavigateLeft<cr>
 
 "Fixing command line in vim
@@ -196,7 +195,7 @@ map <leader>w :w<cr>
 nnoremap <leader>x :x<cr>
 nnoremap <leader>X :q!<cr>
 
-nnoremap <silent> Q :call CloseWindowOrKillBuffer()<CR>
+" nnoremap <silent> Q :call CloseWindowOrKillBuffer()<CR>
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 " disable Ex mode =>>> Curently smart close
@@ -208,6 +207,10 @@ nnoremap <silent> Q :call CloseWindowOrKillBuffer()<CR>
 " [<leader> + . ] switch between current and last buffer
 nmap <leader>. <c-^>
 
+" nnoremap <C-c> :bp\|bd #<CR>
+" nnoremap <leader> q :bp\|bd #<CR>
+nnoremap <leader> q :bp\|bd # <CR>
+" nnoremap <leader>q :bw!<cr>
 " Traverse thrue the buffers - do this with pope
 nnoremap <silent> <f8> :bprev<CR>
 nnoremap <silent> <f9> :bprev<CR>
@@ -296,3 +299,5 @@ nnoremap <leader>f mzgg=G`z
 inoremap jk <esc>
  
 "EXPERIMENTAL 
+
+nnoremap <leader> q :bp\|bd # <CR>

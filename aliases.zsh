@@ -110,3 +110,7 @@ alias nrb="node run build"
 
 export VISUAL=nvim
 export EDITOR="$VISUAL"
+
+# Docker
+function dockerstop() { docker stop $(docker ps -q --filter ancestor=$1)}
+

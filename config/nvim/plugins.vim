@@ -56,6 +56,7 @@ Plug 'digitaltoad/vim-pug'					   "=> Prije se zvao Jade
 " ----------------------------------------------------------------------
 " | Hellpers                                                           |
 " ----------------------------------------------------------------------
+Plug 'suan/vim-instant-markdown'
 Plug 'rizzatti/dash.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'vim-scripts/tinykeymap'
