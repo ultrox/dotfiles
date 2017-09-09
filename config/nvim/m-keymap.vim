@@ -209,7 +209,6 @@ nmap <leader>. <c-^>
 
 " nnoremap <C-c> :bp\|bd #<CR>
 " nnoremap <leader> q :bp\|bd #<CR>
-nnoremap <leader> q :bp\|bd # <CR>
 " nnoremap <leader>q :bw!<cr>
 " Traverse thrue the buffers - do this with pope
 nnoremap <silent> <f8> :bprev<CR>
@@ -300,4 +299,11 @@ inoremap jk <esc>
  
 "EXPERIMENTAL 
 
-nnoremap <leader> q :bp\|bd # <CR>
+" nnoremap <leader> c  :bp\|bd # <CR>
+
+:tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
+" :tnoremap <Esc> <C-\><C-n>
+
+" Use | and _ to split windows (while preserving original behaviour of [count]bar and [count]_).
+" nnoremap <expr><silent> <Bar> v:count == 0 ? "<C-W>v<C-W><Right>" : ":<C-U>normal! 0".v:count."<Bar><CR>"
+" nnoremap <expr><silent> _     v:count == 0 ? "<C-W>s<C-W><Down>"  : ":<C-U>normal! ".v:count."_<CR>"

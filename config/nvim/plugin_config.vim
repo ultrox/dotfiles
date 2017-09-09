@@ -30,9 +30,6 @@ let g:UltiSnipsSnippetsDir="~/.config/nvim/UltiSnips"
 "===========================================================
 " => Setting up DeoPlate
 "===========================================================
-set completeopt-=preview
-" set completeopt=longest,menuone,preview
-" set completeopt=menuone,noinsert,noselect
 
 
 let g:deoplete#keyword_patterns = {}
@@ -42,19 +39,25 @@ let g:deoplete#omni#input_patterns = {}
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
 
-" let g:deoplete#omni#functions.javascript = 'jspc#omni' "[
-"   " \ 'tern#Complete',
-"   " 'jspc#omni'
-" " ]
+let g:deoplete#omni#functions = {}
+let g:deoplete#omni#functions.javascript = [
+  \ 'tern#Complete',
+  \ 'jspc#omni'
+\]
 
-let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'buffer']
+" set completeopt=longest,menuone,preview
+" set completeopt-=preview
+let g:deoplete#sources = {}
+let g:deoplete#sources['javascript.jsx'] = ['buffer', 'ultisnips', 'ternjs']
+let g:tern#command = ['tern']
+let g:tern#arguments = ['--persistent']
+" let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'buffer']
 " Will make omni autosuggest all the time, I prefer triggering it on my own
 " let g:deoplete#omni_patterns.javascript = '[^. \t]\.\%(\h\w*\)\?'
 " let g:deoplete#keyword_patterns.default = '[a-zA-Z_]\w{2,}?'
-let g:deoplete#enable_ignore_case = 'ignorecase'
+" let g:deoplete#enable_ignore_case = 'ignorecase'
 
 " let g:deoplete#omni_patterns.php = '\h\w*\|[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
-
 " omnifuncs
 " augroup omnifuncs
 "  autocmd!
@@ -65,18 +68,15 @@ let g:deoplete#enable_ignore_case = 'ignorecase'
 "  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " augroup end
 
+" tern
+if exists('g:plugs["tern_for_vim"]')
+ let g:tern_show_argument_hints = 'on_hold'
+ let g:tern_show_signature_in_pum = 1
+ autocmd FileType javascript setlocal omnifunc=tern#Complete
+endif
+
 "" tern
-"if exists('g:plugs["tern_for_vim"]')
-"  let g:tern_show_argument_hints = 'on_hold'
-"  let g:tern_show_signature_in_pum = 1
-"  autocmd FileType javascript setlocal omnifunc=tern#Complete
-"endif
-"
-"" tern
-"autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
-" "If you are using tern-for-vim this is recomended
-" let g:tern#command = ['tern']
-" let g:tern#arguments = ['--persistent']
+autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
 
 " if !exists('g:deoplete#omni#input_patterns')
 " 	let g:deoplete#omni#input_patterns = {}
@@ -85,25 +85,36 @@ let g:deoplete#enable_ignore_case = 'ignorecase'
 " let g:deoplete#omni#functions = {}
 "
 
-" "autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 "===========================================================
-" => NeoMake and syntax - async linting
+" => Ale config and syntax - async linting lint
 "===========================================================
-" neomake
+" let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5'
+nnoremap gp :silent %!prettier --stdin --trailing-comma all  --tab-width 4<CR>
+
+let g:ale_sign_error = 'x'
+" Quck location
 nmap <Leader><Space>o :lopen<CR>      " open location window
 nmap <Leader><Space>c :lclose<CR>     " close location window
 nmap <Leader><Space>, :ll<CR>         " go to current error/warning
 nmap <Leader><Space>n :lnext<CR>      " next error/warning
 nmap <Leader><Space>p :lprev<CR>      " previous error/warning
 
-autocmd! BufWritePost,BufEnter * Neomake
-" let g:neomake_verbose=3
-let g:neomake_logfile='/tmp/error.log'
+"===========================================================
+" => NeoFormat & Prettier
+"===========================================================
 
-" let g:neomake_javascript_enabled_makers = ['eslint'] "eslint
-let g:neomake_javascript_eslint_exe = $PWD .'/node_modules/.bin/eslint'
+let g:neoformat_only_msg_on_error = 1
+let g:neoformat_javascript_prettier = {
+            \ 'exe': 'prettier',
+            \ 'args': ['--trailing-comma all', '--tab-width 4'],
+            \ 'stdin': 1, 
+            \ 'no_append': 1,
+            \ }
 
+nnoremap gp :Neoformat<CR>
+" autocmd BufWritePre *.js Neoformat
 "===========================================================
 " => FZF & NerdTree
 "===========================================================
@@ -268,5 +279,3 @@ autocmd BufEnter *.md exe 'noremap <F5> :!open -a "Google Chrome" "%"<CR>'
 "let g:airline#extensions#tabline#show_buffers = 0 " do not show open buffers in tabline
 
 " let g:airline#extensions#tabline#show_splits = 0
-
-nnoremap <leader> q :bp\|bd # <CR>

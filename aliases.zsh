@@ -38,9 +38,14 @@ function randomimage() {wget -O ${1-randomimage.jpg} http://lorempixel.com/400/2
 alias babelrc="echo '{ \"presets\": [\"react\",\"es2015\"] }' > .babelrc"
 
 function genbabel() {
- npm i babel-core babel-loader babel-preset-es2015 babel-preset-react -D;
-echo '{ "presets": ["react","es2015"] }' > .babelrc
+npm i babel-core babel-cli babel-loader babel-preset-es2015 -D;
+echo '{ "presets": ["es2015"], {modules: false} }' > .babelrc
 } 
+
+function geneslint() {
+npm i eslint babel-eslint;
+cp ~/dotfiles/eslint-template.js .eslintrc.js
+}
 
 alias killdir="mkdir ../.tmp_to_remove && mv -- * ../.tmp_to_remove && rm -rf ../.tmp_to_remove &"
 

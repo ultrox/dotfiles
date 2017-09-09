@@ -25,6 +25,11 @@ snippet script "HTML <script src...>" w
 <script src="$1" charset="${3:utf-8}"></script>
 endsnippet
 
+snippet script "HTML <script></script>" w
+<script>
+	$1
+</script>
+endsnippet
 snippet form "HTML <form>" w
 <form action="${1:`!p
 snip.rv = (snip.basename or 'unnamed') + '_submit'

@@ -18,6 +18,7 @@ Plug 'wellle/targets.vim'
 " | User Interface                                                     |
 " ----------------------------------------------------------------------
 " Plug 'yggdroot/indentLine'
+Plug 'qpkorr/vim-bufkill'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired' " complementary mappings
 Plug 'tpope/vim-repeat'
@@ -38,10 +39,9 @@ Plug 'terryma/vim-multiple-cursors'
 " ----------------------------------------------------------------------
 " | Smater Sintax - JS Specific                                        |
 " ----------------------------------------------------------------------
-" Plug 'maksimr/vim-jsbeautify'
 
-" Plug 'scrooloose/syntastic'                   "=> Syntax checking, tu ukljuci elint
-Plug 'neomake/neomake'
+Plug 'w0rp/ale'
+Plug 'sbdchd/neoformat'
 Plug 'othree/yajs.vim'                        "=> better modern sintax as oppose jelera/vim-javascript-syntax
 Plug 'othree/javascript-libraries-syntax.vim' "=> Specify sintax for jQuery, React etc
 Plug 'othree/es.next.syntax.vim'
@@ -98,8 +98,8 @@ Plug 'shawncplus/phpcomplete.vim'
 Plug '2072/PHP-Indenting-for-VIm'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/echodoc.vim'
-" Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
-" Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 " Plug 'majutsushi/tagbar'
 
