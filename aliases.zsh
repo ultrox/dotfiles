@@ -60,7 +60,7 @@ lsimg() {
 
  # git
  alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-alias undo-commit="reset --soft HEAD~1"
+alias undo-commit="git reset HEAD~"
 alias gs="git status"
 function ignore() { echo $1 >> .gitignore } 
 alias rmf="rm -rf"

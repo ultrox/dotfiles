@@ -91,7 +91,7 @@ autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 " => Ale config and syntax - async linting lint
 "===========================================================
 " let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5'
-nnoremap gp :silent %!prettier --stdin --trailing-comma all  --tab-width 4<CR>
+" nnoremap gp :silent %!prettier --stdin --trailing-comma all  --tab-width 4<CR>
 
 let g:ale_sign_error = 'x'
 " Quck location
@@ -114,7 +114,7 @@ let g:neoformat_javascript_prettier = {
             \ }
 
 nnoremap gp :Neoformat<CR>
-" autocmd BufWritePre *.js Neoformat
+
 "===========================================================
 " => FZF & NerdTree
 "===========================================================

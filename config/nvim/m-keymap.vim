@@ -299,7 +299,8 @@ inoremap jk <esc>
  
 "EXPERIMENTAL 
 
-" nnoremap <leader> c  :bp\|bd # <CR>
+nnoremap <leader>c :bp \| bd # <CR>
+nnoremap <leader>q :bd <CR>
 
 :tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
 " :tnoremap <Esc> <C-\><C-n>
