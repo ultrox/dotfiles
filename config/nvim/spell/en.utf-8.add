@@ -5,3 +5,12 @@ dev
 env
 knex
 API
+php
+fpm
+conf
+Dockerfile
+app
+chmod
+proc
+stdout
+stderr
