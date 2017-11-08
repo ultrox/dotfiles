@@ -67,6 +67,7 @@ lsimg() {
   function ignore() { echo $1 >> .gitignore } 
   alias rmf="rm -rf"
   alias rm=trash
+
   function getmyip() {
     for i in `seq 1 10`;
     do
@@ -129,10 +130,6 @@ alias dckr="/Users/markovujanic/dotfiles/docker/develop"
 alias deploy="z SABIO && git pull && z sabio-form &&gup && z SABIO &&git add -A && git commit -m '...' &&git push origin master && pus"
 
 alias gup='z sabio-form && npm run build && copyVal && cd /Users/markovujanic/ajando/sabio/website/SABIO/gulp-automation && gulp vendorJS && z sabio-form'
-
-alias pus="ssh ajando@staging.getsabio.com -t 'cd /srv/staging/SABIO && sudo git pull 'https://aquaclassic:water123@github.com/Ajando-GmbH/sabiov2.git' master && exec bash -l '"
-alias pup="ssh ajando@staging.getsabio.com -t 'cd /srv/www/SABIO && sudo git pull 'https://aquaclassic:water123@github.com/Ajando-GmbH/sabiov2.git' master && exec bash -l '"
-
 alias sabio="ssh ajando@staging.getsabio.com -t 'cd /srv/staging/SABIO && exec bash -l '"
 
 # alias now="ssh marko@169.254.100.2"
