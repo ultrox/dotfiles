@@ -90,6 +90,8 @@ map <leader>` siw`
 "================================
 "=> Mapings Bejbi
 "================================
+"Grab pasted => Will visually select pasted text
+nnoremap gp `[v`]
 " Now using the middle finger of either hand you can type
 " underscores with Alt-k or Alt-d, and add Shift
 " to type dashes

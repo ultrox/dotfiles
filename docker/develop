@@ -1,18 +1,25 @@
 #!/usr/bin/env bash
-# DEFAULT dotfiles
 # this is helper file purpuse is to controle docker with it
 # and not to type huge complicated comands with different var, but use this file
 # Set environment variables for dev or CI
+APP=dmc2d_app_1
 
 if [ ! -z "$BUILD_NUMBER" ]; then
   # we need full path here becouse /sbin is not in user Jenkins's $PATH
   export XDEBUG_HOST=$(/sbin/ifconfig docker0 | grep "inet addr" | cut -d ':' -f 2 | cut -d ' ' -f 1)
 else
-  export XDEBUG_HOST=$(ipconfig getifaddr en1)
+
+  function _hostip() {
+    for i in `seq 1 10`;
+    do
+      ipconfig getifaddr en$i
+    done
+  }
+
+  export XDEBUG_HOST=$(_hostip)
 fi
 
-
-# export APP_ENV=${APP_ENV:-local}
+export APP_ENV=${APP_ENV:-local}
 # export APP_PORT=${APP_PORT:-8099}
 # export DB_PORT=${DB_PORT:-3306}
 # export DB_ROOT_PASS=${DB_ROOT_PASS:-secret}
@@ -20,38 +27,53 @@ fi
 # export DB_USER=${DB_USER:-helpspot}
 # export DB_PASS=${DB_PASS:-secret}
 
-# prefer local .env file for port and stuff
-source ./.env
+if [ ! -e ./.env ]; then
+  echo ">>> You dont have .env file here. exiting...."
+  exit 0
+fi
+
+source .env
 
 
-COMPOSE="docker-compose -f docker-compose.$COMPOSE_FILE.yml"
+COMPOSE_FILE="dev"
+if [ ! -z "$BUILD_NUMBER" ]; then 
+  COMPOSE_FILE="ci"
+  TTY="-T"
+fi
+
+
+if [ $COMPOSE_FILE == "dev" ] && [ ! -e ./config.yml ]; then
+  echo downloading config.yml from bucket
+  aws s3 cp s3://dmc-secrets2/config.yml config.yml
+fi
+COMPOSE="docker-compose -f $(pwd)/docker-compose.$COMPOSE_FILE.yml"
+
+if [ ! -e $(pwd)/docker-compose.$COMPOSE_FILE.yml ]; then 
+  echo ">>>You are missing docker-compose.$COMPOSE_FILE.yml"
+  echo  ">>>...probably wrong directory...exiting"
+  exit 0
+fi
+
+# Decide which docker-compose file to use
+
+# BUILD_NUMBER is env var provided by Jenkins
 
 # if there is arguments grater then 0 pass all the args to docker-compose
 if [ $# -gt 0 ];then
-  # Decide which docker-compose file to use
-  COMPOSE_FILE="dev"
-
-  # Disable pseudo-TTY allocation for CI (Jenkins)
-  TTY=""
-  # BUILD_NUMBER is env var provided by Jenkins
-  if [ ! -z "$BUILD_NUMBER" ]; then 
-    COMPOSE_FILE="ci"
-    TTY="-T"
-  fi
     if [ "$1" == "art" ]; then
         shift 1
         $COMPOSE run --rm $TTY \
             -w /var/www/html \
             app \
             php artisan "$@"
-    # backup mysql db
-    elif [ "$1" == "restart" ]; then
-        shift 1
-        $COMPOSE exec \
-          app \
-          sh -c "supervisorctl restart $@"
     # If "composer" is used, pass-thru to "composer"
     # inside a new container
+    elif [ "$1" == 'getenv' ]; then
+      shift 1
+      docker exec $APP printenv
+    elif [ "$1" == 'xdebug' ]; then
+      shift 1
+      docker exec $APP cat /etc/php/7.0/mods-available/xdebug.ini
     elif [ "$1" == "composer" ]; then
         shift 1
         $COMPOSE run --rm $TTY \
@@ -92,12 +114,16 @@ if [ $# -gt 0 ];then
             -w /var/www/html \
             node \
             ./node_modules/.bin/gulp "$@"
+      elif [ "$1" == "delall" ]; then
+          shift 1
+          docker stop $(docker ps -q)
+          docker rm $(docker ps -a -q)
     else
         $COMPOSE "$@"
     fi
 else
     $COMPOSE ps
 fi
-# TODO: only run with up/start commands
-echo 'nginx port: '$APP_PORT db port: $DB_PORT
+
+# echo $APP_PORT $DB_USER $DB_PASS
 

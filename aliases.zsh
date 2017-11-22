@@ -1,5 +1,20 @@
 #!/bin/bash
+# https://blog.g3rt.nl/upgrade-your-ssh-keys.html
+function listkeys() {  
+  for keyfile in ~/.ssh/id_*; do ssh-keygen -l -f "${keyfile}"; done | uniq
+}
 
+function genkey() {
+    ssh-keygen -o -a 100 -t ed25519 -f $HOME/.ssh/$1 -C "$2" -N ''
+}
+function rename() {
+  EXT=$1
+  for file in *.$EXT
+  do
+      x=$(stat -f '%SB' -t '%Y-%m-%d-%H%M' "$file")
+      mv "$file" "$x.$EXT"
+    done
+}
 alias ubuntu="ssh -i /Users/markovujanic/Desktop/TrackerTest.pem ubuntu@52.59.227.141"
 alias cleardns="sudo killall -HUP mDNSResponder"
 alias vim='nvim' # fixing muscle memory on every server I enter
@@ -18,8 +33,6 @@ function gojs() {git clone https://github.com/ultrox/w $1 && cd $1 && npm instal
 # find code definition with this
 alias ick='ack -i --pager="less -R -S -X"'
 
-alias now="ssh marko@169.254.100.2"
-alias lubuntu="ssh marko@10.0.0.26"
 export FZF_DEFAULT_COMMAND='ag -g ""'
 alias ls="ls -GCF"
 function _f() { find . -iname "*$1*" ${@:2} }
@@ -127,6 +140,7 @@ export EDITOR="$VISUAL"
 function dockerstop() { docker stop $(docker ps -q --filter ancestor=$1)}
 function rmdc() {docker rm $(dcker ps -aq)}
 alias dckr="/Users/markovujanic/dotfiles/docker/develop"
+alias dh="/Users/markovujanic/dotfiles/docker/helpers"
 alias deploy="z SABIO && git pull && z sabio-form &&gup && z SABIO &&git add -A && git commit -m '...' &&git push origin master && pus"
 
 alias gup='z sabio-form && npm run build && copyVal && cd /Users/markovujanic/ajando/sabio/website/SABIO/gulp-automation && gulp vendorJS && z sabio-form'
@@ -137,8 +151,9 @@ alias sabio="ssh ajando@staging.getsabio.com -t 'cd /srv/staging/SABIO && exec b
 # "git pull "https://admin:12345@github.com/Jet/sabiov2.git" master"
 
 ### Ajando deployment
-alias jenkins="ssh ubuntu@jen.com"
-alias dmc2="ssh ubuntu@ajdocker.com"
+alias jenkins="ssh ubuntu@jen.com -t 'cd /var/lib/jenkins/workspace; bash'"
+
+alias dmc="ssh ubuntu@dmc.dev"
 
 function copyVal() {
   \rm -f -- /Users/markovujanic/ajando/sabio/website/SABIO/gulp-automation/validator/ajvalidator.js && \
