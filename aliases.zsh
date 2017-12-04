@@ -22,6 +22,28 @@ bindkey \^U backward-kill-line
 # customizing less go give it more color also lessfilter in dotfiles must be chmod u+x
 export LESS='-R'
 export LESSOPEN='|~/.lessfilter %s'
+# nginx magic
+
+alias nginx.start='sudo nginx -c /etc/nginx/nginx.conf'
+alias nginx.stop='sudo nginx -s stop'
+alias nginx.reload='sudo nginx -s reload'
+alias nginx.config='sudo nginx -t'
+alias nginx.restart='nginx.config && nginx.stop && nginx.start'
+alias nginx.errors='tail -250f /var/logs/nginx.error.log'
+# alias nginx.access='tail -250f /var/logs/nginx.access.log'
+# alias nginx.logs.default.access='tail -250f /var/logs/nginx.default.access.log'
+# alias nginx.logs.default-ssl.access='tail -250f /var/logs/nginx.default.ssl.log'
+
+## servers and dns and network
+alias netstat.tulpn='netstat -an | grep -i listen'
+# alias lsof.who="sudo lsof -i -n -P | grep -i listen | awk '{ printf \"%-30s %-10s %-20s %-5s %-10s\n\", $1,$2,$3,$8,$9}'"
+alias lsof.who="sudo lsof -i -n -P | grep -i listen"
+
+function dnsrestart() {
+sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist; sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
+  # sudo kill $(ps aux | grep [d]nsmasq | awk '{print $2}') && ps aux | grep [d]nsmasq
+}
+
 
 # Example aliases - Moji Aliasi
 alias zshedit="vim ~/.zshrc"
@@ -151,6 +173,8 @@ alias sabio="ssh ajando@staging.getsabio.com -t 'cd /srv/staging/SABIO && exec b
 # "git pull "https://admin:12345@github.com/Jet/sabiov2.git" master"
 
 ### Ajando deployment
+
+alias aj="npm run build && /bin/cp -rf build/ajvalidator.js /Users/markovujanic/ajando/dmc2/app/wp-content/themes/mein-digitales-unternehmen/assets/js/general.min.js"
 alias jenkins="ssh ubuntu@jen.com -t 'cd /var/lib/jenkins/workspace; bash'"
 
 alias dmc="ssh ubuntu@dmc.dev"

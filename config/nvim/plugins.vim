@@ -52,6 +52,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'                            "=> Syntax highlighting and indenting for JSX for React. JS syntax transformer
 Plug 'digitaltoad/vim-pug'					   "=> Prije se zvao Jade
 " Plug 'othree/html5.vim'
+Plug 'chr4/nginx.vim'
+
 '
 " ----------------------------------------------------------------------
 " | Hellpers                                                           |
