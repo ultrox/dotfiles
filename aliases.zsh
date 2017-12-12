@@ -20,6 +20,9 @@ alias cleardns="sudo killall -HUP mDNSResponder"
 alias vim='nvim' # fixing muscle memory on every server I enter
 bindkey \^U backward-kill-line
 # customizing less go give it more color also lessfilter in dotfiles must be chmod u+x
+
+# aws
+alias isolated='ssh ec2-user@ec2-18-194-44-85.eu-central-1.compute.amazonaws.com'
 export LESS='-R'
 export LESSOPEN='|~/.lessfilter %s'
 # nginx magic
@@ -39,11 +42,15 @@ alias netstat.tulpn='netstat -an | grep -i listen'
 # alias lsof.who="sudo lsof -i -n -P | grep -i listen | awk '{ printf \"%-30s %-10s %-20s %-5s %-10s\n\", $1,$2,$3,$8,$9}'"
 alias lsof.who="sudo lsof -i -n -P | grep -i listen"
 
-function dnsrestart() {
-sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist; sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
-  # sudo kill $(ps aux | grep [d]nsmasq | awk '{print $2}') && ps aux | grep [d]nsmasq
-}
 
+# Wellcome Vagrant
+alias vs="vagrant status"
+alias v.restart="vagrant reload"
+alias v.restart="vagrant reload"
+alias vgs="vagrant global-status"
+alias vd="vagrant destroy"
+alias vup="vagrant up"
+alias vssh="vagrant ssh"
 
 # Example aliases - Moji Aliasi
 alias zshedit="vim ~/.zshrc"

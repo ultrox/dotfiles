@@ -1,3 +1,10 @@
+" Introducing awesome
+" allows incsearch highlighting for range commands
+cnoremap $t <CR>:t''<CR>
+cnoremap $T <CR>:T''<CR>
+cnoremap $m <CR>:m''<CR>
+cnoremap $M <CR>:M''<CR>
+cnoremap $d <CR>:d<CR>``
 " cmap w!! w !sudo tee % >/dev/null
 "  
 inoremap <c-o> <C-x><C-o>

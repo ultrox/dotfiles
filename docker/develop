@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # this is helper file purpuse is to controle docker with it
 # and not to type huge complicated comands with different var, but use this file
-# Set environment variables for dev or CI
-APP=dmc2d_app_1
+DIRNAME=${PWD##*/}
+# Name of container where app is run to get some information easyer usually grate for debuging
+APP="$DIRNAME"_app_1
 
 if [ ! -z "$BUILD_NUMBER" ]; then
   # we need full path here becouse /sbin is not in user Jenkins's $PATH
@@ -34,7 +35,7 @@ fi
 
 source .env
 
-
+# TODO make another env for production
 COMPOSE_FILE="dev"
 if [ ! -z "$BUILD_NUMBER" ]; then 
   COMPOSE_FILE="ci"
@@ -46,6 +47,8 @@ if [ $COMPOSE_FILE == "dev" ] && [ ! -e ./config.yml ]; then
   echo downloading config.yml from bucket
   aws s3 cp s3://dmc-secrets2/config.yml config.yml
 fi
+# Decide which docker-compose file to use
+# BUILD_NUMBER is env var provided by Jenkins
 COMPOSE="docker-compose -f $(pwd)/docker-compose.$COMPOSE_FILE.yml"
 
 if [ ! -e $(pwd)/docker-compose.$COMPOSE_FILE.yml ]; then 
@@ -54,9 +57,6 @@ if [ ! -e $(pwd)/docker-compose.$COMPOSE_FILE.yml ]; then
   exit 0
 fi
 
-# Decide which docker-compose file to use
-
-# BUILD_NUMBER is env var provided by Jenkins
 
 # if there is arguments grater then 0 pass all the args to docker-compose
 if [ $# -gt 0 ];then

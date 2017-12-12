@@ -10,7 +10,9 @@ Plug 'AndrewRadev/splitjoin.vim'
 " Plug 'godlygeek/tabular'
 Plug 'junegunn/vim-easy-align'
 Plug 'tommcdo/vim-exchange'
-Plug 'easymotion/vim-easymotion'
+" Plug 'easymotion/vim-easymotion'
+Plug 'justinmk/vim-sneak'
+
 Plug 'rking/ag.vim'        "=> Even faster then very fast
 " Experimental
 Plug 'wellle/targets.vim'
