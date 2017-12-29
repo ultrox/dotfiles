@@ -114,7 +114,7 @@ set t_vb=
 set tm=500
 
 " Use sane regexes.
-nnoremap / /\v
+" nnoremap / /\v
 vnoremap / /\v	
 " ----------------------------------------------------------------------------
 " Special highlights
@@ -210,7 +210,7 @@ set nolist
 " => Folds
 "===========================================================
 
-set foldmethod=manual        "fold based on indent
+set foldmethod=indent        "fold based on indent
 set foldnestmax=10           "deepest fold is 3 levels
 set nofoldenable             "dont fold by default
 

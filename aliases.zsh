@@ -1,5 +1,10 @@
 #!/bin/bash
 # https://blog.g3rt.nl/upgrade-your-ssh-keys.html
+# utils
+function cif() {
+  cat $1 | pbcopy
+}
+
 function listkeys() {  
   for keyfile in ~/.ssh/id_*; do ssh-keygen -l -f "${keyfile}"; done | uniq
 }
@@ -23,6 +28,7 @@ bindkey \^U backward-kill-line
 
 # aws
 alias isolated='ssh ec2-user@ec2-18-194-44-85.eu-central-1.compute.amazonaws.com'
+alias alfa='ssh ec2-user@ec2-18-196-1-6.eu-central-1.compute.amazonaws.com'
 export LESS='-R'
 export LESSOPEN='|~/.lessfilter %s'
 # nginx magic
@@ -117,17 +123,16 @@ lsimg() {
     done
   }
 
-  # Dev specific
+  # Copy current pwd to clipbloard, will not work on linux
   alias cpwd="pwd | tr -d '\n' | pbcopy"
 
   # Plugin specific
-  #
 
   alias z="fasd_cd -d"
   alias f="fasd -f"
   alias v='f -e nvim'
   alias d='fasd -d'
-  alias di='fasd -d'
+
   fed() {cp $1 '' `fasd -d $2`; }
   cpcp() {cp $1 `fasd -d $2`; }
   mvmv() {mv $1 `fasd -d $2`; }

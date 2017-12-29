@@ -152,9 +152,12 @@ nmap <leader>es :UltiSnipsEdit<CR>
 "=> Search / Repace / Highlite / Prebaci u novi VIM
 "======================================================================
 
-noremap <BS> :noh<cr>
+" noremap <BS> :noh<cr>
+noremap <BS> :set hls!\|set hls?<CR>
+nnoremap i :noh<cr>i
+
 " nnoremap <Leader>i i![<C-R>+](/Users/ultrox/Google%20Drive/LearnNodeGifs/<C-R>+)<Enter><esc>
-nnoremap <Leader>i i![<C-R>+](/Users/ultrox/Google%20Drive/ReduxSagaForm/<C-R>+)<Enter><esc>
+" nnoremap <Leader>i i![<C-R>+](/Users/ultrox/Google%20Drive/ReduxSagaForm/<C-R>+)<Enter><esc>
 noremap <F5> :!open -a "Google Chrome" '%'<CR>
 " map <Leader>ee :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
 
@@ -174,6 +177,7 @@ vmap \ "py :Ag <C-r>p<CR>
 
 " [<leader> / ] search for word under the cursor
 nnoremap <leader>/ "fyiw :/<c-r>f<cr>
+vmap <leader>/ "fy /<c-r>f<cr>
 
 " Mislim da je ovo u fajlovima pretrazivanje
 
@@ -208,7 +212,6 @@ nnoremap <leader>X :q!<cr>
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 " disable Ex mode =>>> Curently smart close
-"noremap Q <NOP>
 "======================================================================
 " => Dealing with buffers
 "======================================================================
@@ -301,15 +304,27 @@ autocmd FileType javascript imap <buffer> <A-i> {
 " autocmd FileType javascript inoremap ;; <END>;
 " autocmd FileType javascript inoremap ,, <END>,
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-" INDENTING
-nnoremap <leader>f mzgg=G`z
+" FOLDING
+nnoremap , za
 
-inoremap jk <esc>
- 
+" INDENTING Formting
+nnoremap <leader>f mzgg=G`z
+nnoremap <f9> 1z=
+nnoremap <f10> z]
+" inoremap jk 1z= 
+
+command! -nargs=0 Nf
+\ | execute ':silent !nginxbeautifier %'
+\ | execute ':redraw!'
+
+autocmd FileType nginx nnoremap <leader>f :Nf<CR>
+
 "EXPERIMENTAL 
 
 nnoremap <leader>c :bp \| bd # <CR>
 nnoremap <leader>q :bd <CR>
+" execute command and get output in vim
+noremap Q !!sh<CR>
 
 :tnoremap <expr> <C-R> '<C-\><C-N>"'.nr2char(getchar()).'pi'
 " :tnoremap <Esc> <C-\><C-n>
