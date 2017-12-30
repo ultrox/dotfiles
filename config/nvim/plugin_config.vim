@@ -215,7 +215,7 @@ nmap <Leader>l <Plug>(easymotion-overwin-f)
 "===========================================================
 " => VimWiki
 "===========================================================
-let g:vimwiki_list = [{'path': '~/Google Drive/vimwiki',
+let g:vimwiki_list = [{'path': '~/GoogleDrive/vimwiki',
 			\ 'syntax': 'markdown', 'ext': '.md'}]
 
 "===========================================================
