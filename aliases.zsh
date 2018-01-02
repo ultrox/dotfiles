@@ -4,7 +4,7 @@
 function cif() {
   cat $1 | pbcopy
 }
-
+alias cll='fc -ln -1 | awk '\''{$1=$1}1'\'' ORS='\'''\'' | pbcopy'
 function listkeys() {  
   for keyfile in ~/.ssh/id_*; do ssh-keygen -l -f "${keyfile}"; done | uniq
 }
@@ -224,3 +224,11 @@ function dp2() {
     git commit -m $1 && \
     echo 'msg without quotes' " $1 " && \
   }
+
+# missing piece for tldr
+add() {
+  local files
+  IFS=$'\n' files=($(find ~/.tldrc/tldr-master/pages -type f \( ! -name "\.DS_Store" \)| fzf-tmux --preview 'head -30 {}' --query="$1" --multi --select-1 --exit-0))
+  [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
+}
+
