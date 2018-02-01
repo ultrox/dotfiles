@@ -179,13 +179,15 @@ endif
 " http://vimcasts.org/episodes/tabs-and-spaces/
 
 set autoindent           "indentiraj kad pravis novu liniju
+" TAB or SPACE
+set expandtab           "Koristi space umjesto taba
+" set noexpandtab          "Koristi Tabove umjesto space
+
 "set smartindent     	 "it seams this is usless and shuld be avoided
 set smarttab             "postuje vrijednosti 'tabstop','shiftwidth' and 'softtabstop'
 set tabstop=2            "Podesi vidljivu sirinu taba (velicina je sirina slova)
 set shiftwidth=2         "Koliko ce tekst biti indentovan kad se reindentira << >>
 set softtabstop=2        "Precizno podesi koliko 'whitespace' ce se ubaciti
-set expandtab           "Koristi space umjesto taba
-" set noexpandtab          "Koristi Tabove umjesto space
 set wrapmargin=8         "wrap lines when coming within n characters from side
 
 filetype plugin on

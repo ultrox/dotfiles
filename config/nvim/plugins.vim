@@ -41,9 +41,9 @@ Plug 'terryma/vim-multiple-cursors'
 " ----------------------------------------------------------------------
 " | Smater Sintax - JS Specific                                        |
 " ----------------------------------------------------------------------
-
+" Plug 'sbdchd/neoformat'
+Plug 'fatih/vim-go'
 Plug 'w0rp/ale'
-Plug 'sbdchd/neoformat'
 Plug 'othree/yajs.vim'                        "=> better modern sintax as oppose jelera/vim-javascript-syntax
 Plug 'othree/javascript-libraries-syntax.vim' "=> Specify sintax for jQuery, React etc
 Plug 'othree/es.next.syntax.vim'

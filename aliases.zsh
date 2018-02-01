@@ -4,6 +4,11 @@
 function cif() {
   cat $1 | pbcopy
 }
+function ttfb() {
+  SITE="${2-https://j.marketing-cloud.io }"
+  echo "${SITE}"
+  seq $1 | xargs -Iz _ttfb "$SITE"
+}
 alias cll='fc -ln -1 | awk '\''{$1=$1}1'\'' ORS='\'''\'' | pbcopy'
 function listkeys() {  
   for keyfile in ~/.ssh/id_*; do ssh-keygen -l -f "${keyfile}"; done | uniq
@@ -28,7 +33,7 @@ bindkey \^U backward-kill-line
 
 # aws
 alias isolated='ssh ec2-user@ec2-18-194-44-85.eu-central-1.compute.amazonaws.com'
-alias alfa='ssh ec2-user@ec2-18-196-1-6.eu-central-1.compute.amazonaws.com'
+# alias alfa='ssh ec2-18-194-137-8.eu-central-1.compute.amazonaws.com'
 export LESS='-R'
 export LESSOPEN='|~/.lessfilter %s'
 # nginx magic

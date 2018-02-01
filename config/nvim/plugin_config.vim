@@ -41,9 +41,9 @@ let g:deoplete#enable_smart_case = 1
 
 let g:deoplete#omni#functions = {}
 let g:deoplete#omni#functions.javascript = [
-  \ 'tern#Complete',
-  \ 'jspc#omni'
-\]
+      \ 'tern#Complete',
+      \ 'jspc#omni'
+      \]
 
 " set completeopt=longest,menuone,preview
 " set completeopt-=preview
@@ -70,9 +70,9 @@ let g:tern#arguments = ['--persistent']
 
 " tern
 if exists('g:plugs["tern_for_vim"]')
- let g:tern_show_argument_hints = 'on_hold'
- let g:tern_show_signature_in_pum = 1
- autocmd FileType javascript setlocal omnifunc=tern#Complete
+  let g:tern_show_argument_hints = 'on_hold'
+  let g:tern_show_signature_in_pum = 1
+  autocmd FileType javascript setlocal omnifunc=tern#Complete
 endif
 
 "" tern
@@ -88,7 +88,17 @@ autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 "===========================================================
-" => Ale config and syntax - async linting lint
+" => Emmet
+"===========================================================
+let g:user_emmet_leader_key='<C-Z>'
+"this is becouse emmet uses different kind of ft jsx, instead of javascript.jsx
+let g:user_emmet_settings = {
+      \  'javascript.jsx' : {
+      \      'extends' : 'jsx',
+      \  },
+      \}
+"===========================================================
+" => Ale config and syntax - async linting lint lint eslint linting
 "===========================================================
 " let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5'
 " nnoremap gp :silent %!prettier --stdin --trailing-comma all  --tab-width 4<CR>
@@ -102,16 +112,16 @@ nmap <Leader><Space>n :lnext<CR>      " next error/warning
 nmap <Leader><Space>p :lprev<CR>      " previous error/warning
 
 "===========================================================
-" => NeoFormat & Prettier
+" => NeoFormat & Prettier 
 "===========================================================
 
 let g:neoformat_only_msg_on_error = 1
 let g:neoformat_javascript_prettier = {
-            \ 'exe': 'prettier',
-            \ 'args': ['--trailing-comma all', '--tab-width 4'],
-            \ 'stdin': 1, 
-            \ 'no_append': 1,
-            \ }
+      \ 'exe': 'prettier',
+      \ 'args': ['--trailing-comma all', '--tab-width 4'],
+      \ 'stdin': 1, 
+      \ 'no_append': 1,
+      \ }
 
 nnoremap gp :Neoformat<CR>
 
@@ -164,10 +174,10 @@ nnoremap <silent> <F2> :History -m<cr>
 nnoremap <silent> <F3> :FZF -m<cr>
 
 command! FZFMru call fzf#run({
-			\  'source':  v:oldfiles,
-			\  'sink':    'e',
-			\  'options': '-m -x +s',
-			\  'down':    '40%'})
+      \  'source':  v:oldfiles,
+      \  'sink':    'e',
+      \  'options': '-m -x +s',
+      \  'down':    '40%'})
 
 
 " AutoPair configurations
@@ -185,12 +195,12 @@ highlight clear MatchParen
 hi MatchParen cterm=underline ctermbg=none ctermfg=red
 " highlight MatchParen ctermbg=blue guibg=lightblue
 let g:mta_filetypes = {
-			\'php': 1,
-			\ 'html' : 1,
-			\ 'xhtml' : 1,
-			\ 'xml' : 1,
-			\ 'javascript.jsx' : 1,
-			\}
+      \'php': 1,
+      \ 'html' : 1,
+      \ 'xhtml' : 1,
+      \ 'xml' : 1,
+      \ 'javascript.jsx' : 1,
+      \}
 
 nnoremap <leader>% :MtaJumpToOtherTag<cr>
 
@@ -216,7 +226,7 @@ nmap <Leader>l <Plug>(easymotion-overwin-f)
 " => VimWiki
 "===========================================================
 let g:vimwiki_list = [{'path': '~/GoogleDrive/vimwiki',
-			\ 'syntax': 'markdown', 'ext': '.md'}]
+      \ 'syntax': 'markdown', 'ext': '.md'}]
 
 "===========================================================
 " => Others
@@ -279,3 +289,5 @@ autocmd BufEnter *.md exe 'noremap <F5> :!open -a "Google Chrome" "%"<CR>'
 "let g:airline#extensions#tabline#show_buffers = 0 " do not show open buffers in tabline
 
 " let g:airline#extensions#tabline#show_splits = 0
+
+autocmd FileType make setlocal noexpandtab

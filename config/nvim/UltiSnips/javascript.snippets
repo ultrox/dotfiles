@@ -1,3 +1,7 @@
+global !v
+expand("%:t:r")
+endglobal
+
 global !p
 def complete(t, opts):
 	if t:
@@ -11,6 +15,14 @@ snippet cl "console.log"
 console.log(${1:'just a string'})$0
 endsnippet
 
+snippet describe "function for testing"
+describe("$1", function() {
+		it("$2", function() {
+				$0
+		})
+});
+endsnippet
+
 snippet context "parant.log"
 (${VISUAL});
 endsnippet
@@ -21,6 +33,11 @@ function ${1:func_name}($2) {
 }$0
 endsnippet
 
+snippet it "it testing"
+it("$1", function() {
+	$0
+});
+endsnippet
 
 snippet afunc "function"
 ($1) => {
@@ -35,7 +52,7 @@ setTimeout(function() {
 endsnippet
 
 snippet simp "Simple" !b
-`!p snip.rv =
+`!p snip.rv =`
 endsnippet
 
 # expand when there is exactly one space infront
@@ -74,3 +91,49 @@ module.exports = {
     },
 };
 endsnippet
+
+snippet nimp "Named import"
+import $1 from "$2";$0
+endsnippet
+
+snippet fcomp "Functional Component"
+import React from "react";
+import PropTypes from "prop-types";
+
+const ${1:`!v expand("%:t:r")`} = (${2:props}) => (
+
+    ${3:<jsx />}
+);
+
+$1.propTypes = {
+		$4
+};
+
+export default $1;
+
+endsnippet
+
+snippet ptn "PropTypes number required"
+PropTypes.number.isRequired,
+endsnippet
+
+snippet pts "PropTypes string required"
+PropTypes.string.isRequired,
+endsnippet
+
+snippet ptdefi "PropTypes definition"
+$1.propTypes = {
+	$2
+};
+endsnippet
+
+snippet ptdefa "PropTypes default" b
+$1.defaultProps = {
+	$2
+};
+endsnippet
+
+snippet ipt "Import Propt types"
+import PropTypes from "prop-types";$0
+endsnippet
+

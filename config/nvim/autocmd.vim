@@ -38,12 +38,13 @@ augroup configgroup
 
     " autocmd! BufEnter * call functions#ApplyLocalSettings(expand('<afile>:p:h'))
 
+    autocmd FileType js setlocal ts=4 sts=4 sw=4 expandtab
+    autocmd FileType jsx  setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=*<return>
+
 		autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 		autocmd FileType make setlocal ts=8 sts=8 sw=8 expandtab
 		autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab
-		autocmd FileType js setlocal ts=4 sts=4 sw=4 expandtab
 		autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=*<return>
-		autocmd FileType jsx  setlocal ts=2 sts=2 sw=2 expandtab indentkeys-=*<return>
 		autocmd FileType pug setlocal ts=2 sts=2 sw=2 expandtab
 
 		autocmd FileType markdown,textile setlocal textwidth=80 wrapmargin=0 wrap spell
