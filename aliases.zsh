@@ -185,16 +185,13 @@ alias deploy="z SABIO && git pull && z sabio-form &&gup && z SABIO &&git add -A 
 alias gup='z sabio-form && npm run build && copyVal && cd /Users/markovujanic/ajando/sabio/website/SABIO/gulp-automation && gulp vendorJS && z sabio-form'
 alias sabio="ssh ajando@staging.getsabio.com -t 'cd /srv/staging/SABIO && exec bash -l '"
 
-# alias now="ssh marko@169.254.100.2"
 #
-# "git pull "https://admin:12345@github.com/Jet/sabiov2.git" master"
+# "git pull "https://admin:12345@github.com/Jet/something.git" master"
 
 ### Ajando deployment
 
 alias aj="npm run build && /bin/cp -rf build/ajvalidator.js /Users/markovujanic/ajando/dmc2/app/wp-content/themes/mein-digitales-unternehmen/assets/js/general.min.js"
-alias jenkins="ssh ubuntu@jen.com -t 'cd /var/lib/jenkins/workspace; bash'"
 
-alias dmc="ssh ubuntu@dmc.dev"
 
 function copyVal() {
   \rm -f -- /Users/markovujanic/ajando/sabio/website/SABIO/gulp-automation/validator/ajvalidator.js && \
