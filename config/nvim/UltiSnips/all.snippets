@@ -1,11 +1,15 @@
+# b => only on the begining on of the line
 snippet today
 Hello `echo $USER` Today is the `date +%d.%m.%y`. you are at: `!v expand('%:r:t')`
 endsnippet
 
 snippet snip "create snippet"
 
-snippet ${1:name} ${2:"Snippet description"} ${3:b}
+snippet ${1:name} "${2:Snippet description}" ${3:b}
 ${4:start}
 `echo endsnippet`
+
 endsnippet
 
+snippet test "Snippet description" b
+endsnippet

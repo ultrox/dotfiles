@@ -1,0 +1,4 @@
+#!/bin/bash
+PATH=/Users/markovujanic/.rvm/gems/ruby-2.3.1/bin:/Users/markovujanic/.rvm/gems/ruby-2.3.1@global/bin:/Users/markovujanic/.rvm/rubies/ruby-2.3.1/bin:/Users/markovujanic/bin:/Users/markovujanic/go/bin:/Users/markovujanic/.nvm/versions/node/v8.1.4/bin:/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/local/sbin:/usr/local/Cellar/zplug/2.4.1/bin:/usr/local/opt/zplug/bin:/Users/markovujanic/.cargo/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Users/markovujanic/bubu:/Applications/Wireshark.app/Contents/MacOS:/Users/markovujanic/.rvm/gems/ruby-2.3.1/bin:/Users/markovujanic/.rvm/gems/ruby-2.3.1@global/bin:/Users/markovujanic/.rvm/rubies/ruby-2.3.1/bin:/Users/markovujanic/bin:/Users/markovujanic/go/bin:/usr/local/opt/python/libexec/bin:/Users/markovujanic/.fzf/bin:/Users/markovujanic/.rvm/bin:/Users/markovujanic/.rvm/bin
+
+docker rmi $(docker images -a | grep "^<none>" | awk '{print $3}') 

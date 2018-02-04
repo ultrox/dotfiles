@@ -1,0 +1,6 @@
+#!/bin/sh
+# 1. get the env * * * * *  /usr/bin/env > ~/dotfiles/crons/cron-env
+# 2.this is how you run it run-as-cron /home/username/cron-env 'echo $PATH'
+
+. "$1"
+exec /usr/bin/env -i "$SHELL" -c ". $1; $2"

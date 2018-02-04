@@ -1,0 +1,52 @@
+snippet docker "Init docker template" b
+version: '3'
+
+services:
+	${1:SERVICE_NAME}:
+		build:
+			context: ${2:./PATH/TO/CONTEXT}
+			dockerfile: Dockerfile
+		image: ${3:marko/ansible_awe}
+		ports:
+			- "${4:80:80}"
+		networks:
+			- ${5:network_name}
+		volumes:
+			- ${6:.:/ansible/playbooks}
+		# working_dir: /ansible/playbooks
+		environment:
+			ENV_NAME: "ENV_KEY" 
+
+networks:
+	${5:network_name}:
+		driver: "bridge"
+volumes:
+	datafrog:
+		driver: "local"
+endsnippet
+
+snippet network "Network defining" b
+networks:
+	${1:net_name}:
+		driver: "bridge"
+endsnippet
+
+snippet dservice "Docker service block" b
+
+${1:SERVICE_NAME}:
+	build:
+		context: ${2:./PATH/TO/CONTEXT}
+		dockerfile: Dockerfile
+	image: ${3:marko/ansible_awe}
+	ports:
+		- "${4:80:80}"
+	networks:
+		- ${5:network_name}
+	volumes:
+		- .:/ansible/playbooks
+	# working_dir: /ansible/playbooks
+	environment:
+		ENV_NAME: "ENV_KEY" 
+
+endsnippet
+

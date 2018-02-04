@@ -15,6 +15,12 @@ snippet cl "console.log"
 console.log(${1:'just a string'})$0
 endsnippet
 
+snippet if "if visual support"
+if($1) {
+	${2:${VISUAL:coding}}
+}
+[endsnippet]
+
 snippet describe "function for testing"
 describe("$1", function() {
 		it("$2", function() {
@@ -29,8 +35,8 @@ endsnippet
 
 snippet func "function"
 function ${1:func_name}($2) {
-	${3:${VISUAL}}
-}$0
+	${0:${VISUAL}}
+}
 endsnippet
 
 snippet it "it testing"
@@ -41,7 +47,7 @@ endsnippet
 
 snippet afunc "function"
 ($1) => {
-	${2:${VISUAL}}
+	${2:${VISUAL:body}}
 }
 endsnippet
 
@@ -137,3 +143,4 @@ snippet ipt "Import Propt types"
 import PropTypes from "prop-types";$0
 endsnippet
 
+# vim:ft=snippets:
