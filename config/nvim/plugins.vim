@@ -42,7 +42,7 @@ Plug 'terryma/vim-multiple-cursors'
 " | Smater Sintax - JS Specific                                        |
 " ----------------------------------------------------------------------
 Plug 'sbdchd/neoformat'
-"Plug 'chase/vim-ansible-yaml'
+" Plug 'chase/vim-ansible-yaml'
 Plug 'fatih/vim-go'
 Plug 'w0rp/ale' " MYlinter it uses local eslint for js
 Plug 'othree/yajs.vim'                        "=> better modern sintax as oppose jelera/vim-javascript-syntax
@@ -111,7 +111,6 @@ Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 " Plug 'majutsushi/tagbar'
 
 Plug 'SirVer/ultisnips'
-" Plug 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 Plug 'mattn/emmet-vim'
 call plug#end()
-

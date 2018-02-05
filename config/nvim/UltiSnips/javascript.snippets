@@ -19,7 +19,7 @@ snippet if "if visual support"
 if($1) {
 	${2:${VISUAL:coding}}
 }
-[endsnippet]
+endsnippet
 
 snippet describe "function for testing"
 describe("$1", function() {
@@ -141,6 +141,17 @@ endsnippet
 
 snippet ipt "Import Propt types"
 import PropTypes from "prop-types";$0
+endsnippet
+
+
+snippet div "Simple jsx div" b
+<div>${1:${VISUAL:coding}}</div>
+endsnippet
+
+# TESTING
+
+snippet shallow "Shallow render" b
+const wrapper = shallow(<$1 />)
 endsnippet
 
 # vim:ft=snippets:

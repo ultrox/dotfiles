@@ -4,6 +4,7 @@
 function cif() {
   cat $1 | pbcopy
 }
+alias vru='cd /usr/local/Cellar/neovim/0.2.0_1/share/nvim/runtime'
 function ttfb() {
   SITE="${2-https://j.marketing-cloud.io }"
   echo "${SITE}"

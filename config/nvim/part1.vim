@@ -1,4 +1,3 @@
-source ~/.config/nvim/plugins.vim
 " ------------------------------------
 " Typing key combos - Try this, not tested
 " ------------------------------------
@@ -17,7 +16,7 @@ set autoread                    " detect when a file is changed
 set autowrite                   " auto sejvuje fajlove prije komadni :next :make etc
 set number
 set numberwidth=4               " indentira brojeve sa ljeve strane za x pixela
-" set relativenumber
+set relativenumber
 set backspace=indent,eol,start " make backspace behave in a sane manner
 set history=1000               " change history to 1000
 
@@ -90,11 +89,3 @@ set scrolloff=3    " Start scrolling when we're 8 lines away from margins
 " set so=4         " set 7 lines to the cursors - when moving vertical
 set sidescrolloff=15
 set sidescroll=1
-source ~/.config/nvim/part2.vim
-source ~/.config/nvim/part3.vim 
-
-" set statusline+=\ 
-source ~/.config/nvim/autocmd.vim
-source ~/.config/nvim/m-func.vim
-source ~/.config/nvim/m-keymap.vim
-source ~/.config/nvim/plugin_config.vim
