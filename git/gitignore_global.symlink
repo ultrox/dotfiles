@@ -21,9 +21,11 @@ tscommand*.txt
 
 # node stuff
 /node_modules/
+*node_modules*
 
 # nvm - the Node Version Manager
 .nvmrc
 
 build/
 tags
+

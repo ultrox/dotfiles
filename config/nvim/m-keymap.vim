@@ -1,3 +1,10 @@
+let g:rg_command = '
+  \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
+  \ -g "*.{js,json,php,md,styl,jade,html,config,py,cpp,c,go,hs,rb,conf}"
+  \ -g "!{.git,node_modules,vendor}/*" '
+
+command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
+
 " Introducing awesome
 " allows incsearch highlighting for range commands
 cnoremap $t <CR>:t''<CR> ==
@@ -130,8 +137,6 @@ vnoremap L g_
 " nnoremap ' `
 " nnoremap ` '
 
-" create/open file in current folder
-map <Leader>ee :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
 "================================
 "=> VimRc Reload / Edit / Source
 "================================
@@ -238,8 +243,13 @@ nnoremap <silent> <f9> :bprev<CR>
 "======================================================================
 
 " Go to Line Code with Enter
-" nnoremap <CR> G This fucked up a lot of things 
+" nnoremap <CR> G This fucked up a lot of things jumping
 " moving up and down work as you would expect
+
+" create/open file in current folder
+map <Leader>ee :e <C-R>=escape(expand("%:p:h"),' ') . '/'<CR>
+:map <leader>gf :e <cfile><cr>
+
 nnoremap <silent> j gj
 nnoremap <silent> k gk
 nnoremap <silent> ^ g^

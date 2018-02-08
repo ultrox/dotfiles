@@ -67,5 +67,3 @@ set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
 set statusline+=\[%{&fileformat}\]
 set statusline+=\ %p%%
 set statusline+=\ %l:%c
-
-autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 expandtab

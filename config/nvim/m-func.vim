@@ -79,5 +79,13 @@ function! s:RevealInFinder()
   redraw!
 endfunction
 
+function MyNerdToggle()
+    if &filetype == 'nerdtree'
+        :NERDTreeToggle
+    else
+        :NERDTreeFind
+    endif
+endfunction
+
 command! Reveal call <SID>RevealInFinder()
 

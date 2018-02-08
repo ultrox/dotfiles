@@ -37,14 +37,16 @@ Plug 'ervandew/supertab'
 " Plug 'ludovicchabant/vim-gutentags'
 Plug 'trevordmiller/nova-vim'
 Plug 'terryma/vim-multiple-cursors'
-
+" Atempt to solve problems with importing modules
+Plug 'moll/vim-node'
+Plug 'galooshi/vim-import-js'
 " ----------------------------------------------------------------------
 " | Smater Sintax - JS Specific                                        |
 " ----------------------------------------------------------------------
-Plug 'sbdchd/neoformat'
-" Plug 'chase/vim-ansible-yaml'
-Plug 'fatih/vim-go'
+Plug 'sbdchd/neoformat' " install yamllint with pip
 Plug 'w0rp/ale' " MYlinter it uses local eslint for js
+Plug 'chase/vim-ansible-yaml'
+Plug 'fatih/vim-go'
 Plug 'othree/yajs.vim'                        "=> better modern sintax as oppose jelera/vim-javascript-syntax
 Plug 'othree/javascript-libraries-syntax.vim' "=> Specify sintax for jQuery, React etc
 Plug 'othree/es.next.syntax.vim'
@@ -105,8 +107,8 @@ Plug 'shawncplus/phpcomplete.vim'
 Plug '2072/PHP-Indenting-for-VIm'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/echodoc.vim'
-Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
+" Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
+" Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
 " Plug 'majutsushi/tagbar'
 

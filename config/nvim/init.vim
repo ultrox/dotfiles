@@ -85,7 +85,7 @@ set synmaxcol=512         " don't syntax highlight long lines
 " => Scroling
 "===========================================================
 
-set scrolloff=3    " Start scrolling when we're 8 lines away from margins
+set scrolloff=2    " Start scrolling when we're 8 lines away from margins
 " set scrolloff=3  " lines of text around cursor
 " set so=4         " set 7 lines to the cursors - when moving vertical
 set sidescrolloff=15

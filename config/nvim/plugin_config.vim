@@ -17,9 +17,11 @@ imap <C-G>S <Plug>ISurround
 "===========================================================
 " => Supertab Settings
 "===========================================================
+
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 " autocmd FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 let g:UltiSnipsExpandTrigger="<C-j>"
+
 " be careful about this, backup it
 let g:UltiSnipsSnippetsDir="~/.config/nvim/UltiSnips"
 " let g:UltiSnipsSnippetsDir="~/dotfiles/config/UltiSnips"
@@ -40,17 +42,17 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
 
 let g:deoplete#omni#functions = {}
-let g:deoplete#omni#functions.javascript = [
-      \ 'tern#Complete',
-      \ 'jspc#omni'
-      \]
+" let g:deoplete#omni#functions.javascript = [
+"       \ 'tern#Complete',
+"       \ 'jspc#omni'
+"       \]
 
 " set completeopt=longest,menuone,preview
 " set completeopt-=preview
 let g:deoplete#sources = {}
-let g:deoplete#sources['javascript.jsx'] = ['buffer', 'ultisnips', 'ternjs']
-let g:tern#command = ['tern']
-let g:tern#arguments = ['--persistent']
+let g:deoplete#sources['javascript.jsx'] = ['buffer', 'ultisnips']
+" let g:tern#command = ['tern']
+" let g:tern#arguments = ['--persistent']
 " let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'buffer']
 " Will make omni autosuggest all the time, I prefer triggering it on my own
 " let g:deoplete#omni_patterns.javascript = '[^. \t]\.\%(\h\w*\)\?'
@@ -69,11 +71,11 @@ let g:tern#arguments = ['--persistent']
 " augroup end
 
 " tern
-if exists('g:plugs["tern_for_vim"]')
-  let g:tern_show_argument_hints = 'on_hold'
-  let g:tern_show_signature_in_pum = 1
-  autocmd FileType javascript setlocal omnifunc=tern#Complete
-endif
+" if exists('g:plugs["tern_for_vim"]')
+"   let g:tern_show_argument_hints = 'on_hold'
+"   let g:tern_show_signature_in_pum = 1
+"   autocmd FileType javascript setlocal omnifunc=tern#Complete
+" endif
 
 "" tern
 autocmd FileType javascript nnoremap <silent> <buffer> gb :TernDef<CR>
@@ -103,7 +105,7 @@ let g:user_emmet_settings = {
 " let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5'
 " nnoremap gp :silent %!prettier --stdin --trailing-comma all  --tab-width 4<CR>
 
-let g:ale_sign_error = 'x'
+let g:ale_sign_error = '×'
 " Quck location
 nmap <Leader><Space>o :lopen<CR>      " open location window
 nmap <Leader><Space>c :lclose<CR>     " close location window
@@ -118,7 +120,14 @@ nmap <Leader><Space>p :lprev<CR>      " previous error/warning
 let g:neoformat_only_msg_on_error = 1
 let g:neoformat_javascript_prettier = {
       \ 'exe': 'prettier',
-      \ 'args': ['--trailing-comma all', '--tab-width 4'],
+      \ 'args': ['--trailing-comma all', '--tab-width 2'],
+      \ 'stdin': 1, 
+      \ 'no_append': 1,
+      \ }
+
+let g:neoformat_javascript_yaml = {
+      \ 'exe': 'yaml',
+      \ 'args': ['merge-expand'],
       \ 'stdin': 1, 
       \ 'no_append': 1,
       \ }
@@ -132,21 +141,37 @@ nnoremap gp :Neoformat<CR>
 " Toggle NERDTree
 nmap <silent> <leader>k :NERDTreeToggle<cr>
 " expand to the path of the file in the current buffer
-nmap <silent> <leader>\ :NERDTreeFind<cr>
+nmap <silent> <leader>l :call MyNerdToggle()<cr>
+nnoremap <C-\> :call MyNerdToggle()<CR>
+
+let NERDTreeIgnore=['node_modules', '\~$', '.git', 'package-lock.json', '.DS_Store']
+
 " close after opening file
 let NERDTreeQuitOnOpen = 1
 let NERDTreeAutoDeleteBuffer = 1
-
+let NERDTreeHighlightCursorline = 1
 
 let NERDTreeShowHidden=1
 let NERDTreeDirArrowExpandable = '▷'
 let NERDTreeDirArrowCollapsible = '▼'
+let NERDTreeMapJumpFirstChild = 'gK'
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
+" NERDTress File highlighting
+function! NERDTreeHighlightFile(extension, fg, bg)
+ exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+ exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:bg .' guifg='. a:fg
+endfunction
+
+call NERDTreeHighlightFile('json', 'red', 'NONE')
+
+" End NERDTREE
 let g:fzf_nvim_statusline = 0 " disable statusline overwriting
 let g:fzf_layout = { 'down': '~25%' }
 " Better command history with q:
 command! CmdHist call fzf#vim#command_history({'down': '~25%'})
 nnoremap q: :CmdHist<CR>
+
 
 " Better search history shit I was looking with vim search
 command! QHist call fzf#vim#search_history({'down': '~25%'})
@@ -220,7 +245,7 @@ vmap <Enter> <Plug>(EasyAlign)
 " nnoremap <Leader>l :Dash <C-r><C-w> 
 " vmap <Leader>l "py :Dash <C-r>p
 " map  <Leader>l <Plug>(easymotion-bd-f)
-nmap <Leader>l <Plug>(easymotion-overwin-f)
+" nmap <Leader>l <Plug>(easymotion-overwin-f)
 
 "===========================================================
 " => VimWiki
@@ -290,4 +315,4 @@ autocmd BufEnter *.md exe 'noremap <F5> :!open -a "Google Chrome" "%"<CR>'
 
 " let g:airline#extensions#tabline#show_splits = 0
 
-autocmd FileType make setlocal noexpandtab
+" autocmd FileType make setlocal noexpandtab

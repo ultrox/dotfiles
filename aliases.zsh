@@ -71,10 +71,7 @@ alias r!="source ~/.zshrc;echo done"
 # clone repository with default webpack settings to start developing ec6 
 function gojs() {git clone https://github.com/ultrox/w $1 && cd $1 && npm install}
 
-# find code definition with this
-alias ick='ack -i --pager="less -R -S -X"'
 
-export FZF_DEFAULT_COMMAND='ag -g ""'
 alias ls="ls -GCF"
 function _f() { find . -iname "*$1*" ${@:2} }
 function r() { grep "$1" ${@:2} -R . }
@@ -233,5 +230,25 @@ add() {
   local files
   IFS=$'\n' files=($(find ~/.tldrc/tldr-master/pages -type f \( ! -name "\.DS_Store" \)| fzf-tmux --preview 'head -30 {}' --query="$1" --multi --select-1 --exit-0))
   [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
+}
+
+
+# find code definition with this
+alias ick='ack -i --pager="less -R -S -X"'
+#export FZF_DEFAULT_COMMAND='ag -g ""'
+
+#export FZF_ALT_C_COMMAND="rg -t d . $HOME"
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules,_node_modules,.DS_Store}/*" 2> /dev/null'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+wtf() {
+  if [ "$#" -lt 1 ]; then echo "Supply string to search for!"; return 1; fi
+  printf -v search "%q" "$*"
+  include="yml,js,json,php,md,styl,pug,jade,html,config,py,cpp,c,go,hs,rb,conf,fa,lst"
+  exclude=".config,.git,node_modules,vendor,build,yarn.lock,*.sty,*.bst,*.coffee,dist"
+  rg_command='rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always" -g "*.{'$include'}" -g "!{'$exclude'}/*"'
+
+  files=`eval $rg_command $search '' | fzf --ansi --multi --reverse | awk -F ':' '{print $1":"$2":"$3}'`
+  [[ -n "$files" ]] && ${EDITOR:-vim} $files
 }
 

@@ -21,6 +21,10 @@ if($1) {
 }
 endsnippet
 
+snippet why "What is this for" b
+/** ${1:${VISUAL}} */
+endsnippet
+
 snippet describe "function for testing"
 describe("$1", function() {
 		it("$2", function() {
@@ -120,11 +124,15 @@ export default $1;
 endsnippet
 
 snippet ptn "PropTypes number required"
-PropTypes.number.isRequired,
+PropTypes.number.isRequired
 endsnippet
 
 snippet pts "PropTypes string required"
-PropTypes.string.isRequired,
+PropTypes.string.isRequired
+endsnippet
+
+snippet ptb "PropTypes boolean required"
+PropTypes.bool.isRequired
 endsnippet
 
 snippet ptdefi "PropTypes definition"
@@ -145,7 +153,9 @@ endsnippet
 
 
 snippet div "Simple jsx div" b
-<div>${1:${VISUAL:coding}}</div>
+<div>
+	${1:${VISUAL:coding}}
+</div>
 endsnippet
 
 # TESTING
@@ -153,5 +163,40 @@ endsnippet
 snippet shallow "Shallow render" b
 const wrapper = shallow(<$1 />)
 endsnippet
+
+snippet rtes "Testing setup" b
+import React from 'react';
+import {shallow} from 'enzyme';
+import {createSerializer} from 'enzyme-to-json';
+
+import $1 from './$1';
+
+describe('$1', () => {
+	it('$2', () => {
+        const wrapper = shallow(<$1 $3/>);
+			  $0
+	});
+});
+endsnippet
+
+snippet sfunc "Suround function call" w
+${1:func}(${VISUAL})
+endsnippet
+
+
+snippet toHaveLength "Enzyme element have leng" b
+expect(wrapper.find({type: "$1"})).toHaveLength($2);
+endsnippet
+
+
+snippet toMatchSnapshot "Matching Snapshoot" b
+expect(${1:wrapper}).toMatchSnapshot();
+endsnippet
+
+
+snippet reduce "expect <func>, [seed]" w
+reduce(($1) => $2, ${3:seed})
+endsnippet
+
 
 # vim:ft=snippets:
