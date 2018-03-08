@@ -1,3 +1,6 @@
+" Binds function to constructor
+nnoremap <leader>bf :call BindMe()<CR>
+
 let g:rg_command = '
   \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
   \ -g "*.{js,json,php,md,styl,jade,html,config,py,cpp,c,go,hs,rb,conf}"
@@ -44,6 +47,7 @@ fu! RelativePathString(file)
     let result = ""
     while substitute(a:file, common, '', '') ==# a:file
         let common = fnamemodify(common, ':h')
+
         let result = ".." . (empty(result) ? '' : '/' . result)
     endw
     let forward = substitute(a:file, common, '', '')
@@ -161,7 +165,7 @@ nmap <leader>em :e ~/dotfiles/config/nvim/m-keymap.vim<CR>
 
 " noremap <BS> :noh<cr>
 noremap <BS> :set hls!\|set hls?<CR>
-nnoremap i :noh<cr>i
+" nnoremap i :noh<cr>i
 
 " nnoremap <Leader>i i![<C-R>+](/Users/ultrox/Google%20Drive/LearnNodeGifs/<C-R>+)<Enter><esc>
 " nnoremap <Leader>i i![<C-R>+](/Users/ultrox/Google%20Drive/ReduxSagaForm/<C-R>+)<Enter><esc>
@@ -258,7 +262,7 @@ nnoremap <silent> $ g$
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 " scroll the viewport faster
-nnoremap <C-e> 3<C-e>
+nnoremap <C-E> 3<C-E>
 nnoremap <C-y> 3<C-y>
 
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -273,16 +277,16 @@ nnoremap <leader>= :wincmd =<cr>
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 " Keep search matches in the middle of the window.
-nnoremap n nzzzv
-nnoremap N Nzzzv
+" nnoremap n nzzzv
+" nnoremap N Nzzzv
 
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 " Same when jumping around
-nnoremap g; g;zz
-nnoremap g, g,zz
-nnoremap <c-o> <c-o>zz
-nnoremap <c-i> <c-i>zz
+" nnoremap g; g;zz
+" nnoremap g, g,zz
+" nnoremap <c-o> <c-o>zz
+" nnoremap <c-i> <c-i>zz
 
 "================================
 "=> Others
@@ -311,13 +315,15 @@ noremap gV `[v`]
 " nnoremap <silent> <F8> :setlocal filetype=php<CR>
 " nnoremap <silent> <F9> :setlocal filetype=html<CR>
 
-autocmd FileType javascript imap <buffer> <A-u> }
-autocmd FileType javascript imap <buffer> <A-i> {
+" autocmd FileType javascript imap <buffer> <A-u> }
+" autocmd FileType javascript imap <buffer> <A-i> {
 " autocmd FileType javascript inoremap ;; <END>;
 " autocmd FileType javascript inoremap ,, <END>,
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 " FOLDING
-nnoremap , za
+" nnoremap , za
+" :hi Folded guifg=green guibg=black ctermfg=green ctermbg=black
+" setlocal foldtext='+-'.v:folddashes.'\ '.getline(v:foldstart+1)
 
 " INDENTING Formting
 nnoremap <leader>f mzgg=G`z

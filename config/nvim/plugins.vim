@@ -6,7 +6,7 @@ call plug#begin('~/.nvim/plugged')
 runtime macros/matchit.vim
 
 Plug 'sickill/vim-pasta' " context-aware pasting
-Plug 'AndrewRadev/splitjoin.vim'
+" Plug 'AndrewRadev/splitjoin.vim'
 " Plug 'godlygeek/tabular'
 Plug 'junegunn/vim-easy-align'
 Plug 'tommcdo/vim-exchange'
@@ -14,6 +14,7 @@ Plug 'tommcdo/vim-exchange'
 Plug 'justinmk/vim-sneak'
 
 Plug 'rking/ag.vim'        "=> Even faster then very fast
+" Plug 'mileszs/ack.vim'
 " Experimental
 Plug 'wellle/targets.vim'
 " ----------------------------------------------------------------------
@@ -38,8 +39,8 @@ Plug 'ervandew/supertab'
 Plug 'trevordmiller/nova-vim'
 Plug 'terryma/vim-multiple-cursors'
 " Atempt to solve problems with importing modules
-Plug 'moll/vim-node'
-Plug 'galooshi/vim-import-js'
+" Plug 'moll/vim-node'
+" Plug 'galooshi/vim-import-js'
 " ----------------------------------------------------------------------
 " | Smater Sintax - JS Specific                                        |
 " ----------------------------------------------------------------------
@@ -66,25 +67,25 @@ Plug 'chr4/nginx.vim'
 
 Plug 'suan/vim-instant-markdown'
 Plug 'vim-scripts/star-search'
-Plug 'rizzatti/dash.vim'
+" Plug 'rizzatti/dash.vim'
 Plug 'vimwiki/vimwiki'
-Plug 'vim-scripts/tinykeymap'
+" Plug 'vim-scripts/tinykeymap'
 Plug 'terryma/vim-smooth-scroll'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'kana/vim-textobj-user'
-      \| Plug 'machakann/vim-textobj-delimited'
-      \| Plug 'kana/vim-textobj-entire'
-      \| Plug 'Chun-Yang/vim-textobj-chunk'
-      \| Plug 'kana/vim-textobj-indent'
-      \| Plug 'kana/vim-textobj-line'
-      \| Plug 'mattn/vim-textobj-url'
-      \| Plug 'rhysd/vim-textobj-conflict'
-      \| Plug 'glts/vim-textobj-comment', { 'for': [ 'javascript', 'php' ] }
-      \| Plug 'jasonlong/vim-textobj-css',
-      \   { 'for': [ 'css', 'sass', 'scss' ] }
-      \| Plug 'kana/vim-textobj-function'
-      \| Plug 'thinca/vim-textobj-function-javascript',
-      \   { 'for': [ 'javascript' ] }
+"       \| Plug 'machakann/vim-textobj-delimited'
+"       \| Plug 'kana/vim-textobj-entire'
+"       \| Plug 'Chun-Yang/vim-textobj-chunk'
+"       \| Plug 'kana/vim-textobj-indent'
+"       \| Plug 'kana/vim-textobj-line'
+"       \| Plug 'mattn/vim-textobj-url'
+"       \| Plug 'rhysd/vim-textobj-conflict'
+"       \| Plug 'glts/vim-textobj-comment', { 'for': [ 'javascript', 'php' ] }
+"       \| Plug 'jasonlong/vim-textobj-css',
+"       \   { 'for': [ 'css', 'sass', 'scss' ] }
+"       \| Plug 'kana/vim-textobj-function'
+"       \| Plug 'thinca/vim-textobj-function-javascript',
+"       \   { 'for': [ 'javascript' ] }
 
 
 " Plug 'vim-scripts/Toggle'

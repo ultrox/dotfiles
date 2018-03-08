@@ -1,14 +1,5 @@
-global !v
-expand("%:t:r")
-endglobal
-
 global !p
-def complete(t, opts):
-	if t:
-		opts= [m[len(t):] for m in opts if m.startswith(t) ]
-	if len(opts) == 1:
-		return opts[0]
-	return "(" + '|'.join(opts) + ')'
+from snippet_helpers_js import *
 endglobal
 
 snippet cl "console.log"
@@ -61,10 +52,6 @@ setTimeout(function() {
 }, ${0:1000})
 endsnippet
 
-snippet simp "Simple" !b
-`!p snip.rv =`
-endsnippet
-
 # expand when there is exactly one space infront
 snippet '^ st' "Status" r
 status $1`!p snip.rv=complete(t[1], ['new', 'incomplete', 'invalid'])`
@@ -106,45 +93,77 @@ snippet nimp "Named import"
 import $1 from "$2";$0
 endsnippet
 
-snippet fcomp "Functional Component"
+snippet rimp "Import React"
 import React from "react";
-import PropTypes from "prop-types";
+endsnippet
 
-const ${1:`!v expand("%:t:r")`} = (${2:props}) => (
-
-    ${3:<jsx />}
-);
-
-$1.propTypes = {
-		$4
+snippet fcomp "Functional Component"
+const ${1:`!v expand("%:t:r")`} = ${2:props} => { 
+	return ${3:<div />}
 };
+
+$1.propTypes = { $4 };
 
 export default $1;
 
 endsnippet
 
-snippet ptn "PropTypes number required"
-PropTypes.number.isRequired
+snippet ":ptoo" "PropTypes Onof" r
+: PropTypes.oneOf(["${1:string}", "${2:number}"]),
 endsnippet
 
-snippet pts "PropTypes string required"
-PropTypes.string.isRequired
+snippet ":pta" "Array propTypes" r
+: PropTypes.array.isRequired,
 endsnippet
 
-snippet ptb "PropTypes boolean required"
-PropTypes.bool.isRequired
+snippet ":ptos" "Object Shapre propTypes" r
+: PropTypes.shape({
+    $1
+  }),
+endsnippet
+
+snippet ":ptn" "PropTypes number required" r
+: PropTypes.number.isRequired,
+endsnippet
+
+snippet ':ptf' "PropTypes function required" r
+: PropTypes.func.isRequired,
+endsnippet
+
+snippet ":pts" "PropTypes string required" r
+: PropTypes.string.isRequired,
+endsnippet
+
+snippet ":ptb" "PropTypes boolean required" r
+: PropTypes.bool.isRequired,
+endsnippet
+
+snippet ":pto" "PropTypes object required" r
+: PropTypes.object.isRequired,
 endsnippet
 
 snippet ptdefi "PropTypes definition"
-$1.propTypes = {
+`!p js_comp_name(path, snip)`.propTypes = {
 	$2
 };
 endsnippet
 
-snippet ptdefa "PropTypes default" b
-$1.defaultProps = {
+snippet ptdefault "Default PropTypes" b
+${1:`!v expand("%:t:r")`}.defaultProps = {
 	$2
 };
+endsnippet
+
+snippet oncl "onClick function" w
+onClick={$1}
+endsnippet
+
+snippet onch "onChange function" w
+onChange={$1}
+endsnippet
+
+snippet onsu "onSubmit function" w
+onSubmit={$1}
 endsnippet
 
 snippet ipt "Import Propt types"
@@ -184,6 +203,46 @@ ${1:func}(${VISUAL})
 endsnippet
 
 
+snippet ccomp "Class Component" b
+import React from "react";
+import PropTypes from "prop-types";
+
+class ${1:`!v expand("%:t:r")`} extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+
+    this.state = {$2};
+  }
+
+  render () {
+    return ${3:<JSX />}${VISUAL}
+  }
+}
+
+$1.propTypes = {
+		$4
+};
+
+export default $1;
+endsnippet
+
+
+snippet tccomp "Tranform to Class Comp" b
+
+class ${1:`!v expand("%:t:r")`} extends React.Component {
+	constructor(props, context) {
+		super(props, context);
+
+		this.state = {$2};
+	}
+
+	render () {
+		return ${3:<JSX />}${VISUAL}
+	}
+}
+endsnippet
+
+
 snippet toHaveLength "Enzyme element have leng" b
 expect(wrapper.find({type: "$1"})).toHaveLength($2);
 endsnippet
@@ -198,5 +257,33 @@ snippet reduce "expect <func>, [seed]" w
 reduce(($1) => $2, ${3:seed})
 endsnippet
 
+snippet alfa "Doing alfa stuff" b
+import React from "react";
+import PropTypes from "prop-types";
+
+const `!p js_comp_name(path, snip)` = ({ ${1:props:func} }) => (
+	${2:<jsx/>}
+);
+$0
+`!p js_comp_name(path, snip)`.propTypes = {
+`!p propTypes(t[1], snip)`
+}
+
+export default `!p js_comp_name(path, snip)`
+endsnippet
+
+snippet ss "SetState" b
+this.setState({ $1 })
+endsnippet
+
+snippet fetch "Fetch function" b
+fetch( ${1:'http://swapi.co/api/people/?format=json'} )
+	.then( respose => respose.json() )
+	.then( ( {results: items} ) => this.setState({items}) )
+endsnippet
+
+snippet input:radio "Radio button" b
+<input type="radio" name="" id="" />
+endsnippet
 
 # vim:ft=snippets:

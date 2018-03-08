@@ -2,8 +2,8 @@ source ~/.config/nvim/plugins.vim
 " ------------------------------------
 " Typing key combos - Try this, not tested
 " ------------------------------------
-let g:python_host_prog = '/usr/local/opt/python/libexec/bin/python'
-let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python_host_prog = '/usr/local/Cellar/python/2.7.13_1/bin/python2'
+let g:python3_host_prog = '/usr/local/Cellar/python/3.6.4_3/bin/python3'
 " let g:python_host_prog='/usr/local/bin/python2'
 
 " /usr/local/bin/python3
@@ -27,7 +27,6 @@ command! -nargs=* Wrap set wrap linebreak nolist
 set cpoptions+=$                "kad 'change' prikaze $
 if has('clipboard')
   set clipboard=unnamed  " Use clipboard register
-
   " Share X windows clipboard. NOT ON NEOVIM -- neovim automatically uses
   " system clipboard when xclip/xsel/pbcopy are available.
   if has('nvim') && !has('mac')

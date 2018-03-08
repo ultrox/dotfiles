@@ -238,6 +238,8 @@ alias ick='ack -i --pager="less -R -S -X"'
 #export FZF_DEFAULT_COMMAND='ag -g ""'
 
 #export FZF_ALT_C_COMMAND="rg -t d . $HOME"
+# export FZF_ALT_C_COMMAND="cd ~/; bfs -type d -nohidden | sed s/^\./~/"  
+export FZF_ALT_C_COMMAND="bfs -type d -nohidden"
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules,_node_modules,.DS_Store}/*" 2> /dev/null'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
@@ -252,3 +254,4 @@ wtf() {
   [[ -n "$files" ]] && ${EDITOR:-vim} $files
 }
 
+# export FZF_ALT_C_COMMAND="cd ~/; bfs -type d -nohidden | sed s/^\./~/" 

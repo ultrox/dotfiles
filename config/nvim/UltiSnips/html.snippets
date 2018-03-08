@@ -1,10 +1,6 @@
 # https://github.com/honza/vim-snippets/tree/master/UltiSnips
 global !p
-def x(snip):
-	if snip.ft.startswith("x"):
-		snip.rv = '/'
-	else:
-		snip.rv = ""
+from snippet_helpers_html import *
 endglobal
 
 snippet html "HTML basic structure" b
@@ -62,4 +58,49 @@ endsnippet
 
 snippet option "Option" w
 <option${1: value="${2:option}"}>${3:$2}</option>
+endsnippet
+
+
+
+snippet semantic "Semantic Ui setup" b
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel='stylesheet' type='text/css' href='http://oss.maxcdn.com/semantic-ui/2.1.8/semantic.min.css' />
+    <script src='https://code.jquery.com/jquery-2.2.0.min.js'></script>
+    <script src='http://oss.maxcdn.com/semantic-ui/2.1.8/semantic.min.js'></script>
+    <title>Our Sample App</title>
+  </head>
+  <body>
+    $1
+  </body>
+</html>
+endsnippet
+
+snippet foo "Ui input" b
+$1`!p snip.rv=complete(t[1], ['focus', 'loading', 'disabled', 'error'])`
+endsnippet
+
+
+snippet uiinput "Ui input" b
+<div class="ui input $1`!p snip.rv=complete(t[1], ['focus', 'loading', 'disabled', 'error'])`">
+	<input />
+	$2
+</div>
+endsnippet
+
+snippet '^ st' "Status" r
+status $1`!p snip.rv=complete('a', 'b')`
+endsnippet
+
+snippet alfa "Doing alfa stuff" b
+const Button = (${1:*props}) => (
+`!p propTypes(t[1], snip)`
+);
+endsnippet
+
+snippet defi "Constructor"
+def initialize(${1:*args})
+`!p propTypes(t[1], snip)`
+end
 endsnippet

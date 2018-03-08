@@ -29,3 +29,4 @@ tscommand*.txt
 build/
 tags
 
+.idea

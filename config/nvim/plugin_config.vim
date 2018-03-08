@@ -1,4 +1,12 @@
-let g:echodoc#enable_at_startup	= 1
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
+"===========================================================
+" => Syntax pangloss vim
+"===========================================================
+let g:javascript_plugin_flow = 1
+
 "===========================================================
 " => "Surround" tpope indeed
 "===========================================================
@@ -14,6 +22,12 @@ xmap S      <Plug>VSurround
 xmap gS     <Plug>VgSurround
 imap <C-G>s <Plug>Isurround
 imap <C-G>S <Plug>ISurround
+
+"===========================================================
+" => Sneak Settings
+"===========================================================
+" nmap f <Plug>Sneak_s
+" nmap F <Plug>Sneak_S
 "===========================================================
 " => Supertab Settings
 "===========================================================
@@ -92,12 +106,28 @@ autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 "===========================================================
 " => Emmet
 "===========================================================
-let g:user_emmet_leader_key='<C-Z>'
+let g:user_emmet_leader_key='<C-e>'
+inoremap <C-e>e <esc>:call emmet#expandAbbr(0,"")<cr>h:call emmet#splitJoinTag()<cr>wwi
+nnoremap <C-e>e :call emmet#expandAbbr(0,"")<cr>h:call emmet#splitJoinTag()<cr>:.g/"/ norm cs"{<cr>==<cr>
+" nnoremap <C-e>e :call emmet#expandAbbr(0,"")<cr>h:call emmet#splitJoinTag()<cr>ww
+
+" let g:user_emmet_leader_key='<C-Z>'
 "this is becouse emmet uses different kind of ft jsx, instead of javascript.jsx
+let emmet_html5 = 0
 let g:user_emmet_settings = {
       \  'javascript.jsx' : {
       \      'extends' : 'jsx',
+      \        'empty_elements': 'i',
+      \        'quote_char': "'",
+      \       'default_attributes': {
+      \       'label': [{'htmlFor': ''}],
+      \        'form': [{'onSubmit': '{this.handleSubmit}'}],
+      \    }
       \  },
+      \ 'foo': {
+      \       'extends': 'html',
+      \        'empty_elements': 'i',
+      \      }
       \}
 "===========================================================
 " => Ale config and syntax - async linting lint lint eslint linting
@@ -116,8 +146,10 @@ nmap <Leader><Space>p :lprev<CR>      " previous error/warning
 "===========================================================
 " => NeoFormat & Prettier 
 "===========================================================
-
 let g:neoformat_only_msg_on_error = 1
+let g:neoformat_enabled_python = ['autopep8']
+let g:neoformat_enabled_javascript = ['prettier']
+
 let g:neoformat_javascript_prettier = {
       \ 'exe': 'prettier',
       \ 'args': ['--trailing-comma all', '--tab-width 2'],
@@ -125,7 +157,7 @@ let g:neoformat_javascript_prettier = {
       \ 'no_append': 1,
       \ }
 
-let g:neoformat_javascript_yaml = {
+let g:neoformat_yaml = {
       \ 'exe': 'yaml',
       \ 'args': ['merge-expand'],
       \ 'stdin': 1, 
@@ -144,7 +176,7 @@ nmap <silent> <leader>k :NERDTreeToggle<cr>
 nmap <silent> <leader>l :call MyNerdToggle()<cr>
 nnoremap <C-\> :call MyNerdToggle()<CR>
 
-let NERDTreeIgnore=['node_modules', '\~$', '.git', 'package-lock.json', '.DS_Store']
+let NERDTreeIgnore=['node_modules2', '\~$', '.git', 'package-lock.json', '.DS_Store']
 
 " close after opening file
 let NERDTreeQuitOnOpen = 1
@@ -159,8 +191,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 " NERDTress File highlighting
 function! NERDTreeHighlightFile(extension, fg, bg)
- exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
- exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:bg .' guifg='. a:fg
+  exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+  exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:bg .' guifg='. a:fg
 endfunction
 
 call NERDTreeHighlightFile('json', 'red', 'NONE')
@@ -180,10 +212,12 @@ nnoremap q/ :QHist<CR>
 nnoremap <silent> <leader>p :FZF -m<cr>
 
 nmap <silent> <leader>a :Buffers<cr>
-
+" fuzzy mappings
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
+
+nnoremap <silent> <F4> <plug>(fzf-maps-i)
 
 " Insert mode completion
 imap <c-x><c-k> <plug>(fzf-complete-word)
