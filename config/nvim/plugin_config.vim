@@ -152,9 +152,7 @@ let g:neoformat_enabled_javascript = ['prettier']
 
 let g:neoformat_javascript_prettier = {
       \ 'exe': 'prettier',
-      \ 'args': ['--trailing-comma all', '--tab-width 2'],
-      \ 'stdin': 1, 
-      \ 'no_append': 1,
+      \ 'args': ['--trailing-comma es5','--semi'],
       \ }
 
 let g:neoformat_yaml = {
