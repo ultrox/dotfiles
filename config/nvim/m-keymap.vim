@@ -1,3 +1,6 @@
+" Force using ZZ and ZQ
+cmap wq :echo "USE ZZ"<CR>
+
 " Binds function to constructor
 nnoremap <leader>bf :call BindMe()<CR>
 
