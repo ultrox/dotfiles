@@ -81,6 +81,9 @@ alias ns="npm run start"
 alias build="npm run build"
 function nls() {npm list --depth ${1-0} }
 
+alias sl="git rev-parse --show-toplevel |xargs -I {} jq ".scripts" {}/package.json"
+alias ep="git rev-parse --show-toplevel |xargs -I {} nvim {}/package.json"
+
 # directorys 
 function t() {tree -L ${1-2} -I 'node_modules' --dirsfirst}
 alias _tree="tree -I 'node_modules' --dirsfirst"
