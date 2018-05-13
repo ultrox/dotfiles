@@ -51,7 +51,7 @@ Plug 'fatih/vim-go'
 Plug 'othree/yajs.vim'                        "=> better modern sintax as oppose jelera/vim-javascript-syntax
 Plug 'othree/javascript-libraries-syntax.vim' "=> Specify sintax for jQuery, React etc
 Plug 'othree/es.next.syntax.vim'
-"Plug 'elzr/vim-json'
+Plug 'elzr/vim-json'
 "Plug 'ludovicchabant/vim-gutentags'          "=> Ctags gen for javascript ili jrfsn ili drugi
 Plug 'pangloss/vim-javascript'
 "Plug 'ramitos/jsctags'                       "=> Ctags gen Tern javascript
@@ -59,8 +59,8 @@ Plug 'mxw/vim-jsx'                            "=> Syntax highlighting and indent
 Plug 'digitaltoad/vim-pug'					   "=> Prije se zvao Jade
 " Plug 'othree/html5.vim'
 Plug 'chr4/nginx.vim'
-
-'
+Plug 'jparise/vim-graphql'
+Plug 'wavded/vim-stylus'
 " ----------------------------------------------------------------------
 " | Hellpers                                                           |
 " ----------------------------------------------------------------------
@@ -72,10 +72,11 @@ Plug 'vimwiki/vimwiki'
 " Plug 'vim-scripts/tinykeymap'
 Plug 'terryma/vim-smooth-scroll'
 Plug 'nelstrom/vim-visual-star-search'
+
+Plug 'Chun-Yang/vim-textobj-chunk'
 Plug 'kana/vim-textobj-user'
 "       \| Plug 'machakann/vim-textobj-delimited'
 "       \| Plug 'kana/vim-textobj-entire'
-"       \| Plug 'Chun-Yang/vim-textobj-chunk'
 "       \| Plug 'kana/vim-textobj-indent'
 "       \| Plug 'kana/vim-textobj-line'
 "       \| Plug 'mattn/vim-textobj-url'

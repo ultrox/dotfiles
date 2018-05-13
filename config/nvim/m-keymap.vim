@@ -1,3 +1,5 @@
+nnoremap <leader>2 viwp
+nnoremap <leader>1 1z=
 " Force using ZZ and ZQ
 cmap wq :echo "USE ZZ"<CR>
 

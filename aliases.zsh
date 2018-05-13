@@ -1,6 +1,10 @@
 #!/bin/bash
 # https://blog.g3rt.nl/upgrade-your-ssh-keys.html
 # utils
+function jr() {
+  cd $(git rev-parse --show-toplevel)
+}
+
 function cif() {
   cat $1 | pbcopy
 }

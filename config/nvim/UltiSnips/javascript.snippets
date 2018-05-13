@@ -2,6 +2,10 @@ global !p
 from snippet_helpers_js import *
 endglobal
 
+snippet rrd "React router dom" b
+import { $1 } from "react-router-dom";
+endsnippet
+
 snippet cl "console.log"
 console.log(${1:'just a string'})$0
 endsnippet
@@ -10,6 +14,23 @@ snippet if "if visual support"
 if($1) {
 	${2:${VISUAL:coding}}
 }
+endsnippet
+
+
+snippet eig "Disable next line" b
+// eslint-disable-next-line
+endsnippet
+
+snippet pig "Prettier Ignore" b
+// prettier-ignore
+endsnippet
+
+snippet pigs "Prettier Ignore Start Range" b
+// prettier-ignore-start
+endsnippet
+
+snippet pige "Prettier Ignore End Range" b
+// prettier-ignore-end
 endsnippet
 
 snippet why "What is this for" b
@@ -292,4 +313,17 @@ if (${1:object}.hasOwnProperty("$2")) {
 }
 endsnippet
 
+snippet rfrag "React Fragment" b
+<React.Fragment>
+	${1:${VISUAL}}
+</React.Fragment>
+endsnippet
+
+snippet "JSON.s" "JSON stringify" r
+JSON.stringify($1)
+endsnippet
+
+snippet "JSON.p" "JSON parse" r
+JSON.parse($1)
+endsnippet
 # vim:ft=snippets:

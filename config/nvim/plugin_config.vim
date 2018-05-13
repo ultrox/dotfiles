@@ -150,9 +150,10 @@ let g:neoformat_only_msg_on_error = 1
 let g:neoformat_enabled_python = ['autopep8']
 let g:neoformat_enabled_javascript = ['prettier']
 
+"\ 'args': ['--trailing-comma es5','--semi'],
 let g:neoformat_javascript_prettier = {
       \ 'exe': 'prettier',
-      \ 'args': ['--trailing-comma es5','--semi'],
+      \ 'args': ['--config /Users/markovujanic/ajando/lms/.prettierrc.yaml'],
       \ }
 
 let g:neoformat_yaml = {

@@ -17,7 +17,7 @@ set autoread                    " detect when a file is changed
 set autowrite                   " auto sejvuje fajlove prije komadni :next :make etc
 set number
 set numberwidth=4               " indentira brojeve sa ljeve strane za x pixela
-" set relativenumber
+set relativenumber
 set backspace=indent,eol,start " make backspace behave in a sane manner
 set history=1000               " change history to 1000
 
