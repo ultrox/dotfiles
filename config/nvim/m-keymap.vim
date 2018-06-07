@@ -1,3 +1,8 @@
+nnoremap <silent> <Space><Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf
+
+nnoremap ]] :ll<cr>
+nnoremap [[ :lprev<CR>
 nnoremap <leader>2 viwp
 nnoremap <leader>1 1z=
 " Force using ZZ and ZQ

@@ -8,8 +8,6 @@
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
-
-zplug "felixr/docker-zsh-completion"
 # awesome completion of aws
 # source /usr/local/bin/aws_zsh_completer.sh
 
@@ -21,12 +19,12 @@ fi
 
 # Customize to your needs...
 
-#my aliases
+#my aliases attepmt
 source "${ZDOTDIR:-$HOME}/dotfiles/aliases.zsh"
 
 eval "$(fasd --init auto)"
 # http://blog.joncairns.com/2013/12/understanding-ssh-agent-and-ssh-add/
-source /Users/markovujanic/dotfiles/ssh-find-agent.sh
+source "${ZDOTDIR:-$HOME}/dotfiles/ssh-find-agent.sh"
 # stop asking me...
 set_ssh_agent_socket
 # first added by brew second added by python
@@ -34,9 +32,11 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 
-
-
+# Setting ag as the default source for fzf
+# export FZF_DEFAULT_COMMAND='ag -g ""' OLD I was using ag
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

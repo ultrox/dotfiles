@@ -11,7 +11,7 @@ Plug 'sickill/vim-pasta' " context-aware pasting
 Plug 'junegunn/vim-easy-align'
 Plug 'tommcdo/vim-exchange'
 " Plug 'easymotion/vim-easymotion'
-Plug 'justinmk/vim-sneak'
+" Plug 'justinmk/vim-sneak'
 
 Plug 'rking/ag.vim'        "=> Even faster then very fast
 " Plug 'mileszs/ack.vim'

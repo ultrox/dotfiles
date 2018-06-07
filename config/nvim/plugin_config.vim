@@ -134,14 +134,13 @@ let g:user_emmet_settings = {
 "===========================================================
 " let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5'
 " nnoremap gp :silent %!prettier --stdin --trailing-comma all  --tab-width 4<CR>
-
 let g:ale_sign_error = '×'
 " Quck location
-nmap <Leader><Space>o :lopen<CR>      " open location window
-nmap <Leader><Space>c :lclose<CR>     " close location window
-nmap <Leader><Space>, :ll<CR>         " go to current error/warning
-nmap <Leader><Space>n :lnext<CR>      " next error/warning
-nmap <Leader><Space>p :lprev<CR>      " previous error/warning
+" nmap <Leader><Space>o :lopen<CR>      " open location window
+" nmap <Leader><Space>c :lclose<CR>     " close location window
+" nmap z, :ll<CR>         " go to current error/warning
+" nmap zn :lnext<CR>      " next error/warning
+" nmap zp :lprev<CR>      " previous error/warning
 
 "===========================================================
 " => NeoFormat & Prettier 
@@ -153,7 +152,7 @@ let g:neoformat_enabled_javascript = ['prettier']
 "\ 'args': ['--trailing-comma es5','--semi'],
 let g:neoformat_javascript_prettier = {
       \ 'exe': 'prettier',
-      \ 'args': ['--config /Users/markovujanic/ajando/lms/.prettierrc.yaml'],
+      \ 'args': ['--config /Users/markovujanic/dotfiles/config/prettierrc.yaml'],
       \ }
 
 let g:neoformat_yaml = {

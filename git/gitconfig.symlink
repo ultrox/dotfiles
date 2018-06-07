@@ -1,6 +1,6 @@
 # gitconfig
 [user]
-    name = ultrox
+  name = ultrox
 	email = crashxx@gmail.com
 [github]
     user = ultrox
@@ -140,7 +140,7 @@
     editor = nvim
     whitespace = cr-at-eol
 [rerere]
-    enabled = true
+    enabled = false
 [gitsh]
     defaultCommand = s
 [grep]

@@ -326,4 +326,20 @@ endsnippet
 snippet "JSON.p" "JSON parse" r
 JSON.parse($1)
 endsnippet
+
+snippet obj "Snippet description" b
+{
+	id: "$1",
+	niceName: "$2",
+	fieldName: "`!p snip.rv=t[2].replace(" ", "").lower()`",
+},
+endsnippet
+
+
+snippet isdev " description" b
+if (process.env.NODE_ENV === "development")
+endsnippet
+
 # vim:ft=snippets:
+
+

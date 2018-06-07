@@ -1,6 +1,7 @@
 #!/bin/bash
 # https://blog.g3rt.nl/upgrade-your-ssh-keys.html
 # utils
+alias fix='rm -rf .zcomp* && exec zsh'
 function jr() {
   cd $(git rev-parse --show-toplevel)
 }
@@ -159,10 +160,6 @@ lsimg() {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
-
-# Setting ag as the default source for fzf
-export FZF_DEFAULT_COMMAND='ag -g ""'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # tmux aliases
 alias ta='tmux attach'

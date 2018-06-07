@@ -1,4 +1,11 @@
+##############
+# NICE BOXES #
+##############
+global !p
+from vimsnippets import foldmarker, make_box, get_comment_format
+endglobal
 # b => only on the begining on of the line
+
 snippet today
 Hello `echo $USER` Today is the `date +%d.%m.%y`. you are at: `!v expand('%:r:t')`
 endsnippet
@@ -16,5 +23,9 @@ endsnippet
 
 snippet getimage "Gets you https img"
 <img src="https://placeimg.com/${1:500/500}/${2:animals}" />
+endsnippet
+
+snippet todo "TODO comment"
+`!p snip.rv=get_comment_format()[0]` ${2:TODO}: $0${3: <`!v strftime('%d-%m-%y')` - ${5:marko}>${6:comment}}
 endsnippet
 
