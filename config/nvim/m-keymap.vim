@@ -1,6 +1,15 @@
 nmap gx ""yiw:Ag <C-R>"<CR>
 nnoremap <silent> <Space><Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
+" autocomplete words from tags
+inoremap ^] ^X^]
+" autocomplete words from dictonary
+inoremap ^D ^X^D
+inoremap ^L ^X^L
+
+" scroll other inactive split
+nmap <A-y> 2<C-W>w<C-Y>1<C-W>w
+nmap <A-e> 2<C-W>w<C-E>1<C-W>w
 
 nnoremap ]] :ll<cr>
 nnoremap [[ :lprev<CR>
