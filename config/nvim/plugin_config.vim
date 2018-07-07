@@ -174,7 +174,7 @@ nmap <silent> <leader>k :NERDTreeToggle<cr>
 nmap <silent> <leader>l :call MyNerdToggle()<cr>
 nnoremap <C-\> :call MyNerdToggle()<CR>
 
-let NERDTreeIgnore=['node_modules2', '\~$', '.git', 'package-lock.json', '.DS_Store']
+let NERDTreeIgnore=['node_modules', '\~$', 'yarn-error.log', 'package-lock.json', 'yarn.lock', '.DS_Store']
 
 " close after opening file
 let NERDTreeQuitOnOpen = 1

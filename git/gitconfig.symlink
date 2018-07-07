@@ -70,9 +70,9 @@
     unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged"
 
     # show the most recently touched branches
-    recent = "!git for-each-ref --sort='-committerdate' --format='%(color:red)%(refname)%(color:reset)%09%(committerdate)' refs/heads | sed -e 's-refs/heads/--' | less -XFR"
+    recent = for-each-ref --sort='-authordate:iso8601' refs/heads/ --format="%(authordate)%09%(objectname:short)%09%1B[0;33m%(refname:short)%1B[m%09"
     latest = "!git for-each-ref --sort='-committerdate' --format='%(color:red)%(refname)%(color:reset)%09%(committerdate)' refs/remotes | sed -e 's-refs/remotes/origin/--' | less -XFR"
-
+    
     # grep commands
 
     # 'diff grep'
@@ -91,7 +91,6 @@
     # Kaleidoscope commands
     dkal = difftool -y -t Kaleidoscope
     mkal = mergetool -y -t Kaleidoscope
-    remotes = remote -v
 
     # check out a local copy of a PR. https://gist.github.com/gnarf/5406589
     pr  = "!f() { git fetch -fu ${2:-origin} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
