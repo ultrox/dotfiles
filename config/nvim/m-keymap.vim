@@ -1,3 +1,4 @@
+nmap gx ""yiw:Ag <C-R>"<CR>
 nnoremap <silent> <Space><Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 
@@ -142,9 +143,9 @@ nnoremap <A-]> f]ci]
 " I too like to live dangerously
 " Easier to type, and I never use the default behavior.
 " trying to use this more
-noremap H ^
-noremap L $
-vnoremap L g_
+" noremap H ^
+" noremap L $
+" vnoremap L g_
 
 
 " [tik je ' tu] Super - Favorit remap ever - not needed when remaping esc to ` 
