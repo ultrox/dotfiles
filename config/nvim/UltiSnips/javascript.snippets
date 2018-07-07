@@ -55,6 +55,12 @@ function ${1:func_name}($2) {
 }
 endsnippet
 
+snippet test "Test case testing"
+test("$1", ($2) => {
+	$0
+});
+endsnippet
+
 snippet it "it testing"
 it("$1", function() {
 	$0
@@ -338,6 +344,10 @@ endsnippet
 
 snippet isdev " description" b
 if (process.env.NODE_ENV === "development")
+endsnippet
+
+snippet cas "Casual"
+() => casual.$0,
 endsnippet
 
 # vim:ft=snippets:
