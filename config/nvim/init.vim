@@ -92,7 +92,7 @@ set sidescroll=1
 source ~/.config/nvim/part2.vim
 source ~/.config/nvim/part3.vim 
 
-" set statusline+=\ 
+
 source ~/.config/nvim/autocmd.vim
 source ~/.config/nvim/m-func.vim
 source ~/.config/nvim/m-keymap.vim

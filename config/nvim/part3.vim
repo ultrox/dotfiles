@@ -56,7 +56,7 @@ set laststatus=2 " show the satus line all the time
 " set statusline+=\
 set statusline=
 set statusline+=%#PmenuSel#
-" set statusline+=%-16(%{exists('g:loaded_fugitive')?fugitive#statusline():''}\%)
+set statusline+=%-16(%{exists('g:loaded_fugitive')?fugitive#statusline():''}\%)
 set statusline+=%#LineNr#
 set statusline+=\ %f
 set statusline+=%m
@@ -67,3 +67,4 @@ set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
 set statusline+=\[%{&fileformat}\]
 set statusline+=\ %p%%
 set statusline+=\ %l:%c
+" set statusline+=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
