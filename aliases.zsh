@@ -3,9 +3,11 @@
 # utils
 alias fix='rm -rf .zcomp* && exec zsh'
 
-function grt() {
+function gj() {
   cd $(git rev-parse --show-toplevel)
 }
+
+alias lsh="ls -ld .?*"
 
 function cif() {
   cat $1 | pbcopy
