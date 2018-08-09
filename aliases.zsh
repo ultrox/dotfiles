@@ -1,13 +1,13 @@
 #!/bin/bash
 # https://blog.g3rt.nl/upgrade-your-ssh-keys.html
 # utils
-alias fix='rm -rf .zcomp* && exec zsh'
+alias fix='rm -rf ~/.zcomp* && exec zsh'
 
 function gj() {
   cd $(git rev-parse --show-toplevel)
 }
 
-alias lsh="ls -ld .?*"
+alias lsh="ls -ld .?* "
 
 function cif() {
   cat $1 | pbcopy
