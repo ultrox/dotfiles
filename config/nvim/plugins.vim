@@ -4,7 +4,7 @@
 call plug#begin('~/.nvim/plugged')
 
 runtime macros/matchit.vim
-
+Plug 'hashivim/vim-terraform'
 Plug 'sickill/vim-pasta' " context-aware pasting
 " Plug 'AndrewRadev/splitjoin.vim'
 " Plug 'godlygeek/tabular'

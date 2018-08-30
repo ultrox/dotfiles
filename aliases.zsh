@@ -1,6 +1,13 @@
 #!/bin/bash
 # https://blog.g3rt.nl/upgrade-your-ssh-keys.html
 # utils
+alias tfp="terraform plan"
+alias tfi="terraform init"
+alias tfa="terraform apply"
+alias tfd="terraform destroy"
+alias tfs="terraform show"
+alias tfg="terraform get"
+
 alias fix='rm -rf ~/.zcomp* && exec zsh'
 
 function gj() {
@@ -76,8 +83,6 @@ alias vssh="vagrant ssh"
 alias zshedit="vim ~/.zshrc"
 alias aliasedit="vim ~/.alias.zsh"
 alias r!="source ~/.zshrc;echo done"
-# clone repository with default webpack settings to start developing ec6 
-function gojs() {git clone https://github.com/ultrox/w $1 && cd $1 && npm install}
 
 
 alias ls="ls -GCF"
@@ -87,16 +92,24 @@ alias npms="npm list -g --depth=0"
 alias npml="npm list --depth=0"
 alias ns="npm run start"
 alias build="npm run build"
-function nls() {npm list --depth ${1-0} }
+
+function npmls() {
+  npm list --depth ${1-0} 
+}
 
 alias sl="git rev-parse --show-toplevel |xargs -I {} jq ".scripts" {}/package.json"
 alias ep="git rev-parse --show-toplevel |xargs -I {} nvim {}/package.json"
 
 # directorys 
-function t() {tree -L ${1-2} -I 'node_modules' --dirsfirst}
+function t() {
+  tree -L ${1-2} -I 'node_modules' --dirsfirst -a
+}
+
 alias _tree="tree -I 'node_modules' --dirsfirst"
 
-function randomimage() {wget -O ${1-randomimage.jpg} http://lorempixel.com/400/200/}
+function randomimage() {
+  wget -O ${1-randomimage.jpg} http://lorempixel.com/400/200/
+}
 
 #node and tooling
 alias babelrc="echo '{ \"presets\": [\"react\",\"es2015\"] }' > .babelrc"
@@ -147,9 +160,15 @@ lsimg() {
   alias v='f -e nvim'
   alias d='fasd -d'
 
-  fed() {cp $1 '' `fasd -d $2`; }
-  cpcp() {cp $1 `fasd -d $2`; }
-  mvmv() {mv $1 `fasd -d $2`; }
+  fed() {
+    cp $1 '' `fasd -d $2`; 
+  }
+  cpcp() {
+    cp $1 `fasd -d $2`; 
+  }
+  mvmv() {
+    mv $1 `fasd -d $2`; 
+  }
 
   fancy-ctrl-z () {
   if [[ $#BUFFER -eq 0 ]]; then
@@ -180,9 +199,6 @@ alias nrb="node run build"
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
-# Docker
-function dockerstop() { docker stop $(docker ps -q --filter ancestor=$1)}
-function rmdc() {docker rm $(dcker ps -aq)}
 alias dckr="/Users/markovujanic/dotfiles/docker/develop"
 alias dh="/Users/markovujanic/dotfiles/docker/helpers"
 alias deploy="z SABIO && git pull && z sabio-form &&gup && z SABIO &&git add -A && git commit -m '...' &&git push origin master && pus"
@@ -225,12 +241,6 @@ function dpl() {
     pus
 }
 
-
-function dp2() {
-  git add -A && \
-    git commit -m $1 && \
-    echo 'msg without quotes' " $1 " && \
-  }
 
 # missing piece for tldr
 add() {
