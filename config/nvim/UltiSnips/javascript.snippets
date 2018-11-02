@@ -10,6 +10,10 @@ snippet cl "console.log"
 console.log(${1:${VISUAL:coding}})
 endsnippet
 
+snippet cl| "console.log"
+console.log(${1:${VISUAL:coding}}) || 
+endsnippet
+
 snippet if "if visual support"
 if($1) {
 	${2:${VISUAL:coding}}
@@ -117,21 +121,21 @@ module.exports = {
 endsnippet
 
 snippet nimp "Named import"
-import $1 from "$2";$0
+import $1 from '$2'$0
 endsnippet
 
 snippet rimp "Import React"
-import React from "react";
+import React from 'react'
 endsnippet
 
-snippet fcomp "Functional Component"
+snippet fcc "Functional Component"
 const ${1:`!v expand("%:t:r")`} = ${2:props} => { 
 	return ${3:<div />}
 };
 
-$1.propTypes = { $4 };
+$1.propTypes = { $4 }
 
-export default $1;
+export default $1
 
 endsnippet
 
@@ -350,6 +354,25 @@ snippet cas "Casual"
 () => casual.$0,
 endsnippet
 
-# vim:ft=snippets:
+snippet ;tp "Style comp for theme"
+${props => props.theme.$1};$0
+endsnippet
+# Libs
 
+snippet igql "Graphql" b
+import gql from 'graphql-tag'
+endsnippet
+
+# Tests
+snippet tre "Snippet description" b
+const result = $1
+const expect = $0
+endsnippet
+
+
+snippet impgql "Import Graphql query parser" b
+import gql from 'graphql-tag';
+endsnippet
+
+# vim:ft=snippets:
 

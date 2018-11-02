@@ -90,7 +90,7 @@ set scrolloff=2    " Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
 source ~/.config/nvim/part2.vim
-source ~/.config/nvim/part3.vim 
+source ~/.config/nvim/part3.vim
 
 
 source ~/.config/nvim/autocmd.vim

@@ -1,3 +1,6 @@
+autocmd BufRead  .babelrc  set ft=json
+autocmd BufRead  .releaserc set ft=json
+autocmd BufRead  .eslintrc set ft=json
 " Making more visible which split is active
 augroup CursorLineOnlyInActiveWindow
   autocmd!

@@ -1,5 +1,9 @@
-" http://vim.wikia.com/wiki/Copy_search_matches
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" SHORTCUT TO REFERENCE CURRENT FILE'S PATH IN COMMAND LINE MODE Gary Bernhardt
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+cnoremap <expr> %% expand('%:h').'/'
 
+" http://vim.wikia.com/wiki/Copy_search_matches
 function! CopyMatches(reg)
 	let hits = []
 	%s//\=len(add(hits, submatch(0))) ? submatch(0) : ''/ge
@@ -17,7 +21,9 @@ command! -register CopyMatches call CopyMatches(<q-reg>)
 "     endif
 " endfunction
 " nnoremap <expr> i IndentWithI()
-function! ClearRegisters()
+
+command! ClearRegisters call WipeReg()
+function! WipeReg()
 	let regs='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-="*+'
 	let i=0
 	while (i<strlen(regs))

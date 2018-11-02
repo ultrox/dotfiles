@@ -202,6 +202,7 @@ let g:fzf_layout = { 'down': '~25%' }
 command! CmdHist call fzf#vim#command_history({'down': '~25%'})
 nnoremap q: :CmdHist<CR>
 
+" FUZZY FINDING
 
 " Better search history shit I was looking with vim search
 command! QHist call fzf#vim#search_history({'down': '~25%'})

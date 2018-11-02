@@ -6,12 +6,9 @@ call plug#begin('~/.nvim/plugged')
 runtime macros/matchit.vim
 Plug 'hashivim/vim-terraform'
 Plug 'sickill/vim-pasta' " context-aware pasting
-" Plug 'AndrewRadev/splitjoin.vim'
 " Plug 'godlygeek/tabular'
 Plug 'junegunn/vim-easy-align'
 Plug 'tommcdo/vim-exchange'
-" Plug 'easymotion/vim-easymotion'
-" Plug 'justinmk/vim-sneak'
 
 Plug 'rking/ag.vim'        "=> Even faster then very fast
 " Plug 'mileszs/ack.vim'
@@ -75,19 +72,6 @@ Plug 'nelstrom/vim-visual-star-search'
 
 Plug 'Chun-Yang/vim-textobj-chunk'
 Plug 'kana/vim-textobj-user'
-"       \| Plug 'machakann/vim-textobj-delimited'
-"       \| Plug 'kana/vim-textobj-entire'
-"       \| Plug 'kana/vim-textobj-indent'
-"       \| Plug 'kana/vim-textobj-line'
-"       \| Plug 'mattn/vim-textobj-url'
-"       \| Plug 'rhysd/vim-textobj-conflict'
-"       \| Plug 'glts/vim-textobj-comment', { 'for': [ 'javascript', 'php' ] }
-"       \| Plug 'jasonlong/vim-textobj-css',
-"       \   { 'for': [ 'css', 'sass', 'scss' ] }
-"       \| Plug 'kana/vim-textobj-function'
-"       \| Plug 'thinca/vim-textobj-function-javascript',
-"       \   { 'for': [ 'javascript' ] }
-
 
 " Plug 'vim-scripts/Toggle'
 Plug 'christoomey/vim-tmux-navigator'
@@ -100,19 +84,14 @@ Plug 'junegunn/fzf.vim'
 " Dealing with tags
 Plug 'alvan/vim-closetag'
 Plug 'Valloric/MatchTagAlways'
-" Plug 'vim-scripts/Highlight-UnMatched-Brackets'
 Plug 'jiangmiao/auto-pairs'
 " ----------------------------------------------------------------------
 " | Completion                                                          |
 " ----------------------------------------------------------------------
 Plug 'shawncplus/phpcomplete.vim'
 Plug '2072/PHP-Indenting-for-VIm'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/echodoc.vim'
-" Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
-" Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] }
-" Plug 'majutsushi/tagbar'
 
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
