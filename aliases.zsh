@@ -7,7 +7,9 @@ alias tfa="terraform apply"
 alias tfd="terraform destroy"
 alias tfs="terraform show"
 alias tfg="terraform get"
-
+alias tfo="terraform output"
+killport() { lsof -i tcp:"$@" | awk 'NR!=1 {print $2}' | xargs kill -9 ;}
+alias src="semantic-release-cli"
 alias fix='rm -rf ~/.zcomp* && exec zsh'
 
 function gj() {
@@ -15,6 +17,8 @@ function gj() {
 }
 
 alias lsh="ls -ld .?* "
+alias gl="git lg -10"
+alias gla="git lg"
 
 function cif() {
   cat $1 | pbcopy
@@ -60,9 +64,6 @@ alias nginx.reload='sudo nginx -s reload'
 alias nginx.config='sudo nginx -t'
 alias nginx.restart='nginx.config && nginx.stop && nginx.start'
 alias nginx.errors='tail -250f /var/logs/nginx.error.log'
-# alias nginx.access='tail -250f /var/logs/nginx.access.log'
-# alias nginx.logs.default.access='tail -250f /var/logs/nginx.default.access.log'
-# alias nginx.logs.default-ssl.access='tail -250f /var/logs/nginx.default.ssl.log'
 
 ## servers and dns and network
 alias netstat.tulpn='netstat -an | grep -i listen'
@@ -136,9 +137,6 @@ lsimg() {
   }
 
   # git
-  alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-  alias undo-commit="git reset HEAD~"
-  alias gs="git status"
   function ignore() { echo $1 >> .gitignore } 
   alias rmf="rm -rf"
   alias rm=trash
@@ -159,16 +157,6 @@ lsimg() {
   alias f="fasd -f"
   alias v='f -e nvim'
   alias d='fasd -d'
-
-  fed() {
-    cp $1 '' `fasd -d $2`; 
-  }
-  cpcp() {
-    cp $1 `fasd -d $2`; 
-  }
-  mvmv() {
-    mv $1 `fasd -d $2`; 
-  }
 
   fancy-ctrl-z () {
   if [[ $#BUFFER -eq 0 ]]; then
@@ -201,46 +189,7 @@ export EDITOR="$VISUAL"
 
 alias dckr="/Users/markovujanic/dotfiles/docker/develop"
 alias dh="/Users/markovujanic/dotfiles/docker/helpers"
-alias deploy="z SABIO && git pull && z sabio-form &&gup && z SABIO &&git add -A && git commit -m '...' &&git push origin master && pus"
-
-alias gup='z sabio-form && npm run build && copyVal && cd /Users/markovujanic/ajando/sabio/website/SABIO/gulp-automation && gulp vendorJS && z sabio-form'
-alias sabio="ssh ajando@staging.getsabio.com -t 'cd /srv/staging/SABIO && exec bash -l '"
-
-#
 # "git pull "https://admin:12345@github.com/Jet/something.git" master"
-
-### Ajando deployment
-
-alias aj="npm run build && /bin/cp -rf build/ajvalidator.js /Users/markovujanic/ajando/dmc2/app/wp-content/themes/mein-digitales-unternehmen/assets/js/general.min.js"
-
-
-function copyVal() {
-  \rm -f -- /Users/markovujanic/ajando/sabio/website/SABIO/gulp-automation/validator/ajvalidator.js && \
-    echo 'Del ajvalidator from gulp-automation' && \
-    cp /Users/markovujanic/ajando/sabio-form/build/ajvalidator.js /Users/markovujanic/ajando/sabio/website/SABIO/gulp-automation/validator 2>/dev/null
-
-
-}
-# accept msg as first parametar
-function dpl() {
-  echo 'Starting the dance5' && \
-    sleep 2 && \
-    z SABIO && \
-    git pull && \
-    z sabio-form && \
-    npm run build && \
-    copyVal && \
-    cd /Users/markovujanic/ajando/sabio/website/SABIO/gulp-automation && \
-    gulp vendorJS && \
-    echo 'commiting with your msg' && \
-    sleep 2 && \
-    git add -A && \
-    git commit -m $1 && \
-    echo 'this is your msg' $1
-  git push origin master && \
-    pus
-}
-
 
 # missing piece for tldr
 add() {
@@ -259,16 +208,5 @@ alias ick='ack -i --pager="less -R -S -X"'
 export FZF_ALT_C_COMMAND="bfs -type d -nohidden"
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules,_node_modules,.DS_Store}/*" 2> /dev/null'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-wtf() {
-  if [ "$#" -lt 1 ]; then echo "Supply string to search for!"; return 1; fi
-  printf -v search "%q" "$*"
-  include="yml,js,json,php,md,styl,pug,jade,html,config,py,cpp,c,go,hs,rb,conf,fa,lst"
-  exclude=".config,.git,node_modules,vendor,build,yarn.lock,*.sty,*.bst,*.coffee,dist"
-  rg_command='rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always" -g "*.{'$include'}" -g "!{'$exclude'}/*"'
-
-  files=`eval $rg_command $search '' | fzf --ansi --multi --reverse | awk -F ':' '{print $1":"$2":"$3}'`
-  [[ -n "$files" ]] && ${EDITOR:-vim} $files
-}
 
 # export FZF_ALT_C_COMMAND="cd ~/; bfs -type d -nohidden | sed s/^\./~/" 
